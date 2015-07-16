@@ -1,0 +1,236 @@
+@import "_bootstrap.scss";
+@import "home.scss";
+@import "profile.scss";
+@import "splash.scss";
+@import "register.scss";
+@import "modal.scss";
+
+@mixin vendorize($property, $value) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+}
+
+@mixin breakpoint ($point) {
+    @if $point == xs {
+        @media (max-width: 767px) {
+            @content;
+        }
+    }
+    @else if $point == sm {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+    @else if $point == md {
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+    @else if $point == lg {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
+}
+
+
+.navbar {
+    margin-bottom: 0;
+    .navbar-text b {
+        color: $red;
+        padding-left: 0.5em;
+    }
+    .navbar-text {
+        @include breakpoint('xs') {
+            clear: both;
+        }
+        @include breakpoint('sm') {
+            clear: both;
+        }
+    }
+
+
+    .container-fluid {
+        display: block;
+        padding: 0;
+        margin: 0;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 2px;
+}
+p {
+    letter-spacing: auto;
+}
+
+
+
+html, body, .container {
+    height: 100%;
+    width: 100%;
+}
+
+// MODAL and PANEL
+
+.modal-header {
+    background-color: $dark-grey;
+    .modal-title {
+        color: white;
+    }
+}
+
+.panel-heading, .panel-title {
+    background-color: $dark-grey;
+    margin: 0;
+    padding: 0;
+}
+.panel {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+// BUTTONS
+
+.btn-success {
+    &:hover, &:active, &:focus {
+        color: $light-grey;
+        background-color: $brand-success-dark;
+    }
+}
+
+.btn-info {
+    &:hover, &:active, &:focus {
+        color: $light-grey;
+        background-color: $brand-info-dark;
+    }
+}
+
+.btn-primary {
+    &:hover, &:active, &:focus {
+        color: $light-grey;
+        background-color: $brand-primary-dark;
+    }
+}
+
+.btn-warning {
+    &:hover, &:active, &:focus {
+        color: $light-grey;
+        background-color: $brand-warning-dark;
+    }
+}
+
+.btn-danger {
+    &:hover, &:active, &:focus {
+        color: $light-grey;
+        background-color: $brand-danger-dark;
+    }
+}
+
+.btn-ani {
+    @include vendorize('transition', 'border .25s linear, color .25s linear, background-color .25s linear');
+}
+.btn-ani:hover,
+.btn-ani:focus {
+  top: 2px;
+  position: relative;
+}
+
+.btn-ani.btn-danger {
+    @include vendorize('box-shadow', 0 5px $brand-danger-dark);
+    border-color: $brand-danger;
+    color: $light-grey;
+    &:hover, &:focus {
+        @include vendorize('box-shadow', 0 2px $brand-danger-dark);
+        background: lighten($brand-danger, 5%);
+        border-color: lighten($brand-danger, 5%);
+        color: white;
+    }
+    &:active {
+        @include vendorize('box-shadow', 0 2px $brand-danger-dark);
+        top: 5px;
+        background: $brand-danger;
+        border-color: $yellow;
+    }
+}
+
+.btn-ani.btn-success {
+    @include vendorize('box-shadow', 0 5px $brand-success-dark);
+    border-color: $brand-success;
+    color: $light-grey;
+    &:hover, &:focus {
+        @include vendorize('box-shadow', 0 2px $brand-success-dark);
+        background: lighten($brand-success, 5%);
+        border-color: lighten($brand-success, 5%);
+        color: white;
+    }
+    &:active {
+        @include vendorize('box-shadow', 0 2px $brand-success-dark);
+        top: 5px;
+        background: $brand-success;
+        border-color: $yellow;
+    }
+}
+
+.btn-ani.btn-primary {
+    @include vendorize('box-shadow', 0 5px $brand-primary-dark);
+    border-color: $brand-primary;
+    color: $light-grey;
+    &:hover, &:focus {
+        @include vendorize('box-shadow', 0 2px $brand-primary-dark);
+        background: lighten($brand-primary, 5%);
+        border-color: lighten($brand-primary, 5%);
+        color: white;
+    }
+    &:active {
+        @include vendorize('box-shadow', 0 2px $brand-primary-dark);
+        top: 5px;
+        background: $brand-primary;
+        border-color: $yellow;
+    }
+}
+
+.btn-ani.btn-info {
+    @include vendorize('box-shadow', 0 5px $brand-info-dark);
+    border-color: $brand-info;
+    color: $light-grey;
+    &:hover, &:focus {
+        @include vendorize('box-shadow', 0 2px $brand-info-dark);
+        background: lighten($brand-info, 5%);
+        border-color: lighten($brand-info, 5%);
+        color: white;
+    }
+    &:active {
+        @include vendorize('box-shadow', 0 2px $brand-info-dark);
+        top: 5px;
+        background: $brand-info;
+        border-color: $yellow;
+    }
+}
+
+// INPUT ICONS
+
+.input-group-icon {
+  position: relative;
+  top: 50%;
+  color: $md-light-grey;
+}
+
+.input-group-icon [class*="icon"] {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  margin-top: -0.5em;
+  color: $md-light-grey;
+}
+
+.input-group-icon .form-control {
+  text-indent: 30px;
+}
+

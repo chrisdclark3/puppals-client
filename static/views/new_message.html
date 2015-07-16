@@ -1,0 +1,10 @@
+<div class="modal-header">
+    <h3 class="modal-title"> New Message to {{ a_user.first_name }} {{ a_user.last_name }}</h3>
+</div>
+<div class="modal-body">
+    <textarea ng-model="new_message.body" class="form-control" rows="5" placeholder="Message Content"></textarea>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="send_message(current_user, a_user.id, new_message.body)">Send</button>
+    <button class="btn btn-warning" ng-click="close()">Cancel</button>
+</div>

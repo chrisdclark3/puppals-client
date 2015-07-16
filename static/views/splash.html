@@ -1,0 +1,72 @@
+<div class="container-fluid" ng-controller="UsersController" id="splash">
+	<div class="jumbotron">
+		<div ngIf="{{ errors }}">
+			<p class="login_errors">{{ errors.errors }}</p>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+				<div class="row-fluid">
+					<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+						<h1 id="welcome">Welcome to </h1>
+						<p><b>A social networking site for dog owners</b></p>
+					</div>
+					<div class=" col-lg-5 col-md-5 col-sm-5 col-xs-5">
+						<div id="circle">
+							<div class="row">
+								<h1 id="pup"><span>Pup</span></h1>
+							</div>
+							<div class="row">
+								<h1 id="pals"><span>Pals</span></h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-6 col-sm-12 col-md-4 col-lg-4">
+				<div class="well">
+					<h3>Login &amp Registration</h3>
+					<div class="divider">
+						<span>TEST LOGIN</span>
+					</div>
+					<button class="btn btn-danger btn-block btn-ani" ng-click="test_login()">Test Login</button>
+					<div class="divider">
+						<span>LOGIN</span>
+					</div>
+					<div class="input-group-icon">
+						<span class="icon glyphicon glyphicon-user" aria-hidden="true"></span>
+						<input type="text" class="form-control" ng-model="current_user.email" placeholder="Email">
+					</div>
+					<div class="input-group-icon">
+						<span class="icon glyphicon glyphicon-lock" aria-hidden="true"></span>
+						<input type="password" class="form-control" placeholder="Password">
+					</div>
+					<a href="#/login" class="btn btn-primary btn-ani btn-block" ng-click="login()" type="submit">Login</a>
+					<div class="divider">
+						<span> REGISTER </span>
+					</div>
+					<a href="#/register" class="btn btn-info btn-block btn-ani" role="button">Registration</a>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-6">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<p>PupPals is built with an <span>ExpressJS</span>, <span>AngularJS</span> and <span>NodeJS</span> client and a <span>Ruby on Rails</span> API.</p>
+					</li>
+					<li class="list-group-item">
+						<p>It integrates the <span>Google Maps JavaScript API</span>, and <span> Google's Distance Matrix</span>, <span>Geocoding</span> and <span>Directions</span> services.</p>
+					</li>
+					<li class="list-group-item">
+						<p>Message functionality is updated in real-time using <span>SocketIO.</span></p>
+					</li>
+					<li class="list-group-item">
+						<p>Please feel free to reach out with any questions.</p>
+					</li>
+					<li class="list-group-item">
+						<p>Chris Clark</p>
+						<p>chrisdclark3@gmail.com</p>
+					</li>
+				</ul>
+			</div>
+	</div>
+</div>

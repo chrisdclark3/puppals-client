@@ -1,0 +1,80 @@
+@import "_bootstrap.scss";
+
+#modal, .infowindow {
+	background-color: $dark-grey;
+	border:none;
+	h3 {
+		color: $yellow;
+		padding: 0px 0px;
+	}
+	p {
+		color: $light-grey;
+	}
+	img {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border-radius: 0;
+		border: none;
+	}
+	.image_wrapper {
+		padding: 0;
+		margin: 0;
+		p {
+			margin: 5px 15px;
+		}
+		border: none;
+	}
+	.modal-body, .panel-body {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	textarea {
+		background-color: $black-grey;
+		border: 1px solid $black-grey;
+	}
+	.modal-body, .modal-header, .modal-footer,
+	.panel, .panel-body, .panel-header {
+		border: none;
+	}
+
+}
+.infowindow_wrapper {
+	margin: 15px;
+	.panel-body, .panel-header {
+  	padding: 0 !important;
+  	margin: 0 !important;
+  }
+	.infowindow, .panel, .panel-default {
+	    z-index: 2000002 !important;
+	    width: 100%;
+	    height: 100%;
+	    img {
+	    	margin: 0 !important;
+	    	padding: 0 !important;
+	    }
+	    img:not(.img-responsive) {
+	    	max-height: 0;
+	    	max-width: 0;
+	    	visibility: 0;
+	    }
+	    .img-responsive {
+	    	visibility: 1;
+	    	max-width: 15vh;
+	    	width: 15vh;
+	    	max-height: 15vh;
+	    	height: 15vh;
+	    }
+	    .panel-body, .panel-header {
+	    	padding: 0 !important;
+	    	margin: 0 !important;
+	    }
+	    h3 {
+				padding: 1em 0px !important;
+			}
+			.row {
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+	}
+}

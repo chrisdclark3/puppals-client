@@ -1,0 +1,285 @@
+@import "_bootstrap.scss";
+@mixin home ($point) {
+    @if $point == xs {
+        @media (max-width: 767px) {
+            @content;
+        }
+    }
+    @else if $point == sm {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+    @else if $point == md {
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+    @else if $point == lg {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
+}
+
+
+#home_users {
+
+
+    .row {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        max-width: 100%;
+    }
+    #breed_filter {
+        input {
+            max-width: 85% !important;
+            display: inline;
+            margin-left: 1em;
+            color: $dark-grey;
+        }
+        h4 {
+            display: inline;
+        }
+    }
+    h4,
+    .h4 {
+        color: $dark-grey;
+    }
+    .control-group {
+        margin-left: 1.5em;
+    }
+    #your_location {
+        margin-bottom: 1em;
+    }
+    .adp-placemark img {
+        content: url('../images/dog.png') !important;
+    }
+    #adp-placemark img {
+        content: url('../images/home.png') !important;
+    }
+
+    #people {
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        .row {
+            padding-bottom: 0;
+        }
+        li {
+            background-color: $dark-grey;
+            min-height: 5em !important;
+            width: 100% !important;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid $md-dark-grey;
+            .row, .col-xs-9, .col-xs-3, .col-xs-12, .col-md-9, .col-md-3 {
+                margin: 0;
+                padding: 0;
+            }
+            #images {
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                .dog_image, .user_image {
+                    padding: 0;
+                    margin: 0;
+                    width: 5em;
+                    height: 100%;
+                    border: none;
+                    display: inline;
+                }
+                .image_helper {
+                    display: inline;
+                    width: 5em;
+                    height: 5em;
+                }
+                .dog_image {
+                    margin-left: -3px;
+                }
+            }
+            .content {
+                margin: 0;
+                padding: 0;
+                padding-left: 1em;
+                display: inline-block;
+                width: auto;
+                height: 5em;
+                vertical-align: middle;
+                h3 {
+                    display: inline-block;
+                    color: $yellow;
+                    padding: 0;
+                    margin: 0;
+                }
+                em {
+                    display: inline-block;
+                    margin-right: 1em;
+                    color: white;
+                    font-style: normal;
+                }
+                .row:first-child {
+                    h3 {
+                        padding-top: 0.5em;
+                    }
+                }
+                small {
+                    margin: 0;
+                    color: $red;
+                }
+                .info {
+                    display: block;
+                }
+                border-top-image: none;
+            }
+            .btn {
+                text-align: right;
+                margin: 0;
+                background-color: $red;
+                color: $light-grey;
+                border: 1px solid $red;
+                &:hover, &:active, &:focus {
+                    background-color: $dark-red;
+                    color: $light-grey;
+                    border: 1px solid $red;
+                }
+            }
+            .actions {
+                margin: 0;
+                padding: 0;
+                .col-xs-12, .col-md-12 {
+                    margin: 0;
+                    padding: 0;
+                }
+                .distance_data {
+                    display: block;
+                    margin-bottom: 1em;
+                    text-align: right;
+                    color: white;
+                    span {
+                        color: $blue;
+                    }
+                }
+                .action_buttons {
+                    display: block;
+                    margin-top: auto;
+                    text-align: right;
+                    vertical-align: bottom;
+                }
+            }
+        }
+    }
+    #pagination {
+        display: block;
+        .pagination-sm {
+            display: block;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    #maps {
+        #google_map {
+            background-size: 100% !important;
+            min-width: 400px !important;
+            min-height: 400px !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+        #directions_panel {
+            .adp, .adp table, .adp-stepicon, .adp-manuever, .adp-legal {
+                background-color: $dark-grey;
+                color: white !important;
+            }
+            background-color: $dark-grey;
+            color: white !important;
+            margin-top: $navbar-height + 10px;
+            margin-right: 10px;
+            padding: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            overflow: auto;
+        }
+    }
+    #users {
+        padding: 0;
+        margin: 0;
+    }
+    #filters {
+        background-color: $yellow;
+        width: 100%;
+        padding: 15px;
+        color: $dark-grey;
+    }
+        @include home(xs) {
+       .image_helper, .user_image, .dog_image {
+            max-width: 0;
+        }
+        #maps {
+            display: block !important;
+            float: right;
+            min-width: 100% !important;
+            width: 100% !important;
+            min-height: 100% !important;
+            height: 100% !important;
+
+        }
+        #directions_panel {
+            width: 40%;
+            max-height: 100% !important;
+        }
+    }
+    @include home(sm) {
+        #maps {
+            display: block !important;
+            float: right;
+            min-width: 100% !important;
+            width: 100% !important;
+            min-height: 400px !important;
+            height: 400px !important;
+
+        }
+        #directions_panel {
+            width: 40%;
+            max-height: 100% !important;
+        }
+        .image_helper, #images, .user_image, .dog_image {
+            display: inline;
+        }
+    }
+    @include home(md) {
+        #maps {
+            float: right;
+            min-width: 50% !important;
+            width: 50% !important;
+            min-height: 700px !important;
+            height: 700px !important;
+
+        }
+        #directions_panel {
+            width: 25%;
+            height: 300px !important;
+        }
+        h3 {
+          @include text-overflow();
+        }
+    }
+    @include home(lg) {
+        #maps {
+            float: right;
+            min-width: 50% !important;
+            width: 50% !important;
+            min-height: 700px !important;
+            height: 700px !important;
+
+        }
+        #directions_panel {
+            width: 25%;
+            height: 300px !important;
+        }
+    }
+}

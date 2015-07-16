@@ -1,0 +1,150 @@
+@mixin vendorize($property, $value) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+}
+
+#splash {
+    padding: 3% 3%;
+	#prints {
+		width: 600px;
+		height: 400px;
+		background-color: white;
+	}
+    min-width: 100vh;
+    min-height: 100vh;
+    background-color: $yellow !important;
+    .jumbotron {
+        height: 100%;
+        width: 100%;
+        background-color: $yellow;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+
+        .row {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        #welcome {
+            text-align: left;
+            padding: 0;
+            margin-left: 0;
+            margin-top: 1.5em;
+            margin-bottom: 0;
+            width: auto;
+            color: $black-grey;
+        }
+        #pup span,
+        #pals span {
+            font-family: 'Lobster';
+            font-size: 2em;
+            color: $red;
+            @include vendorize('transform', 'scale(1) rotate(-5deg) translateX(0px) translateY(0px) skewX(1deg) skewY(1deg)');
+            text-shadow: 1px 1px $light-grey, 2px 2px $light-grey, 3px 3px $light-grey, 4px 4px $light-grey, 5px 5px $light-grey, 6px 6px $light-grey, 7px 7px $light-grey, 8px 8px $light-grey, 9px 9px $light-grey, 10px 10px $light-grey, 11px 11px $light-grey, 12px 12px $light-grey, 13px 13px $light-grey, 14px 14px $light-grey, 15px 15px $blue, 16px 16px $blue, 17px 17px $blue, 18px 18px $blue, 19px 19px $blue, 20px 20px $blue, 21px 21px $blue, 22px 22px $blue, 23px 23px $blue, 24px 24px $blue, 25px 25px $blue, 26px 26px 6px $black-grey;
+        }
+        #pup,
+        #pup span {
+            display: block;
+            margin-top: -0.2em;
+            margin-left: -0.2em;
+            text-align: center !important;
+        }
+        #pals,
+        #pals span {
+            display: block;
+            margin: auto;
+            margin-top: -0.2em;
+            text-align: center !important;
+        }
+        #circle {
+            font-size: 2em;
+            display: inline-block;
+            vertical-align: middle;
+            padding: 1em;
+            margin-left: -25px !important;
+            margin-bottom: 1em;
+            border-radius: 100%;
+            background: $sand;
+            .row {
+                margin: 0;
+                padding: 0;
+            }
+        }
+        ul {
+            width: 100%;
+            display: block;
+            background: transparent;
+            & li,
+            p {
+                margin-left: none;
+                margin-right: none;
+                padding-left: none;
+                padding-right: none;
+                color: $dark-grey;
+                border: none;
+                font-size: 1.2em;
+                background: transparent;
+                span {
+                    font-weight: 700;
+                    color: $black-grey;
+                }
+            }
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        p {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+    h3, h1 {
+        color: $black-grey;
+    }
+    h1 {
+        text-align: left;
+        vertical-align: middle;
+    }
+    .well {
+        background-color: $dark-grey;
+        padding: 25px;
+    	h3:first-child {
+    		margin-top: 0;
+    	}
+    	h3 {
+    		color: $yellow;
+            margin-bottom: 1em;
+    	}
+    	p {
+    		margin-top: 0;
+    		margin-bottom: 0;
+    		color: $grey;
+    	}
+    	input {
+    		background-color: $black-grey;
+    	}
+    	.btn, input {
+    		margin-top: 5px;
+    		margin-bottom: 5px;
+    	}
+    	.divider {
+    		height: 3px;
+    		background-color: $md-light-grey;
+    		text-align: center;
+    		margin-top: 30px;
+    		margin-bottom: 30px;
+    		span {
+    			background-color: $dark-grey;
+    			color: $md-light-grey;
+    			position: relative;
+    			top: -0.5em;
+    			padding: 0px 1em;
+    		}
+    	}
+    }
+}
+
