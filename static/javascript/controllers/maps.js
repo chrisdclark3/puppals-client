@@ -354,21 +354,15 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
     $scope.current_page = 1;
   }
 
-  $scope.set_items_per_page = function (size) {
-    var window_height = window.innerHeight;
-    var items_per_page = Math.floor(( window_height - 340) / size);
-    if (items_per_page <= 4) {
-      items_per_page = 4;
-    }
-    $scope.items_per_page = items_per_page;
-  };
+
+  $scope.items_per_page = 6;
 
   $scope.set_total_pages = function () {
     $scope.total_pages = $scope.total_items / $scope.items_per_page;
   };
 
   $scope.set_page = function() {
-    $scope.set_items_per_page(72);
+    $scope.items_per_page = 6;
     $scope.set_total_pages();
     $scope.paged_users = PaginationFactory.set_page($scope.filtered_users, $scope.current_page, $scope.items_per_page);
   };
