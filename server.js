@@ -8,9 +8,6 @@ var request = require('request');
 
 app.use(express.static('./static'));
 
-server.listen(6789);
-console.log("Running in localhost at port 6789");
-
 io.sockets.on('connection', function (socket) {
 
   socket.on('get_conversations', function (data) {
