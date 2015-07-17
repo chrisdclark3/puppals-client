@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
-var server = app.listen(6789, function() { console.log("Server on 6789..."); });
+var port = process.env.PORT || 5000;
+var server = require('http').createServer(app);
+server.listen(port);
 var io = require('socket.io').listen(server);
 var request = require('request');
 
