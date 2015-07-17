@@ -41,10 +41,9 @@
 							</div>
 							<div class="col-xs-12">
 								<div ng-class="{'has-error': r.password_conf.$dirty && r.password_conf.$invalid  }">
-									<input name="password_conf" class="form-control" ng-compare="new_user.password" ng-model="new_user.password_confirmation" type="text" placeholder="Password Confirmation" required>
+									<input name="password_conf" class="form-control" ng-model="new_user.password_confirmation" type="text" placeholder="Password Confirmation" required>
 									<div ng-messages="r.password_conf.$error" ng-if="r.password_conf.$dirty && r.password_conf.$invalid" class="help-block">
 										<div ng-message="required"><b>Password Confirmation</b> is a required field</div>
-										<div ng-message="compare"><b>Password Confirmation</b> does not match Password</div>
 									</div>
 								</div>
 							</div>

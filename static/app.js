@@ -41,7 +41,7 @@ app.config(function (localStorageServiceProvider) {
 // ------------------------ SOCKETS ------------------------ //
 
 app.factory('socket', function ($rootScope) {
-  var socket = io.connect('localhost:6789');
+  var socket = io.connect('http://puppals.heroku-app.com/');
   return {
     on: function (event_name, callback) {
       socket.on(event_name, function () {
@@ -62,32 +62,4 @@ app.factory('socket', function ($rootScope) {
       });
     }
   };
-});
-
-app.directive('ngCompare', function() {
-    return {
-        require: 'ngModel',
-        link: function(scope, el1, attrs, ctrl) {
-            var compare_field = document.getElementsByName(attrs.ngCompare)[0]; //getting first element
-            el2 = angular.element(compare_field);
-
-            //current field key up
-            el1.on('keyup', function() {
-                if (el2.val() != "") {
-                    var isMatch = el1.val() === el2.val();
-                    ctrl.$setValidity('compare', isMatch);
-                    scope.$digest();
-                }
-            });
-
-            //Element to compare field key up
-            el2.on('keyup', function() {
-                if (el1.val() != "") {
-                    var isMatch = el1.val() === el2.val();
-                    ctrl.$setValidity('compare', isMatch);
-                    scope.$digest();
-                }
-            });
-        }
-    }
 });
