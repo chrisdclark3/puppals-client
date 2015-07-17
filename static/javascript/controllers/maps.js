@@ -97,7 +97,7 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
     infowindow = new InfoBubble();
-    pin_shadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow");
+    pin_shadow = new google.maps.MarkerImage("https://chart.apis.google.com/chart?chst=d_map_pin_shadow");
     var marker;
     panning = false;
 
