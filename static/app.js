@@ -41,7 +41,7 @@ app.config(function (localStorageServiceProvider) {
 // ------------------------ SOCKETS ------------------------ //
 
 app.factory('socket', function ($rootScope) {
-  var socket = io.connect('http://puppals.heroku-app.com/');
+  var socket = io.connect('//puppals.heroku-app.com/');
   return {
     on: function (event_name, callback) {
       socket.on(event_name, function () {
