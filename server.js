@@ -13,7 +13,7 @@ io.sockets.on('connection', function (socket) {
   socket.on('get_conversations', function (data) {
     console.log("DATA IN GET CONVERSATIONS");
     request({
-      uri: "//puppals-api.heroku-app.com/conversations/" + data.current_user.id,
+      uri: "//puppals-api.herokuapp.com/conversations/" + data.current_user.id,
       method: "GET",
       json: true
     }, function (error, res, body) {
@@ -28,7 +28,7 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('send_message', function (data) {
     request({
-      uri: "//puppals-api.heroku-app.com/messages/",
+      uri: "//puppals-api.herokuapp.com/messages/",
       method: "POST",
       json: { data: data },
     }, function (error, res, body) {

@@ -103,7 +103,7 @@ function UsersController($window, $rootScope, $scope, $location, UsersFactory, l
 
     $scope.upload = Upload.upload({
       headers: { 'Access-Control-Allow-Origin': '*' },
-      url: 'https://puppals-api.heroku-app.com/users',
+      url: '//puppals-api.herokuapp.com/users',
       method: 'POST',
       fields: {
         'new_user[first_name]': new_user.first_name,
@@ -128,7 +128,7 @@ function UsersController($window, $rootScope, $scope, $location, UsersFactory, l
     dog_image = $scope.dog_image;
     $scope.upload = Upload.upload({
       headers: { 'Access-Control-Allow-Origin': '*' },
-      url: 'https://puppals-api.heroku-app.com/dogs',
+      url: '//puppals-api.herokuapp.com/dogs',
       method: 'POST',
       fields: {
         'new_user[id]': $scope.current_user.id,
