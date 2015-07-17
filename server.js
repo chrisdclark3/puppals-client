@@ -1,17 +1,10 @@
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 5000;
-var server = app.listen(port, function() {
-  var addr = app.address();
-  console.log('   app listening on http://' + addr.address + ':' + addr.port);
-});
-var io = require('socket.io').listen(server);
+var server = require('http').createServer(app);
+server.listen(port);
+var io = require('socket.io')(server);
 var request = require('request');
-
-io.configure(function () {
-  io.set("transports", ["xhr-polling"]);
-  io.set("polling duration", 20);
-});
 
 app.use(express.static('./static'));
 
