@@ -8,14 +8,14 @@
 
 #splash {
     padding: 3% 3%;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: $yellow !important;
 	#prints {
 		width: 600px;
 		height: 400px;
 		background-color: white;
 	}
-    min-width: 100vh;
-    min-height: 100vh;
-    background-color: $yellow !important;
     .jumbotron {
         height: 100%;
         width: 100%;
