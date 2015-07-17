@@ -3,7 +3,11 @@ app.factory('UsersFactory', function ($http) {
   var factory = {};
 
   factory.get_users = function (callback) {
-    $http.get('//puppals-api.herokuapp.com/users').success(function (res) {
+    $http({
+      method: 'GET',
+      url: '//puppals-api.herokuapp.com/users',
+      headers: { 'Access-Control-Allow-Origin': '*' }
+    }).success(function (res) {
       callback(res);
     });
   };
@@ -13,9 +17,8 @@ app.factory('UsersFactory', function ($http) {
       method: 'POST',
       url: '//puppals-api.herokuapp.com/sessions',
       params: current_user,
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      headers: { 'Access-Control-Allow-Origin': '*' }
     }).success(function (res) {
-      current_user = res;
       callback(res);
     });
   };
