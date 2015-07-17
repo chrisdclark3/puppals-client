@@ -92,11 +92,11 @@ function ConversationsController($modal, PaginationFactory, $scope, $rootScope, 
 
   function set_items_per_page (size) {
     $scope.items_per_page = 9;
-  };
+  }
 
   function set_total_pages () {
-    $scope.total_pages = $scope.total_items / $scope.items_per_page;
-  };
+    $scope.total_pages = Math.ceil($scope.total_items / $scope.items_per_page);
+  }
 
   if ($scope.current_page == undefined) {
     $scope.current_page = 1;
