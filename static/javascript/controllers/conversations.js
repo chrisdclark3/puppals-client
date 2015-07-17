@@ -48,8 +48,6 @@ function ConversationsController($modal, PaginationFactory, $scope, $rootScope, 
       other_users = localStorageService.get('other_users');
       $scope.other_users = other_users;
     }
-
-
     console.log("SCOPE IN GET CONVERSATIONS", $scope);
     console.log("CURRENT USER, USERS, OTHER_USERS", current_user, users, other_users);
     socket.emit('get_conversations', { current_user: current_user });

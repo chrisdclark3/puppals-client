@@ -13,8 +13,11 @@ io.sockets.on('connection', function (socket) {
   socket.on('get_conversations', function (data) {
     console.log("REQUESTING DATA FROM API IN GET CONVERSATIONS", data);
     request({
-      headers: { 'Access-Control-Allow-Origin': '*' },
-      uri: "//puppals-api.herokuapp.com/conversations/" + data.current_user.id,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      uri: "https://puppals-api.herokuapp.com/conversations/" + data.current_user.id,
       method: "GET",
       json: true
     }, function (error, res, body) {
@@ -29,8 +32,11 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('send_message', function (data) {
     request({
-      headers: { 'Access-Control-Allow-Origin': '*' },
-      uri: "//puppals-api.herokuapp.com/messages/",
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      uri: "https://puppals-api.herokuapp.com/messages/",
       method: "POST",
       json: { data: data },
     }, function (error, res, body) {
