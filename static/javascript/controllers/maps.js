@@ -135,7 +135,7 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
 
         function place_mark(mark_i, l) {
             return function() {
-                console.log("PLACE MARK WITH INDEX ", mark_i);
+
                 var new_marker = new google.maps.Marker({
                     position: l,
                     map: map,
@@ -147,51 +147,49 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
                     }
                 });
 
-                new_marker.info = function(info_index) {
-                    return function() {
-                        var info_bubble = new InfoBubble({
-                            borderwidth: 0,
-                            shadowStyle: 0,
-                            padding: 0,
-                            borderRadius: 5,
-                            backgroundColor: '#364347',
-                            arrowStyle: 2,
-                            content: "<div class='infowindow_wrapper'" +
-                                "<div class='panel panel-default infowindow' id='modal'>" +
-                                "<div class='panel-header'>" +
-                                "<h3 class='panel-title'> " + $scope.other_users[info_index].first_name + " & " + $scope.other_users[info_index].dogs[0].name + "</h3>" +
-                                "</div>" +
-                                "<div class='panel-body'>" +
-                                "<div class='row'>" +
-                                "<div class='col-xs-6 image_wrapper'>" +
-                                "<img preload-image src='" + $scope.other_users[info_index].avatar_url + "' class='img-responsive'>" +
-                                "<p>" + $scope.other_users[info_index].email + "</p>" +
-                                "<p>" + $scope.other_users[info_index].address + "</p>" +
-                                "</div>" +
-                                "<div class='col-xs-6 image_wrapper'>" +
-                                "<img preload-image src='" + $scope.other_users[info_index].dogs[0].avatar_url + "' class='img-responsive'>" +
-                                "<p> Breed: " + $scope.other_users[info_index].dogs[0].breed + "</p>" +
-                                "<p> Age: " + $scope.other_users[info_index].dogs[0].age + "</p>" +
-                                "<p> Gender: " + $scope.other_users[info_index].dogs[0].gender + "</p>" +
-                                "</div>" +
-                                "</div>" +
-                                "</div>" +
-                                "</div>" +
-                                "</div>"
-                        });
-                        return info_bubble;
-                    }();
-                }(mark_i);
+                var info_bubble = new InfoBubble({
+                    borderwidth: 0,
+                    shadowStyle: 0,
+                    padding: 0,
+                    borderRadius: 5,
+                    backgroundColor: '#364347',
+                    arrowStyle: 2,
+                });
 
-                console.log("PLACE MARK MARKER", new_marker);
+                new_marker.info = "<div class='infowindow_wrapper'" +
+                    "<div class='panel panel-default infowindow' id='modal'>" +
+                    "<div class='panel-header'>" +
+                    "<h3 class='panel-title'> " + $scope.other_users[mark_i].first_name + " & " + $scope.other_users[mark_i].dogs[0].name + "</h3>" +
+                    "</div>" +
+                    "<div class='panel-body'>" +
+                    "<div class='row'>" +
+                    "<div class='col-xs-6 image_wrapper'>" +
+                    "<img preload-image src='" + $scope.other_users[mark_i].avatar_url + "' class='img-responsive'>" +
+                    "<p>" + $scope.other_users[mark_i].email + "</p>" +
+                    "<p>" + $scope.other_users[mark_i].address + "</p>" +
+                    "</div>" +
+                    "<div class='col-xs-6 image_wrapper'>" +
+                    "<img preload-image src='" + $scope.other_users[mark_i].dogs[0].avatar_url + "' class='img-responsive'>" +
+                    "<p> Breed: " + $scope.other_users[mark_i].dogs[0].breed + "</p>" +
+                    "<p> Age: " + $scope.other_users[mark_i].dogs[0].age + "</p>" +
+                    "<p> Gender: " + $scope.other_users[mark_i].dogs[0].gender + "</p>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>";
+
 
                 google.maps.event.addListener(new_marker, 'click', function() {
-                    this.info.open(map);
+                    info_bubble.setContent(this.info);
+                    info_bubble.open(this.getMap(), this);
                 });
 
                 google.maps.event.addListener(map, "click", function() {
                     this.info.close(map, new_marker);
                 });
+
+                console.log("\n\n\nPLACE MARK MARKER\n\n\n", new_marker);
 
                 return new_marker;
             }();
@@ -228,9 +226,7 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
                 var a_marker = function(j, l) {
                     place_mark(j, l);
                 }(i, locs[i]);
-
-
-            };
+            }
         }
 
         place_markers(locations);
