@@ -134,12 +134,12 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
           "</div>"+
         "</div>";
         return html_string;
-    }
+    };
 
     function place_marker(mark_i) {
 
       var a_marker = new google.maps.Marker({
-          position: locs[mark_i],
+          position: locations[mark_i],
           map: map,
           animation: google.maps.Animation.DROP,
           icon: {
@@ -156,28 +156,7 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
           borderRadius: 5,
           backgroundColor: '#364347',
           arrowStyle: 2,
-          content: "<div class='infowindow_wrapper'" +
-                  "<div class='panel panel-default infowindow' id='modal'>" +
-                  "<div class='panel-header'>" +
-                  "<h3 class='panel-title'> " + $scope.other_users[mark_i].first_name + " & " + $scope.other_users[mark_i].dogs[0].name + "</h3>" +
-                  "</div>" +
-                  "<div class='panel-body'>" +
-                  "<div class='row'>" +
-                  "<div class='col-xs-6 image_wrapper'>" +
-                  "<img preload-image src='" + $scope.other_users[mark_i].avatar_url + "' class='img-responsive'>" +
-                  "<p>" + $scope.other_users[mark_i].email + "</p>" +
-                  "<p>" + $scope.other_users[mark_i].address + "</p>" +
-                  "</div>" +
-                  "<div class='col-xs-6 image_wrapper'>" +
-                  "<img preload-image src='" + $scope.other_users[mark_i].dogs[0].avatar_url + "' class='img-responsive'>" +
-                  "<p> Breed: " + $scope.other_users[mark_i].dogs[0].breed + "</p>" +
-                  "<p> Age: " + $scope.other_users[mark_i].dogs[0].age + "</p>" +
-                  "<p> Gender: " + $scope.other_users[mark_i].dogs[0].gender + "</p>" +
-                  "</div>" +
-                  "</div>" +
-                  "</div>" +
-                  "</div>" +
-                  "</div>"
+          content: set_info_window(mark_i)
       });
 
       this.info = info_bubble;
