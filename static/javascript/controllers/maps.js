@@ -133,11 +133,11 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
             }();
         }
 
-        function place_mark(mark_i, ls) {
+        function place_mark(mark_i, l) {
             return function() {
                 console.log("PLACE MARK WITH INDEX ", mark_i);
                 var new_marker = new google.maps.Marker({
-                    position: ls[i],
+                    position: l,
                     map: map,
                     animation: google.maps.Animation.DROP,
                     icon: {
@@ -220,7 +220,7 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
             for (var i = 0; i < locs.length; i++) {
                 var a_marker = function(j, l) {
                     place_mark(j, l);
-                }(i, locs);
+                }(i, locs[i]);
 
 
             };
