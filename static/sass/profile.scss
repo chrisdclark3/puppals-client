@@ -35,11 +35,10 @@
     min-width: 100%;
     background-color: $yellow;
     #pagination {
-    	 width: 100%;
+       width: 100%;
        padding-left: auto;
        padding-right: auto;
        display: block;
-
         .pagination-sm {
             display: block;
             width: 45%;
@@ -58,6 +57,8 @@
         $xs-well-size: 120px;
         $xs-text-size: 12px;
         @include breakpoint('lg') {
+            height: 100%;
+            width: 100%;
             li, .modal {
                 max-width: $lg-well-size;
                 max-height: $lg-well-size;
@@ -81,6 +82,8 @@
             }
         }
         @include breakpoint('md') {
+            height: 100%;
+            width: 100%;
             li, .modal {
                 max-width: $md-well-size;
                 max-height: $md-well-size;

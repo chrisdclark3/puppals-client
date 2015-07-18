@@ -38,7 +38,7 @@ io.sockets.on('connection', function (socket) {
       },
       uri: "https://puppals-api.herokuapp.com/messages/",
       method: "POST",
-      json: { data: data },
+      json: data,
     }, function (error, res, body) {
       if (error) {
         console.log("ERRORS IN SEND MESSAGE REQUEST");
