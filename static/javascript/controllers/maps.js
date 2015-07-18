@@ -168,7 +168,7 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
         var a_marker = new google.maps.Marker({
           position: locs[i],
           map: map,
-          info: i,
+          marker_index_in_users: i,
           animation: google.maps.Animation.DROP,
           icon: {
             size: new google.maps.Size(32, 32),
@@ -178,7 +178,7 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
         });
 
         google.maps.event.addListener(a_marker, 'click', function () {
-          i = this.info;
+          var i = this.marker_index_in_users;
           this.info = new InfoBubble({
             content:
               "<div class='infowindow_wrapper'"+
