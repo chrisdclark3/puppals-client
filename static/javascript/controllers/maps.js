@@ -159,10 +159,10 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
           content: set_info_window(mark_i)
       });
 
-      this.info = info_bubble;
+      a_marker.info = info_bubble;
 
       google.maps.event.addListener(a_marker, 'click', function() {
-          this.info.open(map);
+        this.info.open(map);
       });
 
       google.maps.event.addListener(map, "click", function() {
