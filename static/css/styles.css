@@ -18111,8 +18111,9 @@ button.close {
       color: #2B3538; }
     #splash .jumbotron #pup span,
     #splash .jumbotron #pals span {
+      text-align: left;
       font-family: 'Lobster';
-      font-size: 3em;
+      font-size: 2.5em;
       color: #F84545;
       -webkit-transform: "scale(1) rotate(-5deg) translateX(0px) translateY(0px) skewX(1deg) skewY(1deg)";
       -moz-transform: "scale(1) rotate(-5deg) translateX(0px) translateY(0px) skewX(1deg) skewY(1deg)";
@@ -18133,7 +18134,7 @@ button.close {
       margin-top: -0.2em;
       text-align: center !important; }
     #splash .jumbotron #circle {
-      font-size: 2em;
+      font-size: 2.5em;
       display: inline-block;
       vertical-align: middle;
       padding: 1em;
