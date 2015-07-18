@@ -148,7 +148,7 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
                 });
 
                 new_marker.info = function(info_index) {
-                    function() {
+                    return function() {
                         var info_bubble = new InfoBubble({
                             borderwidth: 0,
                             shadowStyle: 0,
