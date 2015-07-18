@@ -136,7 +136,60 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
         return html_string;
     }
 
+    function place_marker(mark_i) {
 
+      var a_marker = new google.maps.Marker({
+          position: locs[mark_i],
+          map: map,
+          animation: google.maps.Animation.DROP,
+          icon: {
+              size: new google.maps.Size(32, 32),
+              scaledSize: new google.maps.Size(32, 32),
+              url: 'images/dog.png'
+          }
+      });
+
+      var info_bubble = new InfoBubble({
+          borderwidth: 0,
+          shadowStyle: 0,
+          padding: 0,
+          borderRadius: 5,
+          backgroundColor: '#364347',
+          arrowStyle: 2,
+          content: "<div class='infowindow_wrapper'" +
+                  "<div class='panel panel-default infowindow' id='modal'>" +
+                  "<div class='panel-header'>" +
+                  "<h3 class='panel-title'> " + $scope.other_users[mark_i].first_name + " & " + $scope.other_users[mark_i].dogs[0].name + "</h3>" +
+                  "</div>" +
+                  "<div class='panel-body'>" +
+                  "<div class='row'>" +
+                  "<div class='col-xs-6 image_wrapper'>" +
+                  "<img preload-image src='" + $scope.other_users[mark_i].avatar_url + "' class='img-responsive'>" +
+                  "<p>" + $scope.other_users[mark_i].email + "</p>" +
+                  "<p>" + $scope.other_users[mark_i].address + "</p>" +
+                  "</div>" +
+                  "<div class='col-xs-6 image_wrapper'>" +
+                  "<img preload-image src='" + $scope.other_users[mark_i].dogs[0].avatar_url + "' class='img-responsive'>" +
+                  "<p> Breed: " + $scope.other_users[mark_i].dogs[0].breed + "</p>" +
+                  "<p> Age: " + $scope.other_users[mark_i].dogs[0].age + "</p>" +
+                  "<p> Gender: " + $scope.other_users[mark_i].dogs[0].gender + "</p>" +
+                  "</div>" +
+                  "</div>" +
+                  "</div>" +
+                  "</div>" +
+                  "</div>"
+      });
+
+      this.info = info_bubble;
+
+      google.maps.event.addListener(a_marker, 'click', function() {
+          this.info.open(map);
+      });
+
+      google.maps.event.addListener(map, "click", function() {
+          this.info.close(map, a_marker);
+      });
+    }
 
     function place_markers (locs) {
       center_marker = new google.maps.Marker({
@@ -164,59 +217,7 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
       });
 
       for (var i = 0; i < locs.length; i++) {
-
-        var a_marker = new google.maps.Marker({
-          position: locs[i],
-          map: map,
-          marker_index_in_users: i,
-          animation: google.maps.Animation.DROP,
-          icon: {
-            size: new google.maps.Size(32, 32),
-            scaledSize: new google.maps.Size(32, 32),
-            url: 'images/dog.png'
-          }
-        });
-
-        google.maps.event.addListener(a_marker, 'click', function () {
-          var info_index = this.marker_index_in_users;
-          this.info = new InfoBubble({
-            borderwidth: 0,
-            shadowStyle: 0,
-            padding: 0,
-            borderRadius: 5,
-            backgroundColor: '#364347',
-            arrowStyle: 2,
-            content: "<div class='infowindow_wrapper'"+
-                "<div class='panel panel-default infowindow' id='modal'>"+
-                  "<div class='panel-header'>"+
-                    "<h3 class='panel-title'> "+$scope.other_users[info_index].first_name+" & "+$scope.other_users[info_index].dogs[0].name+"</h3>"+
-                  "</div>"+
-                  "<div class='panel-body'>"+
-                    "<div class='row'>"+
-                      "<div class='col-xs-6 image_wrapper'>"+
-                        "<img preload-image src='"+$scope.other_users[info_index].avatar_url+"' class='img-responsive'>"+
-                        "<p>"+$scope.other_users[info_index].email+"</p>"+
-                        "<p>"+$scope.other_users[info_index].address+"</p>"+
-                      "</div>"+
-                      "<div class='col-xs-6 image_wrapper'>"+
-                        "<img preload-image src='"+$scope.other_users[info_index].dogs[0].avatar_url+"' class='img-responsive'>"+
-                        "<p> Breed: "+$scope.other_users[info_index].dogs[0].breed+"</p>"+
-                        "<p> Age: "+$scope.other_users[info_index].dogs[0].age+"</p>"+
-                        "<p> Gender: "+$scope.other_users[info_index].dogs[0].gender+"</p>"+
-                      "</div>"+
-                    "</div>"+
-                  "</div>"+
-                  "</div>"+
-                "</div>"
-          });
-
-          console.log("THIS IS A MARKER IN EVENT LISTENER", a_marker);
-          this.info.open(map);
-        });
-
-        google.maps.event.addListener(map, "click", function () {
-          this.info.close(map, a_marker);
-        });
+        place_marker(i);
       }
     }
     place_markers(locations);
