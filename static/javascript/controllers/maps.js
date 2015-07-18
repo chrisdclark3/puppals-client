@@ -186,11 +186,12 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
                     }
                 });
 
-                a_marker.info = function(j) {
+                var info = function(j) {
                     attach_info(j);
                 }(i);
 
                 google.maps.event.addListener(a_marker, 'click', function() {
+                    this.info = info;
                     this.info.open(map);
                 });
 
