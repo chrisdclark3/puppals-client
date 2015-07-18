@@ -7,7 +7,6 @@ app.factory('UsersFactory', function ($http) {
       method: 'GET',
       url: '//puppals-api.herokuapp.com/users',
       headers: {
-        'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     }).success(function (res) {
@@ -21,7 +20,6 @@ app.factory('UsersFactory', function ($http) {
       url: '//puppals-api.herokuapp.com/sessions',
       params: current_user,
       headers: {
-        'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     }).success(function (res) {
