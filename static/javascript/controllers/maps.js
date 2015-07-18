@@ -160,15 +160,13 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
       });
       google.maps.event.addListener(center_marker, 'click', function () {
           center_info_window.open(map, center_marker);
+          this.info = set_info_window();
       });
 
       for (var i = 0; i < locs.length; i++) {
 
-        var html_str = set_info_window(i);
-
         var a_marker = new google.maps.Marker({
           position: locs[i],
-          info: html_str,
           map: map,
           animation: google.maps.Animation.DROP,
           icon: {
@@ -189,7 +187,8 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
 
         google.maps.event.addListener(a_marker, 'click', function () {
           console.log("THIS IS A MARKER IN EVENT LISTENER", a_marker);
-          info_bubble.setContent(this.info);
+          info_bubble.setContent(set_info_window(i));
+          this.info = set_info_window(i);
           info_bubble.open(map, a_marker);
         });
 
