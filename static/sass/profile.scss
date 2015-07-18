@@ -36,6 +36,9 @@
     min-width: 100%;
     width: 100%;
     background-color: $yellow;
+    .row {
+        height: 100%;
+    }
     #pagination {
        width: 100%;
        padding-left: auto;

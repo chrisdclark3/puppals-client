@@ -63,8 +63,8 @@
                 <h3>{{current_user.first_name}} {{current_user.last_name}} <small>{{current_user.dogs[0].name}}</small></h3>
                 <p>{{current_user.email}}</p>
                 <div id="profile_pics">
-                    <div class="col-xs-6"><img src="{{current_user.avatar_url }}" alt=""></div>
-                    <div class="col-xs-6"><img src="{{current_user.dogs[0].avatar_url }}" alt=""></div>
+                    <div class="col-xs-6"><img preload-image src="{{current_user.avatar_url }}" alt=""></div>
+                    <div class="col-xs-6"><img preload-image src="{{current_user.dogs[0].avatar_url }}" alt=""></div>
                 </div>
             </div>
             <div class="row">
@@ -73,7 +73,7 @@
                     <accordion-group ng-repeat="conversation in conversations track by $index">
                         <accordion-heading>
                             <div class="convo_header">
-                                <img preload-image ng-src="{{ conversation.recipient.avatar_url }}" />
+                                <img preload-image src="{{ conversation.recipient.avatar_url }}" />
                                 <h5 class="name">{{ conversation.recipient.first_name }} {{ conversation.recipient.last_name }}</h5>
                             </div>
                         </accordion-heading>
