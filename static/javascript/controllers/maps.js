@@ -1,4 +1,4 @@
-function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $rootScope, $location, UsersFactory, MapsFactory, GoogleDistanceMatrixService, localStorageService, socket, $filter, $q) {
+function MapsController($modal, $window, PaginationFactory, $modal, $scope, $rootScope, $location, UsersFactory, MapsFactory, GoogleDistanceMatrixService, localStorageService, socket, $filter, $q) {
     var address_data, locations, center, map, infowindow, marker, panning;
     $scope.current_user = localStorageService.get('current_user');
     var current_user = localStorageService.get('current_user');
@@ -98,7 +98,7 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
         var marker;
         panning = false;
 
-        function set_info_window (i) {
+        function set_info_window(i) {
             var a_user;
             if (i === undefined) {
                 a_user = $scope.current_user;
@@ -131,23 +131,40 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
             return html_string;
         }
 
-        function attach_info(mark_i) {
+        function place_mark(mark_i) {
             return function() {
-                var info_bubble = new InfoBubble({
-                    borderwidth: 0,
-                    shadowStyle: 0,
-                    padding: 0,
-                    borderRadius: 5,
-                    backgroundColor: '#364347',
-                    arrowStyle: 2,
-                    content: set_info_window(mark_i)
+                var new_marker = new google.maps.Marker({
+                    position: locations[i],
+                    map: map,
+                    animation: google.maps.Animation.DROP,
+                    icon: {
+                        size: new google.maps.Size(32, 32),
+                        scaledSize: new google.maps.Size(32, 32),
+                        url: 'images/dog.png'
+                    },
+                    info: new InfoBubble({
+                        borderwidth: 0,
+                        shadowStyle: 0,
+                        padding: 0,
+                        borderRadius: 5,
+                        backgroundColor: '#364347',
+                        arrowStyle: 2,
+                        content: set_info_window(mark_i)
+                    })
                 });
-                return info_bubble;
+
+                google.maps.event.addListener(new_marker, 'click', function() {
+                    this.info.open(map);
+                });
+                google.maps.event.addListener(map, "click", function() {
+                    this.info.close(map, new_marker);
+                });
+
+                return new_marker;
             }();
         }
 
         function place_markers(locs) {
-
             center_marker = new google.maps.Marker({
                 position: center,
                 map: map,
@@ -175,29 +192,9 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
             });
 
             for (var i = 0; i < locs.length; i++) {
-                var a_marker = new google.maps.Marker({
-                    position: locs[i],
-                    map: map,
-                    animation: google.maps.Animation.DROP,
-                    icon: {
-                        size: new google.maps.Size(32, 32),
-                        scaledSize: new google.maps.Size(32, 32),
-                        url: 'images/dog.png'
-                    }
-                });
-
-                var info = function(j) {
-                    attach_info(j);
+                var a_marker = function(j) {
+                    place_mark(j);
                 }(i);
-
-                google.maps.event.addListener(a_marker, 'click', function() {
-                    this.info = info;
-                    this.info.open(map);
-                });
-
-                google.maps.event.addListener(map, "click", function() {
-                    this.info.close(map, a_marker);
-                });
             }
         }
 
