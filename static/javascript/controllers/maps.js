@@ -209,8 +209,7 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
                 this.info = set_info_window();
             });
 
-            locs.forEach(function(i) {
-
+            for (var i = 0; i < locs.length; i++) {
                 var a_marker = function(j, l) {
                     place_mark(j, l);
                 }(i, locs);
@@ -222,7 +221,7 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
                 google.maps.event.addListener(map, "click", function() {
                     this.info.close(map, a_marker);
                 });
-            });
+            };
         }
 
         place_markers(locations);
