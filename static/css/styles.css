@@ -30075,7 +30075,9 @@ p {
 
 html, body, .container {
   height: 100%;
-  width: 100%; }
+  min-height: 100%;
+  width: 100%;
+  min-height: 100%; }
 
 .modal-header {
   background-color: #364347; }
