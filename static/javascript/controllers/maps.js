@@ -131,10 +131,11 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
             return html_string;
         }
 
-        function place_mark(mark_i) {
+        function place_mark(mark_i, ls) {
             return function() {
+                console.log("PLACE MARK WITH INDEX ", mark_i);
                 var new_marker = new google.maps.Marker({
-                    position: locations[i],
+                    position: ls[i],
                     map: map,
                     animation: google.maps.Animation.DROP,
                     icon: {
@@ -152,13 +153,7 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
                         content: set_info_window(mark_i)
                     })
                 });
-
-                google.maps.event.addListener(new_marker, 'click', function() {
-                    this.info.open(map);
-                });
-                google.maps.event.addListener(map, "click", function() {
-                    this.info.close(map, new_marker);
-                });
+                console.log("PLACE MARK MARKER", new_marker);
 
                 return new_marker;
             }();
@@ -192,9 +187,18 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
             });
 
             for (var i = 0; i < locs.length; i++) {
-                var a_marker = function(j) {
-                    place_mark(j);
-                }(i);
+
+                var a_marker = function(j, l) {
+                    place_mark(j, l);
+                }(i, locs);
+
+                google.maps.event.addListener(new_marker, 'click', function() {
+                    this.info.open(map);
+                });
+
+                google.maps.event.addListener(map, "click", function() {
+                    this.info.close(map, new_marker);
+                });
             }
         }
 
