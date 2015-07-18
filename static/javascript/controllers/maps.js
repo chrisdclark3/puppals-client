@@ -168,6 +168,7 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
         var a_marker = new google.maps.Marker({
           position: locs[i],
           map: map,
+          info: i,
           animation: google.maps.Animation.DROP,
           icon: {
             size: new google.maps.Size(32, 32),
@@ -176,17 +177,41 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
           }
         });
 
-        a_marker.info = new InfoBubble({
-          content: set_info_window(i),
-          borderwidth: 0,
-          shadowStyle: 0,
-          padding: 0,
-          borderRadius: 5,
-          backgroundColor: '#364347',
-          arrowStyle: 2
-        });
-
         google.maps.event.addListener(a_marker, 'click', function () {
+          i = this.info;
+          this.info = new InfoBubble({
+            content:
+              "<div class='infowindow_wrapper'"+
+                "<div class='panel panel-default infowindow' id='modal'>"+
+                  "<div class='panel-header'>"+
+                    "<h3 class='panel-title'> "+$scope.other_users[i].first_name+" & "+$scope.other_users[i].dogs[0].name+"</h3>"+
+                  "</div>"+
+                  "<div class='panel-body'>"+
+                    "<div class='row'>"+
+                      "<div class='col-xs-6 image_wrapper'>"+
+                        "<img preload-image src='"+$scope.other_users[i].avatar_url+"' class='img-responsive'>"+
+                        "<p>"+$scope.other_users[i].email+"</p>"+
+                        "<p>"+$scope.other_users[i].address+"</p>"+
+                      "</div>"+
+                      "<div class='col-xs-6 image_wrapper'>"+
+                        "<img preload-image src='"+$scope.other_users[i].dogs[0].avatar_url+"' class='img-responsive'>"+
+                        "<p> Breed: "+$scope.other_users[i].dogs[0].breed+"</p>"+
+                        "<p> Age: "+$scope.other_users[i].dogs[0].age+"</p>"+
+                        "<p> Gender: "+$scope.other_users[i].dogs[0].gender+"</p>"+
+                      "</div>"+
+                    "</div>"+
+                  "</div>"+
+                  "</div>"+
+                "</div>",
+            borderwidth: 0,
+            shadowStyle: 0,
+            padding: 0,
+            borderRadius: 5,
+            backgroundColor: '#364347',
+            arrowStyle: 2
+          });
+
+
           console.log("THIS IS A MARKER IN EVENT LISTENER", a_marker);
           this.info.open(map);
         });
