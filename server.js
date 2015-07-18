@@ -14,7 +14,7 @@ io.sockets.on('connection', function (socket) {
     console.log("REQUESTING DATA FROM API IN GET CONVERSATIONS", data);
     request({
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
         'Access-Control-Allow-Origin': '*'
       },
       uri: "//puppals-api.herokuapp.com/conversations/" + data.current_user.id,
@@ -33,7 +33,7 @@ io.sockets.on('connection', function (socket) {
   socket.on('send_message', function (data) {
     request({
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
         'Access-Control-Allow-Origin': '*'
       },
       uri: "//puppals-api.herokuapp.com/messages/",

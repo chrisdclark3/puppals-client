@@ -11897,8 +11897,8 @@ button.close {
     float: right;
     min-width: 50% !important;
     width: 50% !important;
-    min-height: 700px !important;
-    height: 700px !important; }
+    min-height: 720px !important;
+    height: 720px !important; }
   #home_users #directions_panel {
     width: 25%;
     height: 300px !important; }
@@ -11911,8 +11911,8 @@ button.close {
     float: right;
     min-width: 50% !important;
     width: 50% !important;
-    min-height: 700px !important;
-    height: 700px !important; }
+    min-height: 720px !important;
+    height: 720px !important; }
   #home_users #directions_panel {
     width: 25%;
     height: 300px !important; } }
@@ -17779,7 +17779,9 @@ button.close {
   .hidden-print {
     display: none !important; } }
 #profile {
+  min-height: 100%;
   height: 100%;
+  min-width: 100%;
   width: 100%;
   background-color: #FAD46B; }
   #profile #pagination {
@@ -17794,35 +17796,45 @@ button.close {
       margin-right: auto;
       background-color: #FAD46B; }
   #profile #other_users {
+    min-height: 100%;
+    height: 100%;
+    min-width: 100%;
+    width: 100%;
     width: 100%; }
     @media (min-width: 1200px) {
-      #profile #other_users li, #profile #other_users .modal {
-        max-width: 160px;
-        max-height: 160px; }
-      #profile #other_users .user_title {
-        font-size: 18px;
-        top: 88px;
-        margin-top: 18px; }
-      #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
-        top: 44px; }
-      #profile #other_users .well h4 {
-        font-size: 18px;
-        padding-top: 9px;
-        padding-bottom: 9px; } }
+      #profile #other_users {
+        height: 100%;
+        width: 100%; }
+        #profile #other_users li, #profile #other_users .modal {
+          max-width: 180px;
+          max-height: 180px; }
+        #profile #other_users .user_title {
+          font-size: 18px;
+          top: 108px;
+          margin-top: 18px; }
+        #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
+          top: 54px; }
+        #profile #other_users .well h4 {
+          font-size: 18px;
+          padding-top: 9px;
+          padding-bottom: 9px; } }
     @media (min-width: 992px) and (max-width: 1199px) {
-      #profile #other_users li, #profile #other_users .modal {
-        max-width: 130px;
-        max-height: 130px; }
-      #profile #other_users .user_title {
-        font-size: 16px;
-        top: 66px;
-        margin-top: 16px; }
-      #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
-        top: 33px; }
-      #profile #other_users .well h4 {
-        font-size: 16px;
-        padding-top: 8px;
-        padding-bottom: 8px; } }
+      #profile #other_users {
+        height: 100%;
+        width: 100%; }
+        #profile #other_users li, #profile #other_users .modal {
+          max-width: 130px;
+          max-height: 130px; }
+        #profile #other_users .user_title {
+          font-size: 16px;
+          top: 66px;
+          margin-top: 16px; }
+        #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
+          top: 33px; }
+        #profile #other_users .well h4 {
+          font-size: 16px;
+          padding-top: 8px;
+          padding-bottom: 8px; } }
     @media (min-width: 768px) and (max-width: 991px) {
       #profile #other_users {
         height: 250px;
@@ -17936,6 +17948,10 @@ button.close {
           background-color: transparent;
           color: white; }
   #profile #user_profile {
+    min-height: 100%;
+    height: 100%;
+    min-width: 100%;
+    width: 100%;
     background-color: white;
     /* Messages */ }
     @media (max-width: 767px) {
@@ -18067,8 +18083,8 @@ button.close {
 
 #splash {
   padding: 3% 3%;
-  min-width: 100vh;
-  min-height: 100vh;
+  min-height: 100%;
+  min-width: 100%;
   background-color: #FAD46B !important; }
   #splash #prints {
     width: 600px;
