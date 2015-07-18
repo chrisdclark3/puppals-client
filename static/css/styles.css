@@ -18112,7 +18112,7 @@ button.close {
     #splash .jumbotron #pup span,
     #splash .jumbotron #pals span {
       font-family: 'Lobster';
-      font-size: 2em;
+      font-size: 3em;
       color: #F84545;
       -webkit-transform: "scale(1) rotate(-5deg) translateX(0px) translateY(0px) skewX(1deg) skewY(1deg)";
       -moz-transform: "scale(1) rotate(-5deg) translateX(0px) translateY(0px) skewX(1deg) skewY(1deg)";

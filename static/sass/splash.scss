@@ -42,7 +42,7 @@
         #pup span,
         #pals span {
             font-family: 'Lobster';
-            font-size: 2em;
+            font-size: 3em;
             color: $red;
             @include vendorize('transform', 'scale(1) rotate(-5deg) translateX(0px) translateY(0px) skewX(1deg) skewY(1deg)');
             text-shadow: 1px 1px $light-grey, 2px 2px $light-grey, 3px 3px $light-grey, 4px 4px $light-grey, 5px 5px $light-grey, 6px 6px $light-grey, 7px 7px $light-grey, 8px 8px $light-grey, 9px 9px $light-grey, 10px 10px $light-grey, 11px 11px $light-grey, 12px 12px $light-grey, 13px 13px $light-grey, 14px 14px $light-grey, 15px 15px $blue, 16px 16px $blue, 17px 17px $blue, 18px 18px $blue, 19px 19px $blue, 20px 20px $blue, 21px 21px $blue, 22px 22px $blue, 23px 23px $blue, 24px 24px $blue, 25px 25px $blue, 26px 26px 6px $black-grey;
