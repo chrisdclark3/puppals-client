@@ -176,7 +176,8 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
           }
         });
 
-        var info_bubble = new InfoBubble({
+        a_marker.info = new InfoBubble({
+          content: set_info_window(i),
           borderwidth: 0,
           shadowStyle: 0,
           padding: 0,
@@ -187,13 +188,11 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
 
         google.maps.event.addListener(a_marker, 'click', function () {
           console.log("THIS IS A MARKER IN EVENT LISTENER", a_marker);
-          info_bubble.setContent(set_info_window(i));
-          this.info = set_info_window(i);
-          info_bubble.open(map, a_marker);
+          this.info.open(map);
         });
 
         google.maps.event.addListener(map, "click", function () {
-          info_bubble.close(map, a_marker);
+          this.info.close(map, a_marker);
         });
       }
     }
