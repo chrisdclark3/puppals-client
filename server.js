@@ -5,6 +5,7 @@ var server = require('http').createServer(app);
 server.listen(port);
 var io = require('socket.io')(server);
 var request = require('request');
+require('request').debug = true;
 
 app.use(express.static('./static'));
 
@@ -13,8 +14,11 @@ io.sockets.on('connection', function (socket) {
   socket.on('get_conversations', function (data) {
     console.log("REQUESTING DATA FROM API IN GET CONVERSATIONS", data);
     request({
-      uri: "//puppals-api.herokuapp.com/conversations/" + data.current_user.id,
+      uri: "https://puppals-api.herokuapp.com/conversations/" + data.current_user.id,
       method: "GET",
+       headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
       json: true
     }, function (error, res, body) {
       if (error) {
@@ -28,9 +32,13 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('send_message', function (data) {
     request({
-      uri: "//puppals-api.herokuapp.com/messages/",
+      uri: "https://puppals-api.herokuapp.com/messages/",
       method: "POST",
-      json: data,
+       headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+      body: { data: data },
+      json: true
     }, function (error, res, body) {
       if (error) {
         console.log("ERRORS IN SEND MESSAGE REQUEST");
