@@ -99,36 +99,38 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
         panning = false;
 
         function set_info_window(i) {
-            var a_user;
-            if (i === undefined) {
-                a_user = $scope.current_user;
-            } else {
-                a_user = $scope.other_users[i];
-            }
-            var html_string =
-                "<div class='infowindow_wrapper'" +
-                "<div class='panel panel-default infowindow' id='modal'>" +
-                "<div class='panel-header'>" +
-                "<h3 class='panel-title'> " + a_user.first_name + " & " + a_user.dogs[0].name + "</h3>" +
-                "</div>" +
-                "<div class='panel-body'>" +
-                "<div class='row'>" +
-                "<div class='col-xs-6 image_wrapper'>" +
-                "<img preload-image src='" + a_user.avatar_url + "' class='img-responsive'>" +
-                "<p>" + a_user.email + "</p>" +
-                "<p>" + a_user.address + "</p>" +
-                "</div>" +
-                "<div class='col-xs-6 image_wrapper'>" +
-                "<img preload-image src='" + a_user.dogs[0].avatar_url + "' class='img-responsive'>" +
-                "<p> Breed: " + a_user.dogs[0].breed + "</p>" +
-                "<p> Age: " + a_user.dogs[0].age + "</p>" +
-                "<p> Gender: " + a_user.dogs[0].gender + "</p>" +
-                "</div>" +
-                "</div>" +
-                "</div>" +
-                "</div>" +
-                "</div>";
-            return html_string;
+            return function() {
+                var a_user;
+                if (i === undefined) {
+                    a_user = $scope.current_user;
+                } else {
+                    a_user = $scope.other_users[i];
+                }
+                var html_string =
+                    "<div class='infowindow_wrapper'" +
+                    "<div class='panel panel-default infowindow' id='modal'>" +
+                    "<div class='panel-header'>" +
+                    "<h3 class='panel-title'> " + a_user.first_name + " & " + a_user.dogs[0].name + "</h3>" +
+                    "</div>" +
+                    "<div class='panel-body'>" +
+                    "<div class='row'>" +
+                    "<div class='col-xs-6 image_wrapper'>" +
+                    "<img preload-image src='" + a_user.avatar_url + "' class='img-responsive'>" +
+                    "<p>" + a_user.email + "</p>" +
+                    "<p>" + a_user.address + "</p>" +
+                    "</div>" +
+                    "<div class='col-xs-6 image_wrapper'>" +
+                    "<img preload-image src='" + a_user.dogs[0].avatar_url + "' class='img-responsive'>" +
+                    "<p> Breed: " + a_user.dogs[0].breed + "</p>" +
+                    "<p> Age: " + a_user.dogs[0].age + "</p>" +
+                    "<p> Gender: " + a_user.dogs[0].gender + "</p>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>";
+                return html_string;
+            }();
         }
 
         function place_mark(mark_i, ls) {
@@ -150,7 +152,9 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
                         borderRadius: 5,
                         backgroundColor: '#364347',
                         arrowStyle: 2,
-                        content: set_info_window(mark_i)
+                        content: function(k) {
+                            set_info_window(k);
+                        }(mark_i)
                     })
                 });
                 console.log("PLACE MARK MARKER", new_marker);
@@ -186,7 +190,7 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
                 this.info = set_info_window();
             });
 
-            locs.forEach(function (i) {
+            locs.forEach(function(i) {
 
                 var a_marker = function(j, l) {
                     place_mark(j, l);
