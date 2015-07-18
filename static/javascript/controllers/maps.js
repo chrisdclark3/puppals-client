@@ -136,39 +136,22 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
         return html_string;
     };
 
-    function place_marker(mark_i) {
-
-      var a_marker = new google.maps.Marker({
-          position: locations[mark_i],
-          map: map,
-          animation: google.maps.Animation.DROP,
-          icon: {
-              size: new google.maps.Size(32, 32),
-              scaledSize: new google.maps.Size(32, 32),
-              url: 'images/dog.png'
-          }
-      });
-
-      var info_bubble = new InfoBubble({
-          borderwidth: 0,
-          shadowStyle: 0,
-          padding: 0,
-          borderRadius: 5,
-          backgroundColor: '#364347',
-          arrowStyle: 2,
-          content: set_info_window(mark_i)
-      });
-
-      a_marker.info = info_bubble;
-
-      google.maps.event.addListener(a_marker, 'click', function() {
-        this.info.open(map);
-      });
-
-      google.maps.event.addListener(map, "click", function() {
-          this.info.close(map, a_marker);
-      });
+    function attach_info (mark_i) {
+      return function () {
+        var info_bubble = new InfoBubble({
+            borderwidth: 0,
+            shadowStyle: 0,
+            padding: 0,
+            borderRadius: 5,
+            backgroundColor: '#364347',
+            arrowStyle: 2,
+            content: set_info_window(mark_i)
+        });
+        return info_bubble;
+      }();
     }
+
+
 
     function place_markers (locs) {
       center_marker = new google.maps.Marker({
@@ -196,7 +179,26 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
       });
 
       for (var i = 0; i < locs.length; i++) {
-        place_marker(i);
+        var a_marker = new google.maps.Marker({
+          position: locs[i],
+          map: map,
+          animation: google.maps.Animation.DROP,
+          icon: {
+              size: new google.maps.Size(32, 32),
+              scaledSize: new google.maps.Size(32, 32),
+              url: 'images/dog.png'
+          }
+        });
+
+        a_marker.info = attach_info(i);
+
+        google.maps.event.addListener(a_marker, 'click', function() {
+          this.info.open(map);
+        });
+
+        google.maps.event.addListener(map, "click", function() {
+            this.info.close(map, a_marker);
+        });
       }
     }
     place_markers(locations);
@@ -392,3 +394,5 @@ function MapsController ($modal, $window, PaginationFactory, $modal, $scope, $ro
 MapsController.$inject = ["$modal", "$window", "PaginationFactory", "$modal", "$scope", "$rootScope", "$location", "UsersFactory", "MapsFactory", "GoogleDistanceMatrixService", "localStorageService", "socket", "$filter", "$q"];
 
 app.controller('MapsController', MapsController);
+
+​
