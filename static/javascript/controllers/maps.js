@@ -192,12 +192,12 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
                     place_mark(j, l);
                 }(i, locs);
 
-                google.maps.event.addListener(new_marker, 'click', function() {
+                google.maps.event.addListener(a_marker, 'click', function() {
                     this.info.open(map);
                 });
 
                 google.maps.event.addListener(map, "click", function() {
-                    this.info.close(map, new_marker);
+                    this.info.close(map, a_marker);
                 });
             }
         }
