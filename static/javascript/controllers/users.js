@@ -34,10 +34,9 @@ function UsersController($window, $rootScope, $scope, $location, UsersFactory, l
     if (tab == 'profile') {
       $scope.profile_tab = true;
     }
-  }
+  };
 
   $rootScope.test_login = function () {
-    console.log('RUNNING TEST LOGIN...');
     $scope.current_user = {};
     $scope.current_user.email = "chrisdclark3@gmail.com";
     $scope.current_user.password = "password";
@@ -45,9 +44,7 @@ function UsersController($window, $rootScope, $scope, $location, UsersFactory, l
   };
 
   $rootScope.login = function () {
-    console.log("SCOPE CURRENT_USER IN LOGIN > USERSCONTROLLER", $scope.current_user);
     UsersFactory.login($scope.current_user, function (data) {
-      console.log("DATA IN USERS FACTORY CURRENT_USER", data);
       if (data.errors) {
         $rootScope.errors = data;
         $location.path("/");
@@ -58,14 +55,12 @@ function UsersController($window, $rootScope, $scope, $location, UsersFactory, l
         localStorageService.set('current_user', current_user);
         $location.path("/home");
       }
-      console.log("SCOPE CURRENT_USER IN LOGIN > USERSCONTROLLER", current_user);
     });
   };
 
   $rootScope.logout = function () {
     localStorageService.clearAll();
     $scope.messages = "Thank you for being a loyal customer of PupPals!";
-    console.log($scope);
   };
 
   var new_user = {};
@@ -89,7 +84,6 @@ function UsersController($window, $rootScope, $scope, $location, UsersFactory, l
   });
 
   $scope.upload_user = function () {
-    console.log('UPLOADING USER...', $scope.new_user);
     user_image = $scope.user_image;
     new_user = {};
     new_user.first_name = $scope.new_user.first_name;
@@ -126,7 +120,6 @@ function UsersController($window, $rootScope, $scope, $location, UsersFactory, l
   };
 
   function upload_dog () {
-    console.log('UPLOADING DOG...', $scope.current_user, $scope.dog);
     dog_image = $scope.dog_image;
     $scope.upload = Upload.upload({
       headers: {
@@ -144,8 +137,7 @@ function UsersController($window, $rootScope, $scope, $location, UsersFactory, l
       },
       file: $scope.dog_image,
       fileFormDataName: 'dog[avatar]'
-    }).success(function (data, status, headers, config){
-      console.log("USERS IN UPLOAD DOG", data);
+    }).success(function (data, status, headers, config) {
       users = data;
       $rootScope.users = users;
       $scope.users = users;

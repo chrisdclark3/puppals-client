@@ -57,8 +57,6 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
     };
 
     $scope.initialize = function() {
-        console.log("SCOPE IN INITIALIZE", $scope);
-
         other_users = [];
         $scope.show_route = {};
         for (var i = 0; i < users.length; i++) {
@@ -69,6 +67,7 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
         localStorageService.set('other_users', other_users);
         $scope.other_users = other_users;
         if ($scope.distance_data_received != true) {
+
             GoogleDistanceMatrixService.calculate_distances($scope.current_user.address, $scope.other_users, function(users) {
                 $scope.$apply(function() {
                     $scope.distance_data_received = true;
@@ -188,9 +187,6 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
                 google.maps.event.addListener(map, "click", function() {
                     this.info.close(map, new_marker);
                 });
-
-                console.log("\n\n\nPLACE MARK MARKER\n\n\n", new_marker);
-
                 return new_marker;
             }();
         }

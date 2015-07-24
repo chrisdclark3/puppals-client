@@ -33,7 +33,6 @@ function ConversationsController($modal, PaginationFactory, $scope, $rootScope, 
 
 
   $scope.get_conversations = function () {
-    console.log('RUNNING GET CONVERSATIONS...');
     if (current_user == undefined) {
       current_user = localStorageService.get('current_user');
       $scope.current_user = current_user;
@@ -48,16 +47,12 @@ function ConversationsController($modal, PaginationFactory, $scope, $rootScope, 
       other_users = localStorageService.get('other_users');
       $scope.other_users = other_users;
     }
-    console.log("SCOPE IN GET CONVERSATIONS", $scope);
-    console.log("CURRENT USER, USERS, OTHER_USERS", current_user, users, other_users);
     socket.emit('get_conversations', { current_user: current_user });
   };
 
 
 
   socket.on('conversations', function (data) {
-    console.log("RECEIVING DATA IN CONVERSATIONS...");
-    console.log("DATA IN CONVERSATIONS", data);
     for (var i = 0; i < data.length; i++) {
       if (data[i].recipient_id == current_user.id) {
         var temp = data[i].recipient;
@@ -76,12 +71,10 @@ function ConversationsController($modal, PaginationFactory, $scope, $rootScope, 
   });
 
   $rootScope.send_message = function (sender_id, recipient_id, new_message) {
-    console.log('RUNNING SEND MESSAGE...');
     var data = {};
     data.sender_id = sender_id;
     data.recipient_id = recipient_id;
     data.new_message = new_message;
-    console.log("DATA BEING EMITTED IN NEW MESSAGE", data);
     socket.emit('send_message', data);
   };
 
@@ -123,9 +116,6 @@ function ConversationsController($modal, PaginationFactory, $scope, $rootScope, 
   $scope.dismiss = function () {
     $scope.modalInstance.dismiss();
   };
-
-  console.log('SCOPE in CONVERSATIONS_CONTROLLER', $scope);
-  console.log('ROOT_SCOPE in CONVERSATIONS_CONTROLLER', $scope);
 
 }
 

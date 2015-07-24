@@ -17779,13 +17779,14 @@ button.close {
   .hidden-print {
     display: none !important; } }
 #profile {
-  min-height: 100%;
-  height: 100%;
+  min-height: 100% !important;
+  height: 100% !important;
   min-width: 100%;
   width: 100%;
   background-color: #FAD46B; }
   #profile .row {
-    height: 100%; }
+    min-height: 100% !important;
+    height: 100% !important; }
   #profile #pagination {
     width: 100%;
     padding-left: auto;
@@ -17798,15 +17799,18 @@ button.close {
       margin-right: auto;
       background-color: #FAD46B; }
   #profile #other_users {
-    min-height: 100%;
-    height: 100%;
+    min-height: 100% !important;
+    height: 100% !important;
     min-width: 100%;
     width: 100%;
     width: 100%; }
+    #profile #other_users .row {
+      min-height: 100% !important;
+      height: 100% !important; }
     @media (min-width: 1200px) {
       #profile #other_users {
-        height: 100%;
-        width: 100%; }
+        height: 100% !important;
+        width: 100% !important; }
         #profile #other_users li, #profile #other_users .modal {
           max-width: 180px;
           max-height: 180px; }
@@ -17822,8 +17826,8 @@ button.close {
           padding-bottom: 9px; } }
     @media (min-width: 992px) and (max-width: 1199px) {
       #profile #other_users {
-        height: 100%;
-        width: 100%; }
+        height: 100% !important;
+        width: 100% !important; }
         #profile #other_users li, #profile #other_users .modal {
           max-width: 130px;
           max-height: 130px; }
@@ -17839,7 +17843,7 @@ button.close {
           padding-bottom: 8px; } }
     @media (min-width: 768px) and (max-width: 991px) {
       #profile #other_users {
-        height: 250px;
+        height: 250px !important;
         display: block; }
         #profile #other_users li, #profile #other_users .modal {
           display: inline;
@@ -17856,14 +17860,14 @@ button.close {
           padding-top: 6px;
           padding-bottom: 6px; }
         #profile #other_users #pagination {
-          width: 100%;
+          width: 100% !important;
           padding-left: auto;
           padding-right: auto;
           display: block;
           margin-bottom: 20px; } }
     @media (max-width: 767px) {
       #profile #other_users {
-        height: 250px;
+        height: 250px !important;
         display: block; }
         #profile #other_users li, #profile #other_users .modal {
           display: inline;
@@ -17880,11 +17884,16 @@ button.close {
           padding-top: 6px;
           padding-bottom: 6px; }
         #profile #other_users #pagination {
-          width: 100%;
+          width: 100% !important;
           padding-left: auto;
           padding-right: auto;
           display: block;
-          margin-bottom: 20px; } }
+          margin-bottom: 20px; }
+          #profile #other_users #pagination #pagination_wrapper {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            text-align: center; } }
     #profile #other_users h3 {
       margin-left: 2em; }
     #profile #other_users ul {
@@ -17950,7 +17959,8 @@ button.close {
           background-color: transparent;
           color: white; }
   #profile #user_profile {
-    height: 100%;
+    height: 100% !important;
+    min-height: 100% !important;
     background-color: white;
     /* Messages */ }
     @media (max-width: 767px) {
@@ -18082,17 +18092,16 @@ button.close {
 
 #splash {
   padding: 3% 3%;
+  height: 100%;
+  width: 100%;
   min-height: 100%;
   min-width: 100%;
   background-color: #FAD46B !important; }
-  #splash #prints {
-    width: 600px;
-    height: 400px;
-    background-color: white; }
   #splash .jumbotron {
     height: 100%;
+    min-height: 100%;
     width: 100%;
-    background-color: #FAD46B;
+    background-color: #FAD46B !important;
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 0;

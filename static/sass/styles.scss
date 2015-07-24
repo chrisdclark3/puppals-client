@@ -5,6 +5,7 @@
 @import "register.scss";
 @import "modal.scss";
 
+
 @mixin vendorize($property, $value) {
     -webkit-#{$property}: $value;
     -moz-#{$property}: $value;
@@ -69,8 +70,6 @@ h1, h2, h3, h4, h5, h6 {
 p {
     letter-spacing: auto;
 }
-
-
 
 html, body, .container {
     height: 100% !important;

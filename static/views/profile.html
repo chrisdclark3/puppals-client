@@ -40,6 +40,7 @@
 <div class="container" id="profile" ng-controller="ConversationsController" ng-init="get_conversations(); set_page();">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 other_users">
+            <div class="row">
             <h3>Users</h3>
             <div id="other_users">
                 <ul class="row">
@@ -53,8 +54,11 @@
                     </li>
                 </ul>
             </div>
+            </div>
             <div class="row" id="pagination">
-                <pagination class="pagination-sm" boundary-links="true" total-items="total_items" items-per-page="items_per_page" ng-model="current_page" ng-change="set_page();" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+                <div id="pagination_wrapper">
+                    <pagination class="pagination-sm" boundary-links="true" total-items="total_items" items-per-page="items_per_page" ng-model="current_page" ng-change="set_page();" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+                </div>
             </div>
         </div>
         <!-- div.conversation, .col-xs-6 -->
