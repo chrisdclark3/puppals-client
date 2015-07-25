@@ -18111,6 +18111,34 @@ button.close {
   min-height: 100% !important;
   min-width: 100%;
   background-color: #FAD46B !important; }
+  @media (min-width: 1200px) {
+    #splash .jumbotron {
+      height: 100%;
+      min-height: 100%; }
+      #splash .jumbotron .row {
+        height: 100%;
+        min-height: 100%; } }
+  @media (min-width: 992px) {
+    #splash .jumbotron {
+      height: 100%;
+      min-height: 100%; }
+      #splash .jumbotron .row {
+        height: 100%;
+        min-height: 100%; } }
+  @media (min-width: 768px) {
+    #splash .jumbotron {
+      height: 100%;
+      min-height: 100%; }
+      #splash .jumbotron .row {
+        height: 100%;
+        min-height: 100%; } }
+  @media (max-width: 767px) {
+    #splash .jumbotron {
+      height: 100%;
+      min-height: 100%; }
+      #splash .jumbotron .row {
+        height: 100%;
+        min-height: 100%; } }
   #splash .jumbotron {
     height: 100% !important;
     min-height: 100% !important;

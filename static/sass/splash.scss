@@ -6,7 +6,71 @@
     #{$property}: $value;
 }
 
+@mixin breakpoint ($point) {
+    @if $point == xs {
+        @media (max-width: 767px) {
+            @content;
+        }
+    }
+    @else if $point == sm {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+    @else if $point == md {
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+    @else if $point == lg {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
+}
+
+
 #splash {
+    @include breakpoint('lg') {
+        .jumbotron {
+            height: 100%;
+            min-height: 100%;
+            .row {
+                height: 100%;
+                min-height: 100%;
+            }
+        }
+    }
+    @include breakpoint('md') {
+        .jumbotron {
+            height: 100%;
+            min-height: 100%;
+            .row {
+                height: 100%;
+                min-height: 100%;
+            }
+        }
+    }
+    @include breakpoint('sm') {
+        .jumbotron {
+            height: 100%;
+            min-height: 100%;
+            .row {
+                height: 100%;
+                min-height: 100%;
+            }
+        }
+    }
+    @include breakpoint('xs') {
+        .jumbotron {
+            height: 100%;
+            min-height: 100%;
+            .row {
+                height: 100%;
+                min-height: 100%;
+            }
+        }
+    }
     padding: 3% 3%;
     height: 100% !important;
     width: 100%;
