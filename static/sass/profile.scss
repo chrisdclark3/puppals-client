@@ -81,6 +81,7 @@
             li, .modal {
                 display: inline-block;
                 max-width: $well-size;
+                width: $well-size;
                 max-height: $well-size;
                 height: $well-size;
             }
@@ -98,6 +99,7 @@
             li, .modal {
                 display: inline-block;
                 max-width: $well-size;
+                width: $well-size;
                 max-height: $well-size;
                 height: $well-size;
             }
@@ -192,19 +194,23 @@
                 img {
                     @include vendorize('transition', all $speed);
                     position: absolute;
-                    z-index: -5;
-                    width: 100%;
-                    height: 100%;
+                    width: 100% !important;
+                    min-width: 100% !important;
+                    height: 100% !important;
+                    min-height: 100% !important;
                     margin-top: 0;
                     padding-top: 0;
                     padding: 0;
+                    z-index: -1;
                 }
                 .user_title {
                     @include vendorize('transition', all $speed);
                     position: absolute;
-                    width: 100%;
-                    text-align: center;
+                    width: 100% !important;
+                    min-width: 100% !important;
                     height: 100% !important;
+                    min-height: 100% !important;
+                    text-align: center;
                     background-color: transparent;
                     display: block;
                     padding-bottom: 2em;

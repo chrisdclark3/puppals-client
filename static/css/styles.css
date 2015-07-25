@@ -17818,6 +17818,7 @@ button.close {
         #profile #other_users li, #profile #other_users .modal {
           display: inline-block;
           max-width: 28%;
+          width: 28%;
           max-height: 28%;
           height: 28%; }
         #profile #other_users .well h4 {
@@ -17831,6 +17832,7 @@ button.close {
         #profile #other_users li, #profile #other_users .modal {
           display: inline-block;
           max-width: 28%;
+          width: 28%;
           max-height: 28%;
           height: 28%; }
         #profile #other_users .well h4 {
@@ -17907,12 +17909,14 @@ button.close {
           -o-transition: all 0.4s;
           transition: all 0.4s;
           position: absolute;
-          z-index: -5;
-          width: 100%;
-          height: 100%;
+          width: 100% !important;
+          min-width: 100% !important;
+          height: 100% !important;
+          min-height: 100% !important;
           margin-top: 0;
           padding-top: 0;
-          padding: 0; }
+          padding: 0;
+          z-index: -1; }
         #profile #other_users li .well .user_title {
           -webkit-transition: all 0.4s;
           -moz-transition: all 0.4s;
@@ -17920,9 +17924,11 @@ button.close {
           -o-transition: all 0.4s;
           transition: all 0.4s;
           position: absolute;
-          width: 100%;
-          text-align: center;
+          width: 100% !important;
+          min-width: 100% !important;
           height: 100% !important;
+          min-height: 100% !important;
+          text-align: center;
           background-color: transparent;
           display: block;
           padding-bottom: 2em; }
