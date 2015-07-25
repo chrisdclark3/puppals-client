@@ -17913,6 +17913,9 @@ button.close {
       overflow: hidden; }
       #profile #other_users li .well {
         width: 100% !important;
+        height: 100% !important;
+        min-width: 100% !important;
+        min-height: 100% !important;
         border: 3px solid white;
         padding: 0;
         overflow: hidden; }
@@ -17930,7 +17933,7 @@ button.close {
           margin-top: 0;
           padding-top: 0;
           padding: 0;
-          z-index: -1; }
+          z-index: 100; }
         #profile #other_users li .well .user_title {
           -webkit-transition: all 0.4s;
           -moz-transition: all 0.4s;
@@ -17941,9 +17944,11 @@ button.close {
           min-width: 100% !important;
           height: 100% !important;
           min-height: 100% !important;
-          background-color: transparent; }
+          background-color: transparent;
+          z-index: 200; }
           #profile #other_users li .well .user_title h4 {
             background-color: #364347;
+            z-index: 300;
             margin-top: auto;
             margin-bottom: auto;
             display: block;

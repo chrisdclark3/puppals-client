@@ -202,6 +202,9 @@
             overflow: hidden;
             .well {
                 width: 100% !important;
+                height: 100% !important;
+                min-width: 100% !important;
+                min-height: 100% !important;
                 border: 3px solid white;
                 padding: 0;
                 overflow: hidden;
@@ -215,7 +218,7 @@
                     margin-top: 0;
                     padding-top: 0;
                     padding: 0;
-                    z-index: -1;
+                    z-index: 100;
                 }
                 .user_title {
                     @include vendorize('transition', all $speed);
@@ -224,8 +227,10 @@
                     height: 100% !important;
                     min-height: 100% !important;
                     background-color: transparent;
+                    z-index: 200;
                     h4 {
                         background-color: $dark-grey;
+                        z-index: 300;
                         margin-top: auto;
                         margin-bottom: auto;
                         display: block;
