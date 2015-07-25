@@ -1,8 +1,4 @@
 @charset "UTF-8";
-#view, #include {
-  margin: 0;
-  padding: 0; }
-
 @font-face {
   font-family: "Clearly Solid";
   src: url("../fonts/clearly_solid.ttf"); }
@@ -18108,7 +18104,8 @@ button.close {
             padding: 0px; }
 
 #splash {
-  padding: 3% 3%;
+  padding-left: 3%;
+  padding-right: 3%;
   height: 100% !important;
   width: 100%;
   min-height: 100% !important;
@@ -30303,6 +30300,7 @@ body {
 
 @media (min-width: 1200px) {
   html, body, .container {
+    overflow: hidden;
     height: 100% !important;
     min-height: 100% !important;
     width: 100%; }
@@ -30311,6 +30309,7 @@ body {
       padding: 0 !important; } }
 @media (min-width: 992px) {
   html, body, .container {
+    overflow: hidden;
     height: 100% !important;
     min-height: 100% !important;
     width: 100%; }
@@ -30319,6 +30318,7 @@ body {
       padding: 0 !important; } }
 @media (min-width: 768px) {
   html, body, .container {
+    overflow: hidden;
     height: 100% !important;
     min-height: 100% !important;
     width: 100%; }
@@ -30327,6 +30327,7 @@ body {
       padding: 0 !important; } }
 @media (max-width: 767px) {
   html, body, .container {
+    overflow: hidden;
     height: 100% !important;
     min-height: 100% !important;
     width: 100%; }
