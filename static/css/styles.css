@@ -17823,10 +17823,13 @@ button.close {
           width: 28%;
           max-height: 28%;
           height: 28%; }
-        #profile #other_users .well h4 {
-          font-size: 1.4em;
-          padding-top: 0.7em;
-          padding-bottom: 0.7em; } }
+        #profile #other_users .well {
+          min-height: 100% !important;
+          min-width: 100% !important; }
+          #profile #other_users .well h4 {
+            font-size: 1.4em;
+            padding-top: 0.7em;
+            padding-bottom: 0.7em; } }
     @media (min-width: 992px) and (max-width: 1199px) {
       #profile #other_users {
         height: 100% !important;
@@ -17839,10 +17842,13 @@ button.close {
           width: 28%;
           max-height: 28%;
           height: 28%; }
-        #profile #other_users .well h4 {
-          font-size: 1.4em;
-          padding-top: 0.7em;
-          padding-bottom: 0.7em; } }
+        #profile #other_users .well {
+          min-height: 100% !important;
+          min-width: 100% !important; }
+          #profile #other_users .well h4 {
+            font-size: 1.4em;
+            padding-top: 0.7em;
+            padding-bottom: 0.7em; } }
     @media (min-width: 768px) and (max-width: 991px) {
       #profile #other_users {
         height: 250px !important;
@@ -17854,10 +17860,13 @@ button.close {
           min-height: 75%;
           max-height: 75%;
           height: 75%; }
-        #profile #other_users .well h4 {
-          font-size: 1em;
-          padding-top: 0.5em;
-          padding-bottom: 0.5em; }
+        #profile #other_users .well {
+          min-height: 100% !important;
+          min-width: 100% !important; }
+          #profile #other_users .well h4 {
+            font-size: 1em;
+            padding-top: 0.5em;
+            padding-bottom: 0.5em; }
         #profile #other_users #pagination {
           width: 100% !important;
           padding-left: auto;
@@ -17875,10 +17884,13 @@ button.close {
           min-height: 75%;
           max-height: 75%;
           height: 75%; }
-        #profile #other_users .well h4 {
-          font-size: 1em;
-          padding-top: 0.5em;
-          padding-bottom: 0.5em; }
+        #profile #other_users .well {
+          min-height: 100% !important;
+          min-width: 100% !important; }
+          #profile #other_users .well h4 {
+            font-size: 1em;
+            padding-top: 0.5em;
+            padding-bottom: 0.5em; }
         #profile #other_users #pagination {
           width: 100% !important;
           padding-left: auto;
@@ -17909,16 +17921,14 @@ button.close {
       margin: 5px;
       float: left;
       list-style-type: none;
-      position: relative;
-      overflow: hidden; }
+      position: relative; }
       #profile #other_users li .well {
         width: 100% !important;
         height: 100% !important;
         min-width: 100% !important;
         min-height: 100% !important;
         border: 3px solid white;
-        padding: 0;
-        overflow: hidden; }
+        padding: 0; }
         #profile #other_users li .well img {
           -webkit-transition: all 0.4s;
           -moz-transition: all 0.4s;
@@ -17932,8 +17942,7 @@ button.close {
           min-height: 100% !important;
           margin-top: 0;
           padding-top: 0;
-          padding: 0;
-          z-index: 100; }
+          padding: 0; }
         #profile #other_users li .well .user_title {
           -webkit-transition: all 0.4s;
           -moz-transition: all 0.4s;
@@ -17944,15 +17953,9 @@ button.close {
           min-width: 100% !important;
           height: 100% !important;
           min-height: 100% !important;
-          background-color: transparent;
-          z-index: 200; }
+          background-color: transparent; }
           #profile #other_users li .well .user_title h4 {
             background-color: #364347;
-            z-index: 300;
-            margin-top: auto;
-            margin-bottom: auto;
-            display: block;
-            vertical-align: bottom;
             text-align: center;
             color: white; }
         #profile #other_users li .well:hover img, #profile #other_users li .well:active img, #profile #other_users li .well:focus img {
@@ -17961,12 +17964,11 @@ button.close {
           -ms-filter: saturate(9);
           -o-filter: saturate(9);
           filter: saturate(9); }
-        #profile #other_users li .well:hover .well, #profile #other_users li .well:active .well, #profile #other_users li .well:focus .well {
-          border: 3px solid #FAD46B; }
-        #profile #other_users li .well:hover .user_title h4, #profile #other_users li .well:active .user_title h4, #profile #other_users li .well:focus .user_title h4 {
+        #profile #other_users li .well:hover h4, #profile #other_users li .well:active h4, #profile #other_users li .well:focus h4 {
           background-color: transparent;
           color: white;
-          vertical-align: middle; }
+          position: absolute;
+          top: 50%; }
   #profile #user_profile {
     height: 100% !important;
     min-height: 100% !important;

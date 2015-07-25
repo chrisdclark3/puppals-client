@@ -88,6 +88,8 @@
                 height: $well-size;
             }
             .well {
+                min-height: 100% !important;
+                min-width: 100% !important;
                 h4 {
                     font-size: $text-size;
                     padding-top: $text-size / 2;
@@ -108,6 +110,8 @@
                 height: $well-size;
             }
             .well {
+                min-height: 100% !important;
+                min-width: 100% !important;
                 h4 {
                     font-size: $text-size;
                     padding-top: $text-size / 2;
@@ -127,6 +131,8 @@
                 height: $sm-well-size;
             }
             .well {
+                min-height: 100% !important;
+                min-width: 100% !important;
                 h4 {
                     font-size: $sm-text-size;
                     padding-top: $sm-text-size / 2;
@@ -153,6 +159,8 @@
                 height: $sm-well-size;
             }
             .well {
+                min-height: 100% !important;
+                min-width: 100% !important;
                 h4 {
                     font-size: $sm-text-size;
                     padding-top: $sm-text-size / 2;
@@ -199,7 +207,6 @@
             float: left;
             list-style-type: none;
             position: relative;
-            overflow: hidden;
             .well {
                 width: 100% !important;
                 height: 100% !important;
@@ -207,7 +214,6 @@
                 min-height: 100% !important;
                 border: 3px solid white;
                 padding: 0;
-                overflow: hidden;
                 img {
                     @include vendorize('transition', all $speed);
                     position: absolute;
@@ -218,7 +224,6 @@
                     margin-top: 0;
                     padding-top: 0;
                     padding: 0;
-                    z-index: 100;
                 }
                 .user_title {
                     @include vendorize('transition', all $speed);
@@ -227,16 +232,11 @@
                     height: 100% !important;
                     min-height: 100% !important;
                     background-color: transparent;
-                    z-index: 200;
                     h4 {
                         background-color: $dark-grey;
-                        z-index: 300;
-                        margin-top: auto;
-                        margin-bottom: auto;
-                        display: block;
-                        vertical-align: bottom;
                         text-align: center;
                         color: white;
+                        top: 0;
                     }
                 }
                 &:hover,
@@ -245,13 +245,11 @@
                     img {
                         @include vendorize('filter', saturate(9));
                     }
-                    .well {
-                        border: 3px solid $yellow;
-                    }
-                    .user_title h4 {
+                    h4 {
                         background-color: transparent;
                         color: white;
-                        vertical-align: middle;
+                        position: absolute;
+                        top: 50%;
                     }
                 }
             }
