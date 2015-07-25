@@ -30088,6 +30088,9 @@ html, body, .container {
   min-height: 100% !important;
   width: 100%; }
 
+html, body {
+  background-color: #2B3538; }
+
 .modal-header {
   background-color: #364347; }
   .modal-header .modal-title {
