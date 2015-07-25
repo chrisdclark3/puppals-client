@@ -17818,8 +17818,9 @@ button.close {
           max-width: 28%;
           max-height: 28%; }
         #profile #other_users .user_title {
+          position: absolute;
           font-size: 1.2em;
-          bottom: 0.5em; }
+          bottom: 5px; }
         #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
           top: 14%; }
         #profile #other_users .well h4 {
@@ -17834,8 +17835,9 @@ button.close {
           max-width: 28%;
           max-height: 28%; }
         #profile #other_users .user_title {
+          position: absolute;
           font-size: 1.2em;
-          bottom: 0.5em; }
+          bottom: 5px; }
         #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
           top: 14%; }
         #profile #other_users .well h4 {
@@ -17851,8 +17853,9 @@ button.close {
           max-width: 28%;
           max-height: 28%; }
         #profile #other_users .user_title {
+          position: absolute;
           font-size: 1.2em;
-          bottom: 0.5em; }
+          bottom: 5px; }
         #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
           top: 14%; }
         #profile #other_users .well h4 {
@@ -17864,7 +17867,7 @@ button.close {
           padding-left: auto;
           padding-right: auto;
           display: block;
-          margin-bottom: 20px; } }
+          padding-bottom: 20px !important; } }
     @media (max-width: 767px) {
       #profile #other_users {
         height: 250px !important;
@@ -17874,8 +17877,9 @@ button.close {
           max-width: 28%;
           max-height: 28%; }
         #profile #other_users .user_title {
+          position: absolute;
           font-size: 1.2em;
-          bottom: 0.5em; }
+          bottom: 5px; }
         #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
           top: 14%; }
         #profile #other_users .well h4 {
@@ -17887,7 +17891,7 @@ button.close {
           padding-left: auto;
           padding-right: auto;
           display: block;
-          margin-bottom: 20px; }
+          padding-bottom: 20px; }
           #profile #other_users #pagination #pagination_wrapper {
             margin-left: auto;
             margin-right: auto;

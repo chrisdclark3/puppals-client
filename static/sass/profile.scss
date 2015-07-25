@@ -80,8 +80,9 @@
                 max-height: $well-size;
             }
             .user_title {
+                position: absolute;
                 font-size: $text-size;
-                bottom: 0.5em;
+                bottom: 5px;
             }
             .well {
                 &:hover, &:active, &:focus {
@@ -104,8 +105,9 @@
                 max-height: $well-size;
             }
             .user_title {
+                position: absolute;
                 font-size: $text-size;
-                bottom: 0.5em;
+                bottom: 5px;
             }
             .well {
                 &:hover, &:active, &:focus {
@@ -129,8 +131,9 @@
                 max-height: $well-size;
             }
             .user_title {
+                position: absolute;
                 font-size: $text-size;
-                bottom: 0.5em;
+                bottom: 5px;
             }
             .well {
                 &:hover, &:active, &:focus {
@@ -149,7 +152,7 @@
             	padding-left: auto;
             	padding-right: auto;
             	display: block;
-							margin-bottom: 20px;
+				padding-bottom: 20px !important;
             }
         }
         @include breakpoint('xs') {
@@ -161,8 +164,9 @@
                 max-height: $well-size;
             }
             .user_title {
+                position: absolute;
                 font-size: $text-size;
-                bottom: 0.5em;
+                bottom: 5px;
             }
             .well {
                 &:hover, &:active, &:focus {
@@ -181,7 +185,7 @@
             	padding-left: auto;
             	padding-right: auto;
             	display: block;
-				margin-bottom: 20px;
+				padding-bottom: 20px;
                 #pagination_wrapper {
                     margin-left: auto;
                     margin-right: auto;
