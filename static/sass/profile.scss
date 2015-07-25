@@ -36,10 +36,13 @@
     min-width: 100%;
     width: 100%;
     background-color: $yellow;
-    .row {
+
+    #profile_row {
         min-height: 100% !important;
         height: 100% !important;
+        padding-left: 16px !important;
     }
+
     #pagination {
        width: 100%;
        padding-left: auto;

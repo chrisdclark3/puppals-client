@@ -17784,9 +17784,10 @@ button.close {
   min-width: 100%;
   width: 100%;
   background-color: #FAD46B; }
-  #profile .row {
+  #profile #profile_row {
     min-height: 100% !important;
-    height: 100% !important; }
+    height: 100% !important;
+    padding-left: 16px !important; }
   #profile #pagination {
     width: 100%;
     padding-left: auto;
