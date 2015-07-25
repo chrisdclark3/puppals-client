@@ -76,8 +76,8 @@
         $text-size: 1.4em;
         $sm-text-size: 1em;
         @include breakpoint('lg') {
-            height: 100% !important;
-            width: 100% !important;
+            height: 100%;
+            width: 100%;
             li, .modal {
                 display: inline-block;
                 max-width: $well-size;
@@ -88,8 +88,8 @@
                 height: $well-size;
             }
             .well {
-                min-height: 100% !important;
-                min-width: 100% !important;
+                min-height: 100%;
+                min-width: 100%;
                 h4 {
                     font-size: $text-size;
                     padding-top: $text-size / 2;
@@ -98,8 +98,8 @@
             }
         }
         @include breakpoint('md') {
-            height: 100% !important;
-            width: 100% !important;
+            height: 100%;
+            width: 100%;
             li, .modal {
                 display: inline-block;
                 max-width: $well-size;
@@ -110,8 +110,8 @@
                 height: $well-size;
             }
             .well {
-                min-height: 100% !important;
-                min-width: 100% !important;
+                min-height: 100%;
+                min-width: 100%;
                 h4 {
                     font-size: $text-size;
                     padding-top: $text-size / 2;
@@ -120,7 +120,7 @@
             }
         }
         @include breakpoint('sm') {
-        		height: 250px !important;
+        		height: 250px;
         		display: block;
             li, .modal {
             	display: inline-block;
@@ -131,8 +131,8 @@
                 height: $sm-well-size;
             }
             .well {
-                min-height: 100% !important;
-                min-width: 100% !important;
+                min-height: 100%;
+                min-width: 100%;
                 h4 {
                     font-size: $sm-text-size;
                     padding-top: $sm-text-size / 2;
@@ -140,15 +140,15 @@
                 }
             }
             #pagination {
-            	width: 100% !important;
+            	width: 100%;
             	padding-left: auto;
             	padding-right: auto;
             	display: block;
-				padding-bottom: 20px !important;
+				padding-bottom: 20px;
             }
         }
         @include breakpoint('xs') {
-        		height: 200px !important;
+        		height: 200px;
         		display: block;
             li, .modal {
             	display: inline-block;
@@ -159,8 +159,8 @@
                 height: $sm-well-size;
             }
             .well {
-                min-height: 100% !important;
-                min-width: 100% !important;
+                min-height: 100%;
+                min-width: 100%;
                 h4 {
                     font-size: $sm-text-size;
                     padding-top: $sm-text-size / 2;
@@ -216,7 +216,6 @@
                 padding: 0;
                 img {
                     @include vendorize('transition', all $speed);
-                    position: absolute;
                     width: 100% !important;
                     min-width: 100% !important;
                     height: 100% !important;
@@ -232,6 +231,7 @@
                     height: 100% !important;
                     min-height: 100% !important;
                     background-color: transparent;
+                    position: absolute;
                     h4 {
                         background-color: $dark-grey;
                         text-align: center;
