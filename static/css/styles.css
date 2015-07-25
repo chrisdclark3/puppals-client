@@ -17817,7 +17817,6 @@ button.close {
         #profile #other_users li, #profile #other_users .modal {
           display: inline-block;
           max-width: 28%;
-          width: 28%;
           max-height: 28%;
           height: 28%; }
         #profile #other_users .well h4 {
@@ -17831,7 +17830,6 @@ button.close {
         #profile #other_users li, #profile #other_users .modal {
           display: inline-block;
           max-width: 28%;
-          width: 28%;
           max-height: 28%;
           height: 28%; }
         #profile #other_users .well h4 {
@@ -17846,7 +17844,6 @@ button.close {
           display: inline-block;
           overflow: auto;
           max-width: 75%;
-          width: 75%;
           max-height: 75%;
           height: 75%; }
         #profile #other_users .well h4 {
@@ -17867,7 +17864,6 @@ button.close {
           display: inline-block;
           overflow: auto;
           max-width: 75%;
-          width: 75%;
           max-height: 75%;
           height: 75%; }
         #profile #other_users .well h4 {
