@@ -206,6 +206,7 @@
                     height: 100% !important;
                     background-color: transparent;
                     display: block;
+                    padding-bottom: 2em;
                     h4 {
                         background-color: $dark-grey;
                         margin-top: auto;
@@ -225,8 +226,7 @@
                     .well {
                         border: 3px solid $yellow;
                     }
-                    .user_title,
-                    h4 {
+                    .user_title h4 {
                         background-color: transparent;
                         color: white;
                         vertical-align: middle;

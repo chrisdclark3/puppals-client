@@ -17923,7 +17923,8 @@ button.close {
           text-align: center;
           height: 100% !important;
           background-color: transparent;
-          display: block; }
+          display: block;
+          padding-bottom: 20px; }
           #profile #other_users li .well .user_title h4 {
             background-color: #364347;
             margin-top: auto;
@@ -17940,10 +17941,7 @@ button.close {
           filter: saturate(9); }
         #profile #other_users li .well:hover .well, #profile #other_users li .well:active .well, #profile #other_users li .well:focus .well {
           border: 3px solid #FAD46B; }
-        #profile #other_users li .well:hover .user_title,
-        #profile #other_users li .well:hover h4, #profile #other_users li .well:active .user_title,
-        #profile #other_users li .well:active h4, #profile #other_users li .well:focus .user_title,
-        #profile #other_users li .well:focus h4 {
+        #profile #other_users li .well:hover .user_title h4, #profile #other_users li .well:active .user_title h4, #profile #other_users li .well:focus .user_title h4 {
           background-color: transparent;
           color: white;
           vertical-align: middle; }
