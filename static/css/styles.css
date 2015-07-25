@@ -11721,12 +11721,6 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
-#home_users .col-xs-1, #home_users .col-xs-2, #home_users .col-xs-3, #home_users .col-xs-4, #home_users .col-xs-5, #home_users .col-xs-6, #home_users .col-xs-7, #home_users .col-xs-8, #home_users .col-xs-9, #home_users .col-xs-10, #home_users .col-xs-11, #home_users .col-xs-12,
-#home_users .col-sm-1, #home_users .col-sm-2, #home_users .col-sm-3, #home_users .col-sm-4, #home_users .col-sm-5, #home_users .col-sm-6, #home_users .col-sm-7, #home_users .col-sm-8, #home_users .col-sm-9, #home_users .col-sm-10, #home_users .col-sm-11, #home_users .col-sm-12,
-#home_users .col-md-1, #home_users .col-md-2, #home_users .col-md-3, #home_users .col-md-4, #home_users .col-md-5, #home_users .col-md-6, #home_users .col-md-7, #home_users .col-md-8, #home_users .col-md-9, #home_users .col-md-10, #home_users .col-md-11, #home_users .col-md-12,
-#home_users .col-lg-1, #home_users .col-lg-2, #home_users .col-lg-3, #home_users .col-lg-4, #home_users .col-lg-5, #home_users .col-lg-6, #home_users .col-lg-7, #home_users .col-lg-8, #home_users .col-lg-9, #home_users .col-lg-10, #home_users .col-lg-11, #home_users .col-lg-12 {
-  height: 100%;
-  min-height: 100%; }
 #home_users .row {
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -17790,12 +17784,6 @@ button.close {
   min-width: 100%;
   width: 100%;
   background-color: #FAD46B; }
-  #profile .col-xs-1, #profile .col-xs-2, #profile .col-xs-3, #profile .col-xs-4, #profile .col-xs-5, #profile .col-xs-6, #profile .col-xs-7, #profile .col-xs-8, #profile .col-xs-9, #profile .col-xs-10, #profile .col-xs-11, #profile .col-xs-12,
-  #profile .col-sm-1, #profile .col-sm-2, #profile .col-sm-3, #profile .col-sm-4, #profile .col-sm-5, #profile .col-sm-6, #profile .col-sm-7, #profile .col-sm-8, #profile .col-sm-9, #profile .col-sm-10, #profile .col-sm-11, #profile .col-sm-12,
-  #profile .col-md-1, #profile .col-md-2, #profile .col-md-3, #profile .col-md-4, #profile .col-md-5, #profile .col-md-6, #profile .col-md-7, #profile .col-md-8, #profile .col-md-9, #profile .col-md-10, #profile .col-md-11, #profile .col-md-12,
-  #profile .col-lg-1, #profile .col-lg-2, #profile .col-lg-3, #profile .col-lg-4, #profile .col-lg-5, #profile .col-lg-6, #profile .col-lg-7, #profile .col-lg-8, #profile .col-lg-9, #profile .col-lg-10, #profile .col-lg-11, #profile .col-lg-12 {
-    height: 100%;
-    min-height: 100%; }
   #profile #profile_row {
     min-height: 100% !important;
     height: 100% !important; }
@@ -17827,53 +17815,53 @@ button.close {
         height: 100% !important;
         width: 100% !important; }
         #profile #other_users li, #profile #other_users .modal {
-          max-width: 180px;
-          max-height: 180px; }
+          max-width: 28%;
+          max-height: 28%; }
         #profile #other_users .user_title {
-          font-size: 18px;
-          top: 108px;
-          margin-top: 18px; }
+          font-size: 1.2em;
+          top: 6.46154%;
+          margin-top: 1.2em; }
         #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
-          top: 54px; }
+          top: 14%; }
         #profile #other_users .well h4 {
-          font-size: 18px;
-          padding-top: 9px;
-          padding-bottom: 9px; } }
+          font-size: 1.2em;
+          padding-top: 0.6em;
+          padding-bottom: 0.6em; } }
     @media (min-width: 992px) and (max-width: 1199px) {
       #profile #other_users {
         height: 100% !important;
         width: 100% !important; }
         #profile #other_users li, #profile #other_users .modal {
-          max-width: 130px;
-          max-height: 130px; }
+          max-width: 28%;
+          max-height: 28%; }
         #profile #other_users .user_title {
-          font-size: 16px;
-          top: 66px;
-          margin-top: 16px; }
+          font-size: 1.2em;
+          top: 6.46154%;
+          margin-top: 1.2em; }
         #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
-          top: 33px; }
+          top: 14%; }
         #profile #other_users .well h4 {
-          font-size: 16px;
-          padding-top: 8px;
-          padding-bottom: 8px; } }
+          font-size: 1.2em;
+          padding-top: 0.6em;
+          padding-bottom: 0.6em; } }
     @media (min-width: 768px) and (max-width: 991px) {
       #profile #other_users {
         height: 250px !important;
         display: block; }
         #profile #other_users li, #profile #other_users .modal {
           display: inline;
-          max-width: 120px;
-          max-height: 120px; }
+          max-width: 28%;
+          max-height: 28%; }
         #profile #other_users .user_title {
-          font-size: 12px;
-          top: 72px;
-          margin-top: 12px; }
+          font-size: 1.2em;
+          top: 6.46154%;
+          margin-top: 1.2em; }
         #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
-          top: 36px; }
+          top: 14%; }
         #profile #other_users .well h4 {
-          font-size: 12px;
-          padding-top: 6px;
-          padding-bottom: 6px; }
+          font-size: 1.2em;
+          padding-top: 0.6em;
+          padding-bottom: 0.6em; }
         #profile #other_users #pagination {
           width: 100% !important;
           padding-left: auto;
@@ -17886,18 +17874,18 @@ button.close {
         display: block; }
         #profile #other_users li, #profile #other_users .modal {
           display: inline;
-          max-width: 120px;
-          max-height: 120px; }
+          max-width: 28%;
+          max-height: 28%; }
         #profile #other_users .user_title {
-          font-size: 12px;
-          top: 72px;
-          margin-top: 12px; }
+          font-size: 1.2em;
+          top: 6.46154%;
+          margin-top: 1.2em; }
         #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
-          top: 36px; }
+          top: 14%; }
         #profile #other_users .well h4 {
-          font-size: 12px;
-          padding-top: 6px;
-          padding-bottom: 6px; }
+          font-size: 1.2em;
+          padding-top: 0.6em;
+          padding-bottom: 0.6em; }
         #profile #other_users #pagination {
           width: 100% !important;
           padding-left: auto;
