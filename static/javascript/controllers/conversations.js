@@ -1,4 +1,4 @@
-function ConversationsController($modal, PaginationFactory, $scope, $rootScope, $location, UsersFactory, localStorageService, socket) {
+function ConversationsController($window, $modal, PaginationFactory, $scope, $rootScope, $location, UsersFactory, localStorageService, socket) {
 
   $scope.oneAtATime = true;
   var current_user;
@@ -83,7 +83,8 @@ function ConversationsController($modal, PaginationFactory, $scope, $rootScope, 
 
   function set_items_per_page (size) {
     var window_width = get_width();
-    if ( window_width < 992) {
+    console.log('WINDOW WIDTH', window_width);
+    if (window_width < 992) {
       $scope.items_per_page = 3;
     } else {
       $scope.items_per_page = 9;
@@ -92,7 +93,7 @@ function ConversationsController($modal, PaginationFactory, $scope, $rootScope, 
 
   function get_width () {
     return $window.innerWidth;
-  }
+  };
 
   function set_total_pages () {
     $scope.total_pages = Math.ceil($scope.total_items / $scope.items_per_page);
@@ -128,6 +129,6 @@ function ConversationsController($modal, PaginationFactory, $scope, $rootScope, 
 
 }
 
-ConversationsController.$inject = ["$modal", "PaginationFactory", "$scope", "$rootScope", "$location", "UsersFactory", "localStorageService", "socket"];
+ConversationsController.$inject = ["$window","$modal", "PaginationFactory", "$scope", "$rootScope", "$location", "UsersFactory", "localStorageService", "socket"];
 
 app.controller('ConversationsController', ConversationsController);
