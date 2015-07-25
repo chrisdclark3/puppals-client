@@ -71,9 +71,26 @@ p {
 }
 
 html, body, .container {
-    height: 100% !important;
-    min-height: 100% !important;
-    width: 100%;
+    @include breakpoint ('lg') {
+        height: 100% !important;
+        min-height: 100% !important;
+        width: 100%;
+    }
+    @include breakpoint ('md') {
+        height: 100% !important;
+        min-height: 100% !important;
+        width: 100%;
+    }
+    @include breakpoint ('sm') {
+        height: 100% !important;
+        min-height: 100% !important;
+        width: 100%;
+    }
+    @include breakpoint ('xs') {
+        height: 100% !important;
+        min-height: 100% !important;
+        width: 100%;
+    }
 }
 
 // MODAL and PANEL
