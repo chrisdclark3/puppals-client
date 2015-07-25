@@ -75,32 +75,7 @@ p {
     letter-spacing: auto;
 }
 
-html, body, .container {
-    @include breakpoint ('lg') {
-        background-color: transparent;
-        height: 100% !important;
-        min-height: 100% !important;
-        width: 100%;
-    }
-    @include breakpoint ('md') {
-        background-color: transparent;
-        height: 100% !important;
-        min-height: 100% !important;
-        width: 100%;
-    }
-    @include breakpoint ('sm') {
-        background-color: transparent;
-        height: 100% !important;
-        min-height: 100% !important;
-        width: 100%;
-    }
-    @include breakpoint ('xs') {
-        background-color: transparent;
-        height: 100% !important;
-        min-height: 100% !important;
-        width: 100%;
-    }
-}
+
 
 // MODAL and PANEL
 
@@ -259,18 +234,44 @@ html, body, .container {
   text-indent: 30px;
 }
 
-body, html {
-    padding-bottom: 0px;
-    margin-bottom: 0px;
-}
-
 body {
     border: 0.1px solid transparent;
 }
-.container {
-    padding-bottom: 40px !important;
-}
-.container:after {
-    margin: 0 !important;
-    padding: 0 !important;
+html, body, .container {
+    @include breakpoint ('lg') {
+        height: 100% !important;
+        min-height: 100% !important;
+        width: 100%;
+        &:after {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    }
+    @include breakpoint ('md') {
+        height: 100% !important;
+        min-height: 100% !important;
+        width: 100%;
+        &:after {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    }
+    @include breakpoint ('sm') {
+        height: 100% !important;
+        min-height: 100% !important;
+        width: 100%;
+        &:after {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    }
+    @include breakpoint ('xs') {
+        height: 100% !important;
+        min-height: 100% !important;
+        width: 100%;
+        &:after {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    }
 }

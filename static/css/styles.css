@@ -30129,31 +30129,6 @@ h1, h2, h3, h4, h5, h6 {
 p {
   letter-spacing: auto; }
 
-@media (min-width: 1200px) {
-  html, body, .container {
-    background-color: transparent;
-    height: 100% !important;
-    min-height: 100% !important;
-    width: 100%; } }
-@media (min-width: 992px) {
-  html, body, .container {
-    background-color: transparent;
-    height: 100% !important;
-    min-height: 100% !important;
-    width: 100%; } }
-@media (min-width: 768px) {
-  html, body, .container {
-    background-color: transparent;
-    height: 100% !important;
-    min-height: 100% !important;
-    width: 100%; } }
-@media (max-width: 767px) {
-  html, body, .container {
-    background-color: transparent;
-    height: 100% !important;
-    min-height: 100% !important;
-    width: 100%; } }
-
 .modal-header {
   background-color: #364347; }
   .modal-header .modal-title {
@@ -30323,18 +30298,40 @@ p {
 .input-group-icon .form-control {
   text-indent: 30px; }
 
-body, html {
-  padding-bottom: 0px;
-  margin-bottom: 0px; }
-
 body {
   border: 0.1px solid transparent; }
 
-.container {
-  padding-bottom: 20px !important; }
-
-.container:after {
-  margin: 0 !important;
-  padding: 0 !important; }
+@media (min-width: 1200px) {
+  html, body, .container {
+    height: 100% !important;
+    min-height: 100% !important;
+    width: 100%; }
+    html:after, body:after, .container:after {
+      margin: 0 !important;
+      padding: 0 !important; } }
+@media (min-width: 992px) {
+  html, body, .container {
+    height: 100% !important;
+    min-height: 100% !important;
+    width: 100%; }
+    html:after, body:after, .container:after {
+      margin: 0 !important;
+      padding: 0 !important; } }
+@media (min-width: 768px) {
+  html, body, .container {
+    height: 100% !important;
+    min-height: 100% !important;
+    width: 100%; }
+    html:after, body:after, .container:after {
+      margin: 0 !important;
+      padding: 0 !important; } }
+@media (max-width: 767px) {
+  html, body, .container {
+    height: 100% !important;
+    min-height: 100% !important;
+    width: 100%; }
+    html:after, body:after, .container:after {
+      margin: 0 !important;
+      padding: 0 !important; } }
 
 /*# sourceMappingURL=styles.css.map */
