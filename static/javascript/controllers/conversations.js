@@ -82,7 +82,16 @@ function ConversationsController($modal, PaginationFactory, $scope, $rootScope, 
 
 
   function set_items_per_page (size) {
-    $scope.items_per_page = 9;
+    var window_width = get_width();
+    if ( window_width < 992) {
+      $scope.items_per_page = 3;
+    } else {
+      $scope.items_per_page = 9;
+    }
+  }
+
+  function get_width () {
+    return $window.innerWidth;
   }
 
   function set_total_pages () {

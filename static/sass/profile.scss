@@ -71,10 +71,10 @@
            min-height: 100% !important;
            height: 100% !important;
         }
-        $well-size: 28%;
-        $sm-well-size: 75%;
+        $well-size: 30%;
+        $sm-well-size: 30%;
         $text-size: 1.4em;
-        $sm-text-size: 1em;
+        $sm-text-size: 1.2em;
         @include breakpoint('lg') {
             height: 100%;
             width: 100%;
@@ -196,15 +196,12 @@
             }
         }
         li {
-            max-width: 33%;
-            min-width: 33%;
-            min-height: 33%;
-            width: 33%;
-            max-height: 33%;
-            height: 33%;
+            width: 30%;
+            height: 30%;
             display: block;
             margin: 5px;
             float: left;
+            border: 3px solid white;
             list-style-type: none;
             position: relative;
             .well {
@@ -212,7 +209,6 @@
                 height: 100% !important;
                 min-width: 100% !important;
                 min-height: 100% !important;
-                border: 3px solid white;
                 padding: 0;
                 img {
                     @include vendorize('transition', all $speed);
@@ -231,14 +227,15 @@
                     height: 100% !important;
                     min-height: 100% !important;
                     background-color: transparent;
-                    position: absolute;
-                    bottom: 20px;
                     h4 {
                         background-color: $dark-grey;
+                        position: absolute;
                         text-align: center;
                         color: white;
                         margin: 0;
+                        padding: 0;
                         width: 100% !important;
+                        bottom: 10%;
                     }
                 }
                 &:hover,

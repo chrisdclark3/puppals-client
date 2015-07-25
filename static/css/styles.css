@@ -17817,12 +17817,12 @@ button.close {
         width: 100%; }
         #profile #other_users li, #profile #other_users .modal {
           display: inline-block;
-          max-width: 28%;
-          min-width: 28%;
-          min-height: 28%;
-          width: 28%;
-          max-height: 28%;
-          height: 28%; }
+          max-width: 30%;
+          min-width: 30%;
+          min-height: 30%;
+          width: 30%;
+          max-height: 30%;
+          height: 30%; }
         #profile #other_users .well {
           min-height: 100%;
           min-width: 100%; }
@@ -17836,12 +17836,12 @@ button.close {
         width: 100%; }
         #profile #other_users li, #profile #other_users .modal {
           display: inline-block;
-          max-width: 28%;
-          min-width: 28%;
-          min-height: 28%;
-          width: 28%;
-          max-height: 28%;
-          height: 28%; }
+          max-width: 30%;
+          min-width: 30%;
+          min-height: 30%;
+          width: 30%;
+          max-height: 30%;
+          height: 30%; }
         #profile #other_users .well {
           min-height: 100%;
           min-width: 100%; }
@@ -17855,18 +17855,18 @@ button.close {
         display: block; }
         #profile #other_users li, #profile #other_users .modal {
           display: inline-block;
-          max-width: 75%;
-          min-width: 75%;
-          min-height: 75%;
-          max-height: 75%;
-          height: 75%; }
+          max-width: 30%;
+          min-width: 30%;
+          min-height: 30%;
+          max-height: 30%;
+          height: 30%; }
         #profile #other_users .well {
           min-height: 100%;
           min-width: 100%; }
           #profile #other_users .well h4 {
-            font-size: 1em;
-            padding-top: 0.25em;
-            padding-bottom: 0.25em; }
+            font-size: 1.2em;
+            padding-top: 0.3em;
+            padding-bottom: 0.3em; }
         #profile #other_users #pagination {
           width: 100%;
           padding-left: auto;
@@ -17879,18 +17879,18 @@ button.close {
         display: block; }
         #profile #other_users li, #profile #other_users .modal {
           display: inline-block;
-          max-width: 75%;
-          min-width: 75%;
-          min-height: 75%;
-          max-height: 75%;
-          height: 75%; }
+          max-width: 30%;
+          min-width: 30%;
+          min-height: 30%;
+          max-height: 30%;
+          height: 30%; }
         #profile #other_users .well {
           min-height: 100%;
           min-width: 100%; }
           #profile #other_users .well h4 {
-            font-size: 1em;
-            padding-top: 0.25em;
-            padding-bottom: 0.25em; }
+            font-size: 1.2em;
+            padding-top: 0.3em;
+            padding-bottom: 0.3em; }
         #profile #other_users #pagination {
           width: 100% !important;
           padding-left: auto;
@@ -17911,15 +17911,12 @@ button.close {
         margin: 0;
         padding: 0; }
     #profile #other_users li {
-      max-width: 33%;
-      min-width: 33%;
-      min-height: 33%;
-      width: 33%;
-      max-height: 33%;
-      height: 33%;
+      width: 30%;
+      height: 30%;
       display: block;
       margin: 5px;
       float: left;
+      border: 3px solid white;
       list-style-type: none;
       position: relative; }
       #profile #other_users li .well {
@@ -17927,7 +17924,6 @@ button.close {
         height: 100% !important;
         min-width: 100% !important;
         min-height: 100% !important;
-        border: 3px solid white;
         padding: 0; }
         #profile #other_users li .well img {
           -webkit-transition: all 0.4s;
@@ -17952,15 +17948,16 @@ button.close {
           min-width: 100% !important;
           height: 100% !important;
           min-height: 100% !important;
-          background-color: transparent;
-          position: absolute;
-          bottom: 20px; }
+          background-color: transparent; }
           #profile #other_users li .well .user_title h4 {
             background-color: #364347;
+            position: absolute;
             text-align: center;
             color: white;
             margin: 0;
-            width: 100% !important; }
+            padding: 0;
+            width: 100% !important;
+            bottom: 10%; }
         #profile #other_users li .well:hover img, #profile #other_users li .well:active img, #profile #other_users li .well:focus img {
           -webkit-filter: saturate(9);
           -moz-filter: saturate(9);
