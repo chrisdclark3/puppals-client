@@ -30335,4 +30335,8 @@ body {
       margin: 0 !important;
       padding: 0 !important; } }
 
+#view, #include {
+  height: 100% !important;
+  min-height: 100% !important; }
+
 /*# sourceMappingURL=styles.css.map */
