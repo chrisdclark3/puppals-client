@@ -71,7 +71,8 @@
            height: 100% !important;
         }
         $well-size: 28%;
-        $text-size: 1.2em;
+        $sm-well-size: 75%;
+        $text-size: 1em;
         @include breakpoint('lg') {
             height: 100% !important;
             width: 100% !important;
@@ -127,8 +128,8 @@
         		display: block;
             li, .modal {
             	display: inline;
-                max-width: $well-size;
-                max-height: $well-size;
+                max-width: $sm-well-size;
+                max-height: $sm-well-size;
             }
             .user_title {
                 position: absolute;
@@ -138,7 +139,7 @@
             .well {
                 &:hover, &:active, &:focus {
                     .user_title {
-                        top: $well-size - $well-size / 2;
+                        top: $sm-well-size - $sm-well-size / 2;
                     }
                 }
                 h4 {
@@ -156,12 +157,12 @@
             }
         }
         @include breakpoint('xs') {
-        		height: 250px !important;
+        		height: 200px !important;
         		display: block;
             li, .modal {
             	display: inline;
-                max-width: $well-size;
-                max-height: $well-size;
+                max-width: $sm-well-size;
+                max-height: $sm-well-size;
             }
             .user_title {
                 position: absolute;
@@ -171,7 +172,7 @@
             .well {
                 &:hover, &:active, &:focus {
                     .user_title {
-                        top: $well-size  - $well-size / 2;
+                        top: $sm-well-size  - $sm-well-size / 2;
                     }
                 }
                 h4 {
