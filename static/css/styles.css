@@ -17956,8 +17956,9 @@ button.close {
             text-align: center;
             color: white;
             margin: 0;
-            width: 100% !important;
-            bottom: 10%; }
+            width: 98% !important;
+            bottom: 10%;
+            left: 1%; }
         #profile #other_users li .well:hover img, #profile #other_users li .well:active img, #profile #other_users li .well:focus img {
           -webkit-filter: saturate(9);
           -moz-filter: saturate(9);

@@ -103,8 +103,8 @@ function ConversationsController($window, $modal, PaginationFactory, $scope, $ro
     $scope.current_page = 1;
   }
 
-  $scope.$watch("$window.innerWidth", function () {
-    console.log("WINDOW WIDTH", $window.innerWidth);
+  $scope.$watch("window.innerWidth", function () {
+    console.log("WINDOW WIDTH", window.innerWidth);
     $scope.set_page();
   });
 
