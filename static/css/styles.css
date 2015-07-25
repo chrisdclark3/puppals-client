@@ -1,4 +1,8 @@
 @charset "UTF-8";
+#view, #include {
+  margin: 0;
+  padding: 0; }
+
 @font-face {
   font-family: "Clearly Solid";
   src: url("../fonts/clearly_solid.ttf"); }
@@ -30127,21 +30131,25 @@ p {
 
 @media (min-width: 1200px) {
   html, body, .container {
+    background-color: transparent;
     height: 100% !important;
     min-height: 100% !important;
     width: 100%; } }
 @media (min-width: 992px) {
   html, body, .container {
+    background-color: transparent;
     height: 100% !important;
     min-height: 100% !important;
     width: 100%; } }
 @media (min-width: 768px) {
   html, body, .container {
+    background-color: transparent;
     height: 100% !important;
     min-height: 100% !important;
     width: 100%; } }
 @media (max-width: 767px) {
   html, body, .container {
+    background-color: transparent;
     height: 100% !important;
     min-height: 100% !important;
     width: 100%; } }
@@ -30314,5 +30322,8 @@ p {
 
 .input-group-icon .form-control {
   text-indent: 30px; }
+
+body {
+  padding-bottom: 20px; }
 
 /*# sourceMappingURL=styles.css.map */

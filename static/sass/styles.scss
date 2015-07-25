@@ -1,3 +1,8 @@
+#view, #include {
+    margin: 0;
+    padding: 0;
+}
+
 @import "_bootstrap.scss";
 @import "home.scss";
 @import "profile.scss";
@@ -72,21 +77,25 @@ p {
 
 html, body, .container {
     @include breakpoint ('lg') {
+        background-color: transparent;
         height: 100% !important;
         min-height: 100% !important;
         width: 100%;
     }
     @include breakpoint ('md') {
+        background-color: transparent;
         height: 100% !important;
         min-height: 100% !important;
         width: 100%;
     }
     @include breakpoint ('sm') {
+        background-color: transparent;
         height: 100% !important;
         min-height: 100% !important;
         width: 100%;
     }
     @include breakpoint ('xs') {
+        background-color: transparent;
         height: 100% !important;
         min-height: 100% !important;
         width: 100%;
@@ -250,3 +259,6 @@ html, body, .container {
   text-indent: 30px;
 }
 
+body {
+    padding-bottom: 20px;
+}
