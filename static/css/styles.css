@@ -17828,8 +17828,8 @@ button.close {
           min-width: 100%; }
           #profile #other_users .well h4 {
             font-size: 1.4em;
-            padding-top: 0.7em;
-            padding-bottom: 0.7em; } }
+            padding-top: 0.35em;
+            padding-bottom: 0.35em; } }
     @media (min-width: 992px) and (max-width: 1199px) {
       #profile #other_users {
         height: 100%;
@@ -17847,8 +17847,8 @@ button.close {
           min-width: 100%; }
           #profile #other_users .well h4 {
             font-size: 1.4em;
-            padding-top: 0.7em;
-            padding-bottom: 0.7em; } }
+            padding-top: 0.35em;
+            padding-bottom: 0.35em; } }
     @media (min-width: 768px) and (max-width: 991px) {
       #profile #other_users {
         height: 250px;
@@ -17865,8 +17865,8 @@ button.close {
           min-width: 100%; }
           #profile #other_users .well h4 {
             font-size: 1em;
-            padding-top: 0.5em;
-            padding-bottom: 0.5em; }
+            padding-top: 0.25em;
+            padding-bottom: 0.25em; }
         #profile #other_users #pagination {
           width: 100%;
           padding-left: auto;
@@ -17889,8 +17889,8 @@ button.close {
           min-width: 100%; }
           #profile #other_users .well h4 {
             font-size: 1em;
-            padding-top: 0.5em;
-            padding-bottom: 0.5em; }
+            padding-top: 0.25em;
+            padding-bottom: 0.25em; }
         #profile #other_users #pagination {
           width: 100% !important;
           padding-left: auto;
@@ -17911,12 +17911,12 @@ button.close {
         margin: 0;
         padding: 0; }
     #profile #other_users li {
-      max-width: 28%;
-      min-width: 28%;
-      min-height: 28%;
-      width: 28%;
-      max-height: 28%;
-      height: 28%;
+      max-width: 33%;
+      min-width: 33%;
+      min-height: 33%;
+      width: 33%;
+      max-height: 33%;
+      height: 33%;
       display: block;
       margin: 5px;
       float: left;
@@ -17953,12 +17953,14 @@ button.close {
           height: 100% !important;
           min-height: 100% !important;
           background-color: transparent;
-          position: absolute; }
+          position: absolute;
+          bottom: 20px; }
           #profile #other_users li .well .user_title h4 {
             background-color: #364347;
             text-align: center;
             color: white;
-            top: 0; }
+            margin: 0;
+            width: 100% !important; }
         #profile #other_users li .well:hover img, #profile #other_users li .well:active img, #profile #other_users li .well:focus img {
           -webkit-filter: saturate(9);
           -moz-filter: saturate(9);
@@ -17968,8 +17970,7 @@ button.close {
         #profile #other_users li .well:hover h4, #profile #other_users li .well:active h4, #profile #other_users li .well:focus h4 {
           background-color: transparent;
           color: white;
-          position: absolute;
-          top: 50%; }
+          bottom: 40%; }
   #profile #user_profile {
     height: 100% !important;
     min-height: 100% !important;

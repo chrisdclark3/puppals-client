@@ -92,8 +92,8 @@
                 min-width: 100%;
                 h4 {
                     font-size: $text-size;
-                    padding-top: $text-size / 2;
-                    padding-bottom: $text-size / 2;
+                    padding-top: $text-size / 4;
+                    padding-bottom: $text-size / 4;
                 }
             }
         }
@@ -114,8 +114,8 @@
                 min-width: 100%;
                 h4 {
                     font-size: $text-size;
-                    padding-top: $text-size / 2;
-                    padding-bottom: $text-size / 2;
+                    padding-top: $text-size / 4;
+                    padding-bottom: $text-size / 4;
                 }
             }
         }
@@ -135,8 +135,8 @@
                 min-width: 100%;
                 h4 {
                     font-size: $sm-text-size;
-                    padding-top: $sm-text-size / 2;
-                    padding-bottom: $sm-text-size / 2;
+                    padding-top: $sm-text-size / 4;
+                    padding-bottom: $sm-text-size / 4;
                 }
             }
             #pagination {
@@ -163,8 +163,8 @@
                 min-width: 100%;
                 h4 {
                     font-size: $sm-text-size;
-                    padding-top: $sm-text-size / 2;
-                    padding-bottom: $sm-text-size / 2;
+                    padding-top: $sm-text-size / 4;
+                    padding-bottom: $sm-text-size / 4;
                 }
             }
             #pagination {
@@ -196,12 +196,12 @@
             }
         }
         li {
-            max-width: 28%;
-            min-width: 28%;
-            min-height: 28%;
-            width: 28%;
-            max-height: 28%;
-            height: 28%;
+            max-width: 33%;
+            min-width: 33%;
+            min-height: 33%;
+            width: 33%;
+            max-height: 33%;
+            height: 33%;
             display: block;
             margin: 5px;
             float: left;
@@ -232,11 +232,13 @@
                     min-height: 100% !important;
                     background-color: transparent;
                     position: absolute;
+                    bottom: 20px;
                     h4 {
                         background-color: $dark-grey;
                         text-align: center;
                         color: white;
-                        top: 0;
+                        margin: 0;
+                        width: 100% !important;
                     }
                 }
                 &:hover,
@@ -248,8 +250,7 @@
                     h4 {
                         background-color: transparent;
                         color: white;
-                        position: absolute;
-                        top: 50%;
+                        bottom: 40%;
                     }
                 }
             }
