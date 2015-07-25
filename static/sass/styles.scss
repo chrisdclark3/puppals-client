@@ -259,6 +259,8 @@ html, body, .container {
   text-indent: 30px;
 }
 
-body {
-    padding-bottom: 20px;
+body, html {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    font-size: 0;
 }
