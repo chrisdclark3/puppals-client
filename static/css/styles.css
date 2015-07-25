@@ -17818,6 +17818,8 @@ button.close {
         #profile #other_users li, #profile #other_users .modal {
           display: inline-block;
           max-width: 28%;
+          min-width: 28%;
+          min-height: 28%;
           width: 28%;
           max-height: 28%;
           height: 28%; }
@@ -17832,6 +17834,8 @@ button.close {
         #profile #other_users li, #profile #other_users .modal {
           display: inline-block;
           max-width: 28%;
+          min-width: 28%;
+          min-height: 28%;
           width: 28%;
           max-height: 28%;
           height: 28%; }
@@ -17846,6 +17850,8 @@ button.close {
         #profile #other_users li, #profile #other_users .modal {
           display: inline-block;
           max-width: 75%;
+          min-width: 75%;
+          min-height: 75%;
           max-height: 75%;
           height: 75%; }
         #profile #other_users .well h4 {
@@ -17865,6 +17871,8 @@ button.close {
         #profile #other_users li, #profile #other_users .modal {
           display: inline-block;
           max-width: 75%;
+          min-width: 75%;
+          min-height: 75%;
           max-height: 75%;
           height: 75%; }
         #profile #other_users .well h4 {
@@ -17891,6 +17899,12 @@ button.close {
         margin: 0;
         padding: 0; }
     #profile #other_users li {
+      max-width: 28%;
+      min-width: 28%;
+      min-height: 28%;
+      width: 28%;
+      max-height: 28%;
+      height: 28%;
       display: block;
       margin: 5px;
       float: left;
@@ -17898,7 +17912,7 @@ button.close {
       position: relative;
       overflow: hidden; }
       #profile #other_users li .well {
-        width: 100%;
+        width: 100% !important;
         border: 3px solid white;
         padding: 0;
         overflow: hidden; }
@@ -17923,15 +17937,11 @@ button.close {
           -ms-transition: all 0.4s;
           -o-transition: all 0.4s;
           transition: all 0.4s;
-          position: absolute;
           width: 100% !important;
           min-width: 100% !important;
           height: 100% !important;
           min-height: 100% !important;
-          text-align: center;
-          background-color: transparent;
-          display: block;
-          padding-bottom: 2em; }
+          background-color: transparent; }
           #profile #other_users li .well .user_title h4 {
             background-color: #364347;
             margin-top: auto;

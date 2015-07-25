@@ -81,6 +81,8 @@
             li, .modal {
                 display: inline-block;
                 max-width: $well-size;
+                min-width: $well-size;
+                min-height: $well-size;
                 width: $well-size;
                 max-height: $well-size;
                 height: $well-size;
@@ -99,6 +101,8 @@
             li, .modal {
                 display: inline-block;
                 max-width: $well-size;
+                min-width: $well-size;
+                min-height: $well-size;
                 width: $well-size;
                 max-height: $well-size;
                 height: $well-size;
@@ -117,6 +121,8 @@
             li, .modal {
             	display: inline-block;
                 max-width: $sm-well-size;
+                min-width: $sm-well-size;
+                min-height: $sm-well-size;
                 max-height: $sm-well-size;
                 height: $sm-well-size;
             }
@@ -141,6 +147,8 @@
             li, .modal {
             	display: inline-block;
                 max-width: $sm-well-size;
+                min-width: $sm-well-size;
+                min-height: $sm-well-size;
                 max-height: $sm-well-size;
                 height: $sm-well-size;
             }
@@ -180,6 +188,12 @@
             }
         }
         li {
+            max-width: 28%;
+            min-width: 28%;
+            min-height: 28%;
+            width: 28%;
+            max-height: 28%;
+            height: 28%;
             display: block;
             margin: 5px;
             float: left;
@@ -187,7 +201,7 @@
             position: relative;
             overflow: hidden;
             .well {
-                width: 100%;
+                width: 100% !important;
                 border: 3px solid white;
                 padding: 0;
                 overflow: hidden;
@@ -205,15 +219,11 @@
                 }
                 .user_title {
                     @include vendorize('transition', all $speed);
-                    position: absolute;
                     width: 100% !important;
                     min-width: 100% !important;
                     height: 100% !important;
                     min-height: 100% !important;
-                    text-align: center;
                     background-color: transparent;
-                    display: block;
-                    padding-bottom: 2em;
                     h4 {
                         background-color: $dark-grey;
                         margin-top: auto;

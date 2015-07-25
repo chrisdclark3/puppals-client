@@ -46,8 +46,8 @@
                 <ul class="row">
                     <li ng-repeat="user in paged_users" ng-click="open('md', user)">
                         <div class="well">
-                            <div class="user_title">
                             <img preload-image ng-src="{{ user.avatar_url  }}" class="img-responsive">
+                            <div class="user_title">
                                 <h4>{{user.first_name}} {{user.last_name}}</h4>
                             </div>
                         </div>
