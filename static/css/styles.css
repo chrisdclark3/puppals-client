@@ -17815,49 +17815,40 @@ button.close {
         height: 100% !important;
         width: 100% !important; }
         #profile #other_users li, #profile #other_users .modal {
+          display: inline-block;
           max-width: 28%;
-          max-height: 28%; }
-        #profile #other_users .user_title {
-          position: absolute;
-          font-size: 1em;
-          bottom: 5px; }
-        #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
-          top: 14%; }
+          width: 28%;
+          max-height: 28%;
+          height: 28%; }
         #profile #other_users .well h4 {
-          font-size: 1em;
-          padding-top: 0.5em;
-          padding-bottom: 0.5em; } }
+          font-size: 1.4em;
+          padding-top: 0.7em;
+          padding-bottom: 0.7em; } }
     @media (min-width: 992px) and (max-width: 1199px) {
       #profile #other_users {
         height: 100% !important;
         width: 100% !important; }
         #profile #other_users li, #profile #other_users .modal {
+          display: inline-block;
           max-width: 28%;
-          max-height: 28%; }
-        #profile #other_users .user_title {
-          position: absolute;
-          font-size: 1em;
-          bottom: 5px; }
-        #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
-          top: 14%; }
+          width: 28%;
+          max-height: 28%;
+          height: 28%; }
         #profile #other_users .well h4 {
-          font-size: 1em;
-          padding-top: 0.5em;
-          padding-bottom: 0.5em; } }
+          font-size: 1.4em;
+          padding-top: 0.7em;
+          padding-bottom: 0.7em; } }
     @media (min-width: 768px) and (max-width: 991px) {
       #profile #other_users {
         height: 250px !important;
         display: block; }
         #profile #other_users li, #profile #other_users .modal {
-          display: inline;
+          display: inline-block;
+          overflow: auto;
           max-width: 75%;
-          max-height: 75%; }
-        #profile #other_users .user_title {
-          position: absolute;
-          font-size: 1em;
-          bottom: 5px; }
-        #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
-          top: 37.5%; }
+          width: 75%;
+          max-height: 75%;
+          height: 75%; }
         #profile #other_users .well h4 {
           font-size: 1em;
           padding-top: 0.5em;
@@ -17873,15 +17864,12 @@ button.close {
         height: 200px !important;
         display: block; }
         #profile #other_users li, #profile #other_users .modal {
-          display: inline;
+          display: inline-block;
+          overflow: auto;
           max-width: 75%;
-          max-height: 75%; }
-        #profile #other_users .user_title {
-          position: absolute;
-          font-size: 1em;
-          bottom: 5px; }
-        #profile #other_users .well:hover .user_title, #profile #other_users .well:active .user_title, #profile #other_users .well:focus .user_title {
-          top: 37.5%; }
+          width: 75%;
+          max-height: 75%;
+          height: 75%; }
         #profile #other_users .well h4 {
           font-size: 1em;
           padding-top: 0.5em;
@@ -17937,14 +17925,15 @@ button.close {
           position: absolute;
           width: 100%;
           text-align: center;
-          height: 100%;
-          background-color: transparent; }
+          height: 100% !important;
+          background-color: transparent;
+          display: block; }
           #profile #other_users li .well .user_title h4 {
             background-color: #364347;
             margin-top: auto;
             margin-bottom: auto;
-            vertical-align: middle;
             display: block;
+            vertical-align: bottom;
             text-align: center;
             color: white; }
         #profile #other_users li .well:hover img, #profile #other_users li .well:active img, #profile #other_users li .well:focus img {
@@ -17960,7 +17949,8 @@ button.close {
         #profile #other_users li .well:active h4, #profile #other_users li .well:focus .user_title,
         #profile #other_users li .well:focus h4 {
           background-color: transparent;
-          color: white; }
+          color: white;
+          vertical-align: middle; }
   #profile #user_profile {
     height: 100% !important;
     min-height: 100% !important;
