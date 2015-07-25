@@ -17810,6 +17810,8 @@ button.close {
       margin-left: auto;
       margin-right: auto;
       background-color: #FAD46B; }
+  #profile #other_users_header {
+    padding-left: 16px !important; }
   #profile #other_users {
     min-height: 100% !important;
     height: 100% !important;
@@ -30300,7 +30302,6 @@ body {
 
 @media (min-width: 1200px) {
   html, body, .container {
-    overflow: hidden;
     height: 100% !important;
     min-height: 100% !important;
     width: 100%; }
@@ -30309,7 +30310,6 @@ body {
       padding: 0 !important; } }
 @media (min-width: 992px) {
   html, body, .container {
-    overflow: hidden;
     height: 100% !important;
     min-height: 100% !important;
     width: 100%; }
@@ -30318,7 +30318,6 @@ body {
       padding: 0 !important; } }
 @media (min-width: 768px) {
   html, body, .container {
-    overflow: hidden;
     height: 100% !important;
     min-height: 100% !important;
     width: 100%; }
@@ -30327,7 +30326,6 @@ body {
       padding: 0 !important; } }
 @media (max-width: 767px) {
   html, body, .container {
-    overflow: hidden;
     height: 100% !important;
     min-height: 100% !important;
     width: 100%; }

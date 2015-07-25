@@ -234,7 +234,6 @@ body {
 }
 html, body, .container {
     @include breakpoint ('lg') {
-        overflow: hidden;
         height: 100% !important;
         min-height: 100% !important;
         width: 100%;
@@ -244,7 +243,6 @@ html, body, .container {
         }
     }
     @include breakpoint ('md') {
-        overflow: hidden;
         height: 100% !important;
         min-height: 100% !important;
         width: 100%;
@@ -254,7 +252,6 @@ html, body, .container {
         }
     }
     @include breakpoint ('sm') {
-        overflow: hidden;
         height: 100% !important;
         min-height: 100% !important;
         width: 100%;
@@ -264,7 +261,6 @@ html, body, .container {
         }
     }
     @include breakpoint ('xs') {
-        overflow: hidden;
         height: 100% !important;
         min-height: 100% !important;
         width: 100%;
