@@ -17798,9 +17798,7 @@ button.close {
     min-height: 100%; }
   #profile #profile_row {
     min-height: 100% !important;
-    height: 100% !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important; }
+    height: 100% !important; }
   #profile #pagination {
     width: 100%;
     padding-left: auto;
@@ -17817,6 +17815,7 @@ button.close {
     height: 100% !important;
     min-width: 100%;
     width: 100%;
+    padding-left: 16px !important;
     width: 100%; }
     #profile #other_users .row {
       min-height: 100% !important;
