@@ -81,8 +81,7 @@
             }
             .user_title {
                 font-size: $text-size;
-                top: $well-size - $well-size / 1.3;
-                margin-top: $text-size;
+                bottom: 0.5em;
             }
             .well {
                 &:hover, &:active, &:focus {
@@ -106,8 +105,7 @@
             }
             .user_title {
                 font-size: $text-size;
-                top: $well-size - $well-size / 1.3;
-                margin-top: $text-size;
+                bottom: 0.5em;
             }
             .well {
                 &:hover, &:active, &:focus {
@@ -132,8 +130,7 @@
             }
             .user_title {
                 font-size: $text-size;
-                top: $well-size - $well-size / 1.3;
-                margin-top: $text-size;
+                bottom: 0.5em;
             }
             .well {
                 &:hover, &:active, &:focus {
@@ -165,8 +162,7 @@
             }
             .user_title {
                 font-size: $text-size;
-                top: $well-size - $well-size / 1.3;
-                margin-top: $text-size;
+                bottom: 0.5em;
             }
             .well {
                 &:hover, &:active, &:focus {
