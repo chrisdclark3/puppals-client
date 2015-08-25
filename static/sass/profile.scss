@@ -54,7 +54,6 @@
             min-height: 100% !important;
             width: 50%;
             display: block;
-
             #all_other_users {
                 min-height: 100%;
                 display: table;
@@ -88,9 +87,8 @@
                                 height: 100%;
                                 margin: 0;
                                 padding: 0;
-
                                 &:hover, &:active, &:focus {
-                                    @include vendorize('filter', saturate(10));
+
                                 }
                             }
                             .user_title {
@@ -99,23 +97,28 @@
                                 width: 100%;
                                 height: 100%;
                                 background-color: transparent;
+                            }
+                            h4 {
+                                @include vendorize('transition', all $speed);
+                                background-color: $dark-grey;
+                                position: absolute;
+                                text-align: center;
+                                color: white;
+                                width: 98% !important;
+                                bottom: 10%;
+                                left: 1%;
+                                font-size: $text-size;
+                                padding-top: $text-size / 4;
+                                padding-bottom: $text-size / 4;
+                            }
+                            &:hover, &:active, &:focus {
                                 h4 {
-                                    @include vendorize('transition', all $speed);
-                                    background-color: $dark-grey;
-                                    position: absolute;
-                                    text-align: center;
+                                    background-color: transparent;
                                     color: white;
-                                    width: 98% !important;
-                                    bottom: 10%;
-                                    left: 1%;
-                                    font-size: $text-size;
-                                    padding-top: $text-size / 4;
-                                    padding-bottom: $text-size / 4;
-                                    &:hover, &:active, &:focus {
-                                        background-color: transparent;
-                                        color: white;
-                                        bottom: 40%;
-                                    }
+                                    bottom: 40%;
+                                }
+                                img {
+                                    @include vendorize('filter', saturate(10));
                                 }
                             }
                         }
