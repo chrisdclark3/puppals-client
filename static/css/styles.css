@@ -11722,8 +11722,8 @@ button.close {
   .hidden-print {
     display: none !important; } }
 #home_users {
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
   margin-top: 50px !important;
   margin-bottom: -50px !important; }
   #home_users .row {
@@ -11874,13 +11874,15 @@ button.close {
     padding: 15px;
     color: #364347; }
   @media (max-width: 767px) {
+    #home_users .page_wrapper {
+      height: auto; }
     #home_users .image_helper, #home_users .user_image, #home_users .dog_image {
       max-width: 0; }
-    #home_users #google_maps, #home_users #maps {
+    #home_users #google_map, #home_users #maps {
       position: relative;
-      display: block;
+      display: inline-block;
       width: 100%;
-      height: 60vh; }
+      min-height: 60vh; }
     #home_users #directions_panel {
       width: 40%;
       max-height: 100% !important;
@@ -11888,11 +11890,13 @@ button.close {
       text-overflow: ellipsis;
       white-space: nowrap; } }
   @media (min-width: 768px) and (max-width: 992px) {
-    #home_users #google_maps, #home_users #maps {
+    #home_users .page_wrapper {
+      height: auto; }
+    #home_users #google_map, #home_users #maps {
       position: relative;
-      display: block;
+      display: inline-block;
       width: 100%;
-      height: 60vh; }
+      min-height: 60vh; }
     #home_users #directions_panel {
       width: 40%;
       max-height: 100% !important;
@@ -17784,32 +17788,38 @@ button.close {
   .hidden-print {
     display: none !important; } }
 #profile {
+  position: absolute;
   min-height: 100%;
   width: 100%;
   background-color: #FAD46B;
-  padding-top: 50px !important; }
+  padding-top: 50px !important;
+  margin-bottom: -100px !important; }
   #profile #profile_row {
-    height: 100%;
-    width: 100%; }
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #FAD46B; }
     #profile #profile_row #other_users_wrapper {
-      height: 100%;
+      min-height: 100% !important;
       width: 50%;
-      display: block;
-      background-color: #FAD46B; }
+      display: block; }
       #profile #profile_row #other_users_wrapper #all_other_users {
-        height: 100%;
+        min-height: 100%;
         display: table;
-        margin: auto;
+        margin: 0 auto;
         width: auto; }
         #profile #profile_row #other_users_wrapper #all_other_users #other_users_header {
           width: auto;
-          padding: 27px 8px 16px 8px; }
+          padding: 16px 8px 16px 8px;
+          margin: 0;
+          margin-left: 6%; }
         #profile #profile_row #other_users_wrapper #all_other_users #other_users {
-          height: 100%;
+          min-height: 100%;
           width: 100%; }
           #profile #profile_row #other_users_wrapper #all_other_users #other_users li {
             list-style-type: none;
-            display: table-cell;
             margin: 5px;
             float: left;
             position: relative;
@@ -17817,8 +17827,8 @@ button.close {
             width: 30%;
             height: 30%; }
             #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well {
-              width: 100%;
-              height: 100%;
+              width: 100% !important;
+              height: 100% !important;
               padding: 0;
               margin-bottom: 0 !important; }
               #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well img {
@@ -17838,6 +17848,7 @@ button.close {
                   -o-filter: saturate(10);
                   filter: saturate(10); }
               #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well .user_title {
+                z-index: 100;
                 -webkit-transition: all 0.7s;
                 -moz-transition: all 0.7s;
                 -ms-transition: all 0.7s;
@@ -17866,44 +17877,65 @@ button.close {
                     background-color: transparent;
                     color: white;
                     bottom: 40%; }
-        @media (min-width: 768px) and (max-width: 991px) {
-          #profile #profile_row #other_users_wrapper #all_other_users {
-            height: 250px;
-            width: 100%; }
-            #profile #profile_row #other_users_wrapper #all_other_users #other_users li, #profile #profile_row #other_users_wrapper #all_other_users #other_users .modal {
+      @media (min-width: 768px) and (max-width: 991px) {
+        #profile #profile_row #other_users_wrapper {
+          max-height: 100vh;
+          min-width: 100%;
+          display: block; }
+          #profile #profile_row #other_users_wrapper .page_wrapper {
+            height: auto; }
+          #profile #profile_row #other_users_wrapper #other_users, #profile #profile_row #other_users_wrapper #all_other_users {
+            min-width: 100%;
+            height: 100%;
+            display: block; }
+            #profile #profile_row #other_users_wrapper #other_users li, #profile #profile_row #other_users_wrapper #other_users .modal, #profile #profile_row #other_users_wrapper #all_other_users li, #profile #profile_row #other_users_wrapper #all_other_users .modal {
               display: inline-block;
               width: 30%;
               height: 30%; }
-            #profile #profile_row #other_users_wrapper #all_other_users #other_users .well h4 {
+            #profile #profile_row #other_users_wrapper #other_users .well h4, #profile #profile_row #other_users_wrapper #all_other_users .well h4 {
               font-size: 1.2em;
               padding-top: 0.3em;
               padding-bottom: 0.3em; } }
-        @media (max-width: 767px) {
-          #profile #profile_row #other_users_wrapper #all_other_users {
-            height: 200px;
-            width: 100%; }
-            #profile #profile_row #other_users_wrapper #all_other_users #other_users li, #profile #profile_row #other_users_wrapper #all_other_users #other_users .modal {
+      @media (max-width: 767px) {
+        #profile #profile_row #other_users_wrapper {
+          max-height: 100vh;
+          min-width: 100%;
+          display: block; }
+          #profile #profile_row #other_users_wrapper .page_wrapper {
+            height: auto; }
+          #profile #profile_row #other_users_wrapper #other_users, #profile #profile_row #other_users_wrapper #all_other_users {
+            min-width: 100%;
+            height: 100%;
+            display: block; }
+            #profile #profile_row #other_users_wrapper #other_users li, #profile #profile_row #other_users_wrapper #other_users .modal, #profile #profile_row #other_users_wrapper #all_other_users li, #profile #profile_row #other_users_wrapper #all_other_users .modal {
               display: inline-block;
               width: 30%;
               height: 30%; }
-            #profile #profile_row #other_users_wrapper #all_other_users #other_users .well h4 {
+            #profile #profile_row #other_users_wrapper #other_users .well h4, #profile #profile_row #other_users_wrapper #all_other_users .well h4 {
               font-size: 1.2em;
               padding-top: 0.3em;
               padding-bottom: 0.3em; } }
     #profile #profile_row #user_profile {
       height: 100%;
       background-color: white;
+      position: absolute;
+      right: 0;
+      width: 50%;
       /* Messages */ }
+      #profile #profile_row #user_profile #conversation {
+        height: 100%; }
       @media (max-width: 767px) {
         #profile #profile_row #user_profile {
+          position: relative;
+          width: 100%;
           clear: both;
-          display: block;
-          height: 300px; } }
+          display: block; } }
       @media (min-width: 768px) and (max-width: 991px) {
         #profile #profile_row #user_profile {
+          position: relative;
+          width: 100%;
           clear: both;
-          display: block;
-          height: 300px; } }
+          display: block; } }
       #profile #profile_row #user_profile h3, #profile #profile_row #user_profile p, #profile #profile_row #user_profile h5 {
         padding-left: 16px;
         color: #364347;
@@ -30223,7 +30255,9 @@ html, body, .container, #view {
 
 .page_wrapper {
   min-width: 100%;
-  margin-bottom: 2em; }
+  height: 100%;
+  margin: 1em 0;
+  display: block; }
   .page_wrapper .page_inner {
     width: auto;
     display: table !important;

@@ -1,10 +1,9 @@
-function MapsController($modal, $window, PaginationFactory, $modal, $scope, $rootScope, $location, UsersFactory, MapsFactory, GoogleDistanceMatrixService, localStorageService, socket, $filter, $q) {
+app.controller('MapsController', function($modal, FilterFactory, $window, PaginationFactory, $modal, $scope, $rootScope, $location, UsersFactory, MapsFactory, GoogleDistanceMatrixService, localStorageService, socket, $filter, $q) {
     var address_data, locations, center, map, infowindow, marker, panning;
     $scope.current_user = localStorageService.get('current_user');
     var current_user = localStorageService.get('current_user');
     $scope.users = localStorageService.get('users');
     var users = localStorageService.get('users');
-    var other_users;
 
     if ($scope.current_page == undefined || $scope.current_page == null) {
         $scope.current_page = 1;
@@ -18,56 +17,16 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
         $scope.filtered_users = localStorageService.get('other_users');
     }
 
-    $scope.filter_by_distance = false;
-    $scope.distance_filter = function() {
-        if ($scope.filter_by_distance == false) {
-            $scope.filter_by_distance = true;
-        } else {
-            $scope.filter_by_distance = false;
-        }
-    };
-
-    $scope.one_mile = false;
-    $scope.one_half_mile = false;
-    $scope.one_quarter_mile = false;
-    $scope.under_distance = function(d) {
-        if (d == "one") {
-            if ($scope.one_mile == false) {
-                $scope.one_mile = true;
-            } else if ($scope.one_mile == true) {
-                $scope.one_mile = false;
-            }
-        }
-        if (d == "one_half") {
-            if ($scope.one_half_mile == false) {
-                $scope.one_half_mile = true;
-            } else if ($scope.one_half_mile == true) {
-                $scope.one_half_mile = false;
-            }
-        }
-        if (d == "one_quarter") {
-            if ($scope.one_quarter_mile == false) {
-                $scope.one_quarter_mile = true;
-                console.log($scope.one_quarter_mile);
-            } else if ($scope.one_quarter_mile == true) {
-                $scope.one_quarter_mile = false;
-                console.log($scope.one_quarter_mile);
-            }
-        }
-    };
-
     $scope.initialize = function() {
-        other_users = [];
-        $scope.show_route = {};
-        for (var i = 0; i < users.length; i++) {
-            if ($scope.current_user.id != users[i].id) {
-                other_users.push(users[i]);
+        var other_users = users;
+        for (var i=0; i < other_users.length; i++) {
+            if (other_users[i].id == $scope.current_user.id) {
+                other_users.splice(i, 1);
             }
         }
-        localStorageService.set('other_users', other_users);
         $scope.other_users = other_users;
-        if ($scope.distance_data_received != true) {
 
+        if ($scope.distance_data_received != true) {
             GoogleDistanceMatrixService.calculate_distances($scope.current_user.address, $scope.other_users, function(users) {
                 $scope.$apply(function() {
                     $scope.distance_data_received = true;
@@ -189,6 +148,7 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
                 });
                 return new_marker;
             }();
+            FilterFactory.filtered_users($scope.other_users, $scope.breed);
         }
 
         function place_markers(locs) {
@@ -273,109 +233,38 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
         };
     }; // function intialize()
 
-    age_includes = ['puppy', 'young', 'adult', 'senior'];
-    size_includes = ['XS', 'S', 'M', 'L', 'XL'];
-
     $scope.include_age = function(age) {
-        if (age_includes.indexOf(age) != -1) {
-            age_includes.splice(age_includes.indexOf(age), 1);
-        } else {
-            age_includes.push(age);
-        }
+        FilterFactory.include_age(age);
     };
 
     $scope.include_size = function(size) {
-        if (size_includes.indexOf(size) != -1) {
-            size_includes.splice(size_includes.indexOf(size), 1);
-        } else {
-            size_includes.push(size);
-        }
+        FilterFactory.include_size(size);
+    };
+
+    $scope.under_distance = function(distance) {
+        FilterFactory.under_distance(distance);
+    };
+
+    $scope.distance_filter = function() {
+        FilterFactory.distance_filter();
     };
 
     if ($scope.filtered_users === undefined || $scope.filtered_users === null) {
         $scope.filtered_users = localStorageService.get('other_users');
     }
 
-    $scope.search = function(some_users) {
-        var promise = $q.defer();
-        console.log("RUNNING SEARCH FILTER...");
-        var fil_users = [];
-        for (var i = 0; i < some_users.length; i++) {
-
-            var age_category = "";
-            var dog_age = some_users[i].dogs[0].age;
-            var search_exp = new RegExp($scope.breed, 'i');
-
-            switch (true) {
-                case dog_age <= 1:
-                    age_category = "puppy";
-                    break;
-                case dog_age > 1 && dog_age <= 5:
-                    age_category = "young";
-                    break;
-                case dog_age > 5 && dog_age <= 10:
-                    age_category = "adult";
-                    break;
-                case dog_age > 10:
-                    age_category = "senior";
-                    break;
-            }
-            if (age_includes.length > 0) {
-                if (age_includes.indexOf(age_category) == -1) {
-                    continue;
-                }
-            }
-            if (size_includes.length > 0) {
-                if (size_includes.indexOf(some_users[i].dogs[0].size) == -1) {
-                    continue;
-                }
-            }
-
-            if ($scope.breed != undefined && $scope.breed.length != 0) {
-                if (!search_exp.test(some_users[i].dogs[0].breed)) {
-                    continue;
-                }
-            }
-
-            if ($scope.one_mile == true) {
-                if (some_users[i].distance_data.distance.value > 1610) {
-                    continue;
-                }
-            }
-
-            if ($scope.one_half_mile == true) {
-                if (some_users[i].distance_data.distance.value > 805) {
-                    continue;
-                }
-            }
-
-            if ($scope.one_quarter_mile == true) {
-                if (some_users[i].distance_data.distance.value > 405) {
-                    continue;
-                }
-            }
-
-            fil_users.push(some_users[i]);
-        }
-
-        if ($scope.filter_by_distance == true) {
-            fil_users.sort(function(a, b) {
-                if (a.distance_data.distance.value < b.distance_data.distance.value) {
-                    return -1;
-                }
-                if (a.distance_data.distance.value > b.distance_data.distance.value) {
-                    return 1;
-                }
-                if (a.distance_data.distance.value == b.distance_data.distance.value) {
-                    return 0;
-                }
-            });
-        }
-        $scope.filtered_users = fil_users;
-        $scope.total_items = $scope.filtered_users.length;
-        localStorageService.set('filtered_users', fil_users);
-        promise.resolve($scope.set_page());
+    $scope.filter_users = function (users) {
+        FilterFactory.filter_users(users, $scope.breed);
     };
+
+    $scope.filter_users($scope.filtered_users);
+
+    $scope.$on('filtered_users', function (event, users) {
+        console.log("filtering...", users);
+        $scope.filtered_users = users;
+        $scope.total_items = users.length;
+        $scope.set_page();
+    });
 
     if ($scope.current_page === undefined || $scope.current_page === null) {
         $scope.current_page = 1;
@@ -412,9 +301,4 @@ function MapsController($modal, $window, PaginationFactory, $modal, $scope, $roo
     $scope.dismiss = function() {
         $scope.modalInstance.dismiss();
     };
-
-}
-
-MapsController.$inject = ["$modal", "$window", "PaginationFactory", "$modal", "$scope", "$rootScope", "$location", "UsersFactory", "MapsFactory", "GoogleDistanceMatrixService", "localStorageService", "socket", "$filter", "$q"];
-
-app.controller('MapsController', MapsController);
+});

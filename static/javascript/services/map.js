@@ -3,8 +3,6 @@ app.factory('MapsFactory', function ($http, $rootScope, $log, $q) {
   var factory = {};
   factory.distances = [];
 
-
-
   factory.get_route = function (org, user, callback) {
     var dir_service = new google.maps.DirectionsService();
     route_query = {
@@ -19,8 +17,6 @@ app.factory('MapsFactory', function ($http, $rootScope, $log, $q) {
       };
     });
   };
-
-
 
   factory.get_locations = function (users) {
     var arr = [];

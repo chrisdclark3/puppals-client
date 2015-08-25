@@ -241,7 +241,9 @@ html, body, .container, #view {
 
 .page_wrapper {
     min-width: 100%;
-    margin-bottom: 2em;
+    height: 100%;
+    margin: 1em 0;
+    display: block;
     .page_inner {
         width: auto;
         display: table !important;

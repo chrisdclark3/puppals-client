@@ -1,6 +1,6 @@
 <div ng-include src="'views/navbar.html'"></div>
 <div class="container" id="profile" ng-controller="ConversationsController" ng-init="get_conversations(); set_page();">
-    <div id="profile_row">
+    <div class="row" id="profile_row">
         <div id="other_users_wrapper" class="col-xs-12 col-sm-12 col-md-6">
             <div class="row" id="all_other_users">
                 <h3 id="other_users_header">Users</h3>
@@ -17,7 +17,7 @@
             </div>
             <div class="page_wrapper">
                 <div class="page_inner">
-                    <pagination class="pagination" boundary-links="true" total-items="total_items" items-per-page="items_per_page" ng-model="current_page" ng-change="set_page();" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+                    <pagination class="pagination" max-size="5" boundary-links="true" total-items="total_items" items-per-page="items_per_page" ng-model="current_page" ng-change="set_page();" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                     <div class="col-xs-6"><img preload-image src="{{current_user.dogs[0].avatar_url }}" alt=""></div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="conversations">
                 <h3 id="messages_header">Messages</h3>
                 <accordion close-others="oneAtATime" id="messages_wrapper">
                     <accordion-group ng-repeat="conversation in conversations track by $index">
