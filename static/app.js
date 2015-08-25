@@ -1,5 +1,5 @@
 
-app = angular.module('app', ['ui.bootstrap', 'ngSanitize', 'ngFileUpload', 'ngRoute', 'LocalStorageModule', 'angular-preload-image']);
+app = angular.module('app', ['ui.bootstrap', 'ngFileUpload', 'ngRoute', 'LocalStorageModule', 'angular-preload-image']);
 
 app.config(['$httpProvider', function ($httpProvider) {
   $httpProvider.defaults.useXDomain = true;
