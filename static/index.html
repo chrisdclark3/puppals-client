@@ -6,7 +6,6 @@
 		<link rel="stylesheet" href="css/_bootstrap.css">
 		<link rel="stylesheet" href="css/styles.css">
 		<link rel="icon" href="favicon.ico">
-		<script src="//maps.googleapis.com/maps/api/js"></script>
 		<script src="javascript/helpers/angular.min.js"></script>
 		<script src="javascript/helpers/angular-route.min.js"></script>
 		<script src="javascript/helpers/socket.io.js"></script>
@@ -17,13 +16,13 @@
 		<script src="javascript/helpers/ui-bootstrap.min.js"></script>
 		<script src="app.js"></script>
 		<script src='javascript/controllers/users.js'></script>
-		<script src="javascript/directives/pagination.js"></script>
-		<script src='javascript/directives/user.js'></script>
+		<script src="javascript/services/pagination.js"></script>
+		<script src='javascript/services/user.js'></script>
 		<script src='javascript/controllers/maps.js'></script>
-		<script src='javascript/directives/map.js'></script>
+		<script src='javascript/services/map.js'></script>
 		<script src='javascript/controllers/conversations.js'></script>
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
 	</head>
-	<link rel="script" href="/app">
 	<body ng-app="app">
 		<div ng-include="views/navigation.html" id="include"></div>
 		<div ng-view id="view"></div>

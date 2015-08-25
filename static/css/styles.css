@@ -11721,201 +11721,206 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
-#home_users .row {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  max-width: 100%; }
-#home_users #breed_filter input {
-  max-width: 85% !important;
-  display: inline;
-  margin-left: 1em;
-  color: #364347; }
-#home_users #breed_filter h4 {
-  display: inline; }
-#home_users h4,
-#home_users .h4 {
-  color: #364347; }
-#home_users .control-group {
-  margin-left: 1.5em; }
-#home_users #your_location {
-  margin-bottom: 1em; }
-#home_users .adp-placemark img {
-  content: url("../images/dog.png") !important; }
-#home_users #adp-placemark img {
-  content: url("../images/home.png") !important; }
-#home_users #people {
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px; }
-  #home_users #people .row {
-    padding-bottom: 0; }
-  #home_users #people li {
-    background-color: #364347;
-    min-height: 5em !important;
-    width: 100% !important;
-    padding: 0px;
+#home_users {
+  height: 100%;
+  width: 100%;
+  margin-top: 50px !important;
+  margin-bottom: -50px !important; }
+  #home_users .row {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0; }
+  #home_users #breed_filter input {
+    width: 85%;
+    display: inline;
+    margin-left: 1em;
+    color: #364347; }
+  #home_users #breed_filter h4 {
+    display: inline; }
+  #home_users h4,
+  #home_users .h4 {
+    color: #364347; }
+  #home_users .control-group {
+    margin-left: 1.5em; }
+  #home_users #your_location {
+    margin-bottom: 1em; }
+  #home_users .adp-placemark img {
+    content: url("../images/dog.png") !important; }
+  #home_users #adp-placemark img {
+    content: url("../images/home.png") !important; }
+  #home_users #people {
+    list-style-type: none;
     margin: 0px;
-    border: 1px solid #5E696D; }
-    #home_users #people li .row, #home_users #people li .col-xs-9, #home_users #people li .col-xs-3, #home_users #people li .col-xs-12, #home_users #people li .col-md-9, #home_users #people li .col-md-3 {
-      margin: 0;
-      padding: 0; }
-    #home_users #people li #images {
-      margin: 0;
-      padding: 0;
-      display: inline-block; }
-      #home_users #people li #images .dog_image, #home_users #people li #images .user_image {
-        padding: 0;
-        margin: 0;
-        width: 5em;
-        height: 100%;
-        border: none;
-        display: inline; }
-      #home_users #people li #images .image_helper {
-        display: inline;
-        width: 5em;
-        height: 5em; }
-      #home_users #people li #images .dog_image {
-        margin-left: -3px; }
-    #home_users #people li .content {
-      margin: 0;
-      padding: 0;
-      padding-left: 1em;
-      display: inline-block;
-      width: auto;
-      height: 5em;
-      vertical-align: middle;
-      border-top-image: none; }
-      #home_users #people li .content h3 {
-        display: inline-block;
-        color: #FAD46B;
-        padding: 0;
-        margin: 0; }
-      #home_users #people li .content em {
-        display: inline-block;
-        margin-right: 1em;
-        color: white;
-        font-style: normal; }
-      #home_users #people li .content .row:first-child h3 {
-        padding-top: 0.5em; }
-      #home_users #people li .content small {
-        margin: 0;
-        color: #F84545; }
-      #home_users #people li .content .info {
-        display: block; }
-    #home_users #people li .btn {
-      text-align: right;
-      margin: 0;
-      background-color: #F84545;
-      color: #E1EEF3;
-      border: 1px solid #F84545; }
-      #home_users #people li .btn:hover, #home_users #people li .btn:active, #home_users #people li .btn:focus {
-        background-color: #CC0000;
-        color: #E1EEF3;
-        border: 1px solid #F84545; }
-    #home_users #people li .actions {
-      margin: 0;
-      padding: 0; }
-      #home_users #people li .actions .col-xs-12, #home_users #people li .actions .col-md-12 {
+    padding: 0px; }
+    #home_users #people .row {
+      padding-bottom: 0; }
+    #home_users #people li {
+      background-color: #364347;
+      min-height: 5em;
+      width: 100%;
+      padding: 0px;
+      margin: 0px;
+      border: 1px solid #5E696D; }
+      #home_users #people li .row, #home_users #people li .col-xs-9, #home_users #people li .col-xs-3, #home_users #people li .col-xs-12, #home_users #people li .col-md-9, #home_users #people li .col-md-3 {
         margin: 0;
         padding: 0; }
-      #home_users #people li .actions .distance_data {
-        display: block;
-        margin-bottom: 1em;
+      #home_users #people li #images {
+        margin: 0;
+        padding: 0;
+        display: inline-block; }
+        #home_users #people li #images .dog_image, #home_users #people li #images .user_image {
+          padding: 0;
+          margin: 0;
+          width: 5em;
+          height: 100%;
+          border: none;
+          display: inline; }
+        #home_users #people li #images .image_helper {
+          display: inline;
+          width: 5em;
+          height: 5em; }
+        #home_users #people li #images .dog_image {
+          margin-left: -3px; }
+      #home_users #people li .content {
+        margin: 0;
+        padding: 0;
+        padding-left: 1em;
+        display: inline-block;
+        width: auto;
+        height: 5em;
+        vertical-align: middle;
+        border-top-image: none; }
+        #home_users #people li .content h3 {
+          display: inline-block;
+          color: #FAD46B;
+          padding: 0;
+          margin: 0; }
+        #home_users #people li .content em {
+          display: inline-block;
+          margin-right: 1em;
+          color: white;
+          font-style: normal; }
+        #home_users #people li .content .row:first-child h3 {
+          padding-top: 0.5em; }
+        #home_users #people li .content small {
+          margin: 0;
+          color: #F84545; }
+        #home_users #people li .content .info {
+          display: block; }
+      #home_users #people li .btn {
         text-align: right;
-        color: white; }
-        #home_users #people li .actions .distance_data span {
-          color: #02BAF2; }
-      #home_users #people li .actions .action_buttons {
-        display: block;
-        margin-top: auto;
-        text-align: right;
-        vertical-align: bottom; }
-#home_users #pagination {
-  display: block; }
-  #home_users #pagination .pagination-sm {
-    display: block;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto; }
-#home_users #maps #google_map {
-  background-size: 100% !important;
-  min-width: 400px !important;
-  min-height: 400px !important;
-  height: 100% !important;
-  width: 100% !important; }
-#home_users #maps #directions_panel {
-  background-color: #364347;
-  color: white !important;
-  margin-top: 60px;
-  margin-right: 10px;
-  padding: 10px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  overflow: auto; }
-  #home_users #maps #directions_panel .adp, #home_users #maps #directions_panel .adp table, #home_users #maps #directions_panel .adp-stepicon, #home_users #maps #directions_panel .adp-manuever, #home_users #maps #directions_panel .adp-legal {
-    background-color: #364347;
-    color: white !important; }
-#home_users #users {
-  padding: 0;
-  margin: 0; }
-#home_users #filters {
-  background-color: #FAD46B;
-  width: 100%;
-  padding: 15px;
-  color: #364347; }
-@media (max-width: 767px) {
-  #home_users .image_helper, #home_users .user_image, #home_users .dog_image {
-    max-width: 0; }
+        margin: 0;
+        background-color: #F84545;
+        color: #E1EEF3;
+        border: 1px solid #F84545; }
+        #home_users #people li .btn:hover, #home_users #people li .btn:active, #home_users #people li .btn:focus {
+          background-color: #CC0000;
+          color: #E1EEF3;
+          border: 1px solid #F84545; }
+      #home_users #people li .actions {
+        margin: 0;
+        padding: 0; }
+        #home_users #people li .actions .col-xs-12, #home_users #people li .actions .col-md-12 {
+          margin: 0;
+          padding: 0; }
+        #home_users #people li .actions .distance_data {
+          display: block;
+          margin-bottom: 1em;
+          text-align: right;
+          color: white; }
+          #home_users #people li .actions .distance_data span {
+            color: #02BAF2; }
+        #home_users #people li .actions .action_buttons {
+          display: block;
+          margin-top: auto;
+          text-align: right;
+          vertical-align: bottom; }
   #home_users #maps {
-    display: block !important;
-    float: right;
-    min-width: 100% !important;
-    width: 100% !important;
-    min-height: 100% !important;
-    height: 100% !important; }
-  #home_users #directions_panel {
-    width: 40%;
-    max-height: 100% !important; } }
-@media (min-width: 768px) {
-  #home_users #maps {
-    display: block !important;
-    float: right;
-    min-width: 100% !important;
-    width: 100% !important;
-    min-height: 400px !important;
-    height: 400px !important; }
-  #home_users #directions_panel {
-    width: 40%;
-    max-height: 100% !important; }
-  #home_users .image_helper, #home_users #images, #home_users .user_image, #home_users .dog_image {
-    display: inline; } }
-@media (min-width: 992px) {
-  #home_users #maps {
-    float: right;
-    min-width: 50% !important;
-    width: 50% !important;
-    min-height: 720px !important;
-    height: 720px !important; }
-  #home_users #directions_panel {
-    width: 25%;
-    height: 300px !important; }
-  #home_users h3 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; } }
-@media (min-width: 1200px) {
-  #home_users #maps {
-    float: right;
-    min-width: 50% !important;
-    width: 50% !important;
-    min-height: 720px !important;
-    height: 720px !important; }
-  #home_users #directions_panel {
-    width: 25%;
-    height: 300px !important; } }
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    overflow: hidden; }
+    #home_users #maps #google_map {
+      overflow: visible;
+      background-size: 100%;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0; }
+    #home_users #maps #directions_panel {
+      background-color: #364347;
+      color: white !important;
+      margin-top: 60px;
+      margin-right: 10px;
+      padding: 10px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      overflow: auto; }
+      #home_users #maps #directions_panel .adp, #home_users #maps #directions_panel .adp table, #home_users #maps #directions_panel .adp-stepicon, #home_users #maps #directions_panel .adp-manuever, #home_users #maps #directions_panel .adp-legal {
+        background-color: #364347;
+        color: white !important; }
+  #home_users #users {
+    padding: 0;
+    margin: 0; }
+  #home_users #filters {
+    background-color: #FAD46B;
+    width: 100%;
+    padding: 15px;
+    color: #364347; }
+  @media (max-width: 767px) {
+    #home_users .image_helper, #home_users .user_image, #home_users .dog_image {
+      max-width: 0; }
+    #home_users #google_maps, #home_users #maps {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 60vh; }
+    #home_users #directions_panel {
+      width: 40%;
+      max-height: 100% !important;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; } }
+  @media (min-width: 768px) and (max-width: 992px) {
+    #home_users #google_maps, #home_users #maps {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 60vh; }
+    #home_users #directions_panel {
+      width: 40%;
+      max-height: 100% !important;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    #home_users h3 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    #home_users .image_helper, #home_users #images, #home_users .user_image, #home_users .dog_image {
+      display: inline; } }
+  @media (min-width: 992px) and (max-width: 1200px) {
+    #home_users {
+      overflow: hidden; }
+      #home_users #directions_panel {
+        width: 30%;
+        max-height: 80vh; }
+      #home_users h3 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; } }
+  @media (min-width: 1200px) {
+    #home_users {
+      overflow: hidden; }
+      #home_users #directions_panel {
+        width: 30%;
+        max-height: 80vh !important; } }
 
 @font-face {
   font-family: "Clearly Solid";
@@ -17779,327 +17784,242 @@ button.close {
   .hidden-print {
     display: none !important; } }
 #profile {
-  min-height: 100% !important;
-  height: 100% !important;
-  min-width: 100%;
+  min-height: 100%;
   width: 100%;
-  background-color: #FAD46B; }
+  background-color: #FAD46B;
+  padding-top: 50px !important; }
   #profile #profile_row {
-    min-height: 100% !important;
-    height: 100% !important; }
-  #profile #pagination {
-    width: 100%;
-    padding-left: auto;
-    padding-right: auto;
-    display: block; }
-    #profile #pagination .pagination-sm {
-      display: block;
-      width: 45%;
-      margin-left: auto;
-      margin-right: auto;
-      background-color: #FAD46B; }
-  #profile #other_users_header {
-    padding-left: 16px !important; }
-  #profile #other_users {
-    min-height: 100% !important;
-    height: 100% !important;
-    min-width: 100%;
-    width: 100%;
-    padding-left: 16px !important;
-    overflow: auto;
+    height: 100%;
     width: 100%; }
-    #profile #other_users .row {
-      min-height: 100% !important;
-      height: 100% !important; }
-    @media (min-width: 1200px) {
-      #profile #other_users {
-        height: 100%;
-        width: 100%; }
-        #profile #other_users li, #profile #other_users .modal {
-          display: inline-block;
-          max-width: 30%;
-          min-width: 30%;
-          min-height: 30%;
-          width: 30%;
-          max-height: 30%;
-          height: 30%; }
-        #profile #other_users .well {
-          min-height: 100%;
-          min-width: 100%; }
-          #profile #other_users .well h4 {
-            font-size: 1.4em;
-            padding-top: 0.35em;
-            padding-bottom: 0.35em; } }
-    @media (min-width: 992px) and (max-width: 1199px) {
-      #profile #other_users {
-        height: 100%;
-        width: 100%; }
-        #profile #other_users li, #profile #other_users .modal {
-          display: inline-block;
-          max-width: 30%;
-          min-width: 30%;
-          min-height: 30%;
-          width: 30%;
-          max-height: 30%;
-          height: 30%; }
-        #profile #other_users .well {
-          min-height: 100%;
-          min-width: 100%; }
-          #profile #other_users .well h4 {
-            font-size: 1.4em;
-            padding-top: 0.35em;
-            padding-bottom: 0.35em; } }
-    @media (min-width: 768px) and (max-width: 991px) {
-      #profile #other_users {
-        height: 250px;
-        display: block; }
-        #profile #other_users li, #profile #other_users .modal {
-          display: inline-block;
-          max-width: 30%;
-          min-width: 30%;
-          min-height: 30%;
-          max-height: 30%;
-          height: 30%; }
-        #profile #other_users .well {
-          min-height: 100%;
-          min-width: 100%; }
-          #profile #other_users .well h4 {
-            font-size: 1.2em;
-            padding-top: 0.3em;
-            padding-bottom: 0.3em; }
-        #profile #other_users #pagination {
-          width: 100%;
-          padding-left: auto;
-          padding-right: auto;
-          display: block;
-          padding-bottom: 20px; } }
-    @media (max-width: 767px) {
-      #profile #other_users {
-        height: 200px;
-        display: block; }
-        #profile #other_users li, #profile #other_users .modal {
-          display: inline-block;
-          max-width: 30%;
-          min-width: 30%;
-          min-height: 30%;
-          max-height: 30%;
-          height: 30%; }
-        #profile #other_users .well {
-          min-height: 100%;
-          min-width: 100%; }
-          #profile #other_users .well h4 {
-            font-size: 1.2em;
-            padding-top: 0.3em;
-            padding-bottom: 0.3em; }
-        #profile #other_users #pagination {
-          width: 100% !important;
-          padding-left: auto;
-          padding-right: auto;
-          display: block;
-          padding-bottom: 20px; }
-          #profile #other_users #pagination #pagination_wrapper {
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            text-align: center; } }
-    #profile #other_users h3 {
-      margin-left: 2em; }
-    #profile #other_users ul {
-      margin: 0;
-      padding: 0; }
-      #profile #other_users ul.row {
-        margin: 0;
-        padding: 0; }
-    #profile #other_users li {
-      width: 30%;
-      height: 30%;
+    #profile #profile_row #other_users_wrapper {
+      height: 100%;
+      width: 50%;
       display: block;
-      margin: 5px;
-      float: left;
-      border: 3px solid white;
-      list-style-type: none;
-      position: relative; }
-      #profile #other_users li .well {
-        width: 100% !important;
-        height: 100% !important;
-        min-width: 100% !important;
-        min-height: 100% !important;
-        padding: 0;
-        margin-bottom: 0 !important; }
-        #profile #other_users li .well img {
-          -webkit-transition: all 0.4s;
-          -moz-transition: all 0.4s;
-          -ms-transition: all 0.4s;
-          -o-transition: all 0.4s;
-          transition: all 0.4s;
-          width: 100% !important;
-          min-width: 100% !important;
-          height: 100% !important;
-          min-height: 100% !important;
-          margin-top: 0;
-          padding-top: 0;
-          padding: 0; }
-        #profile #other_users li .well .user_title {
-          -webkit-transition: all 0.4s;
-          -moz-transition: all 0.4s;
-          -ms-transition: all 0.4s;
-          -o-transition: all 0.4s;
-          transition: all 0.4s;
-          width: 100% !important;
-          min-width: 100% !important;
-          height: 100% !important;
-          min-height: 100% !important;
-          background-color: transparent; }
-          #profile #other_users li .well .user_title h4 {
-            background-color: #364347;
-            position: absolute;
-            text-align: center;
-            color: white;
-            margin: 0;
-            width: 98% !important;
-            bottom: 10%;
-            left: 1%; }
-        #profile #other_users li .well:hover img, #profile #other_users li .well:active img, #profile #other_users li .well:focus img {
-          -webkit-filter: saturate(9);
-          -moz-filter: saturate(9);
-          -ms-filter: saturate(9);
-          -o-filter: saturate(9);
-          filter: saturate(9); }
-        #profile #other_users li .well:hover h4, #profile #other_users li .well:active h4, #profile #other_users li .well:focus h4 {
-          background-color: transparent;
-          color: white;
-          bottom: 40%; }
-  #profile #user_profile {
-    height: 100% !important;
-    min-height: 100% !important;
-    background-color: white;
-    /* Messages */ }
-    @media (max-width: 767px) {
-      #profile #user_profile {
-        clear: both;
-        display: block;
-        height: 300px; } }
-    @media (min-width: 768px) and (max-width: 991px) {
-      #profile #user_profile {
-        clear: both;
-        display: block;
-        height: 300px; } }
-    #profile #user_profile h3, #profile #user_profile p, #profile #user_profile h5 {
-      padding-left: 16px;
-      color: #364347;
-      margin-bottom: 0px; }
-    #profile #user_profile #messages_header {
-      margin-bottom: 10px; }
-    #profile #user_profile small {
-      color: #F84545;
-      font-weight: 700; }
-    #profile #user_profile .col-xs-6 {
-      margin: 0px;
-      padding: 0px; }
-    #profile #user_profile #profile_pics {
-      border-bottom: 15px solid #F84545;
-      margin-top: 10px; }
-      #profile #user_profile #profile_pics img {
-        display: inline;
-        width: 100% !important;
+      background-color: #FAD46B; }
+      #profile #profile_row #other_users_wrapper #all_other_users {
+        height: 100%;
+        display: table;
+        margin: auto;
+        width: auto; }
+        #profile #profile_row #other_users_wrapper #all_other_users #other_users_header {
+          width: auto;
+          padding: 27px 8px 16px 8px; }
+        #profile #profile_row #other_users_wrapper #all_other_users #other_users {
+          height: 100%;
+          width: 100%; }
+          #profile #profile_row #other_users_wrapper #all_other_users #other_users li {
+            list-style-type: none;
+            display: table-cell;
+            margin: 5px;
+            float: left;
+            position: relative;
+            border: 3px solid white;
+            width: 30%;
+            height: 30%; }
+            #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well {
+              width: 100%;
+              height: 100%;
+              padding: 0;
+              margin-bottom: 0 !important; }
+              #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well img {
+                -webkit-transition: all 0.7s;
+                -moz-transition: all 0.7s;
+                -ms-transition: all 0.7s;
+                -o-transition: all 0.7s;
+                transition: all 0.7s;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0; }
+                #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well img:hover, #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well img:active, #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well img:focus {
+                  -webkit-filter: saturate(10);
+                  -moz-filter: saturate(10);
+                  -ms-filter: saturate(10);
+                  -o-filter: saturate(10);
+                  filter: saturate(10); }
+              #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well .user_title {
+                -webkit-transition: all 0.7s;
+                -moz-transition: all 0.7s;
+                -ms-transition: all 0.7s;
+                -o-transition: all 0.7s;
+                transition: all 0.7s;
+                width: 100%;
+                height: 100%;
+                background-color: transparent; }
+                #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well .user_title h4 {
+                  -webkit-transition: all 0.7s;
+                  -moz-transition: all 0.7s;
+                  -ms-transition: all 0.7s;
+                  -o-transition: all 0.7s;
+                  transition: all 0.7s;
+                  background-color: #364347;
+                  position: absolute;
+                  text-align: center;
+                  color: white;
+                  width: 98% !important;
+                  bottom: 10%;
+                  left: 1%;
+                  font-size: 1.4em;
+                  padding-top: 0.35em;
+                  padding-bottom: 0.35em; }
+                  #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well .user_title h4:hover, #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well .user_title h4:active, #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well .user_title h4:focus {
+                    background-color: transparent;
+                    color: white;
+                    bottom: 40%; }
+        @media (min-width: 768px) and (max-width: 991px) {
+          #profile #profile_row #other_users_wrapper #all_other_users {
+            height: 250px;
+            width: 100%; }
+            #profile #profile_row #other_users_wrapper #all_other_users #other_users li, #profile #profile_row #other_users_wrapper #all_other_users #other_users .modal {
+              display: inline-block;
+              width: 30%;
+              height: 30%; }
+            #profile #profile_row #other_users_wrapper #all_other_users #other_users .well h4 {
+              font-size: 1.2em;
+              padding-top: 0.3em;
+              padding-bottom: 0.3em; } }
+        @media (max-width: 767px) {
+          #profile #profile_row #other_users_wrapper #all_other_users {
+            height: 200px;
+            width: 100%; }
+            #profile #profile_row #other_users_wrapper #all_other_users #other_users li, #profile #profile_row #other_users_wrapper #all_other_users #other_users .modal {
+              display: inline-block;
+              width: 30%;
+              height: 30%; }
+            #profile #profile_row #other_users_wrapper #all_other_users #other_users .well h4 {
+              font-size: 1.2em;
+              padding-top: 0.3em;
+              padding-bottom: 0.3em; } }
+    #profile #profile_row #user_profile {
+      height: 100%;
+      background-color: white;
+      /* Messages */ }
+      @media (max-width: 767px) {
+        #profile #profile_row #user_profile {
+          clear: both;
+          display: block;
+          height: 300px; } }
+      @media (min-width: 768px) and (max-width: 991px) {
+        #profile #profile_row #user_profile {
+          clear: both;
+          display: block;
+          height: 300px; } }
+      #profile #profile_row #user_profile h3, #profile #profile_row #user_profile p, #profile #profile_row #user_profile h5 {
+        padding-left: 16px;
+        color: #364347;
+        margin-bottom: 0px; }
+      #profile #profile_row #user_profile #messages_header {
+        margin-bottom: 10px; }
+      #profile #profile_row #user_profile small {
+        color: #F84545;
+        font-weight: 700; }
+      #profile #profile_row #user_profile .col-xs-6 {
         margin: 0px;
         padding: 0px; }
-    #profile #user_profile .panel {
-      margin-top: 0;
-      margin-bottom: 0; }
-    #profile #user_profile .name {
-      display: inline; }
-    #profile #user_profile .conversations h3 {
-      margin-left: 15px;
-      margin-right: 15px;
-      margin-bottom: 1em; }
-    #profile #user_profile .convo_header {
-      background-color: #364347;
-      color: #FAD46B;
-      border-radius: 10px; }
-      #profile #user_profile .convo_header img {
-        display: inline !important;
-        width: 3em;
-        height: 3em;
-        padding: 0; }
-      #profile #user_profile .convo_header:hover, #profile #user_profile .convo_header:active, #profile #user_profile .convo_header:focus {
-        background-color: #2B3538 !important; }
-      #profile #user_profile .convo_header h5 {
-        margin-left: 1em;
-        color: #E1EEF3; }
-    #profile #user_profile #messages_wrapper {
-      margin: 10px 0px;
-      padding: 10px; }
-      #profile #user_profile #messages_wrapper .btn {
-        color: #E1EEF3 !important; }
-      #profile #user_profile #messages_wrapper .panel-body {
-        margin: 10px 0px;
-        padding: 0; }
-      #profile #user_profile #messages_wrapper .messages {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        box-shadow: none;
-        border: none;
-        max-height: 250px;
-        overflow: auto; }
-        #profile #user_profile #messages_wrapper .messages input {
-          color: #364347; }
-        #profile #user_profile #messages_wrapper .messages ul {
+      #profile #profile_row #user_profile #profile_pics {
+        border-bottom: 15px solid #F84545;
+        margin-top: 10px; }
+        #profile #profile_row #user_profile #profile_pics img {
+          display: inline;
+          width: 100% !important;
           margin: 0px;
-          padding: 0px;
-          list-style: none;
-          border: none; }
-          #profile #user_profile #messages_wrapper .messages ul li, #profile #user_profile #messages_wrapper .messages ul .list-group-item {
-            margin: 0px 10px;
-            padding: 0px;
-            border: none; }
-          #profile #user_profile #messages_wrapper .messages ul li:first-child {
-            margin-top: 10px; }
-          #profile #user_profile #messages_wrapper .messages ul li:last-child {
-            margin-bottom: 10px; }
-        #profile #user_profile #messages_wrapper .messages .row {
-          margin-left: 10px;
-          margin-right: 10px; }
-        #profile #user_profile #messages_wrapper .messages .message-local {
+          padding: 0px; }
+      #profile #profile_row #user_profile .panel {
+        margin-top: 0;
+        margin-bottom: 0; }
+      #profile #profile_row #user_profile .name {
+        display: inline; }
+      #profile #profile_row #user_profile .conversations h3 {
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-bottom: 1em; }
+      #profile #profile_row #user_profile .convo_header {
+        background-color: #364347;
+        color: #FAD46B;
+        border-radius: 10px; }
+        #profile #profile_row #user_profile .convo_header img {
+          display: inline !important;
+          width: 3em;
+          height: 3em;
+          padding: 0; }
+        #profile #profile_row #user_profile .convo_header:hover, #profile #profile_row #user_profile .convo_header:active, #profile #profile_row #user_profile .convo_header:focus {
+          background-color: #2B3538 !important; }
+        #profile #profile_row #user_profile .convo_header h5 {
+          margin-left: 1em;
+          color: #E1EEF3; }
+      #profile #profile_row #user_profile #messages_wrapper {
+        margin: 10px 0px;
+        padding: 10px; }
+        #profile #profile_row #user_profile #messages_wrapper .btn {
+          color: #E1EEF3 !important; }
+        #profile #profile_row #user_profile #messages_wrapper .panel-body {
+          margin: 10px 0px;
+          padding: 0; }
+        #profile #profile_row #user_profile #messages_wrapper .messages {
+          width: 100%;
+          margin: 0;
+          padding: 0;
           box-shadow: none;
           border: none;
-          position: relative;
-          float: right;
-          clear: both;
-          max-width: 50%; }
-          #profile #user_profile #messages_wrapper .messages .message-local p {
-            color: #E1EEF3;
-            background: #28948C;
-            padding: 5px 10px;
-            border-radius: 25px;
-            margin-bottom: 0px; }
-          #profile #user_profile #messages_wrapper .messages .message-local span {
+          max-height: 250px;
+          overflow: auto; }
+          #profile #profile_row #user_profile #messages_wrapper .messages input {
+            color: #364347; }
+          #profile #profile_row #user_profile #messages_wrapper .messages ul {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            border: none; }
+            #profile #profile_row #user_profile #messages_wrapper .messages ul li, #profile #profile_row #user_profile #messages_wrapper .messages ul .list-group-item {
+              margin: 0px 10px;
+              padding: 0px;
+              border: none; }
+            #profile #profile_row #user_profile #messages_wrapper .messages ul li:first-child {
+              margin-top: 10px; }
+            #profile #profile_row #user_profile #messages_wrapper .messages ul li:last-child {
+              margin-bottom: 10px; }
+          #profile #profile_row #user_profile #messages_wrapper .messages .row {
+            margin-left: 10px;
+            margin-right: 10px; }
+          #profile #profile_row #user_profile #messages_wrapper .messages .message-local {
+            box-shadow: none;
+            border: none;
+            position: relative;
             float: right;
             clear: both;
-            color: #93A4AA;
-            margin: 0px 5px;
-            padding: 0px; }
-        #profile #user_profile #messages_wrapper .messages .message-remote {
-          box-shadow: none;
-          border: none;
-          position: relative;
-          float: left;
-          clear: both;
-          max-width: 50%;
-          margin: 0.3em 1em 0em 1em; }
-          #profile #user_profile #messages_wrapper .messages .message-remote p {
-            color: #E1EEF3;
-            background: #009DCD;
-            padding: 5px 10px;
-            border-radius: 25px;
-            margin-bottom: 0px; }
-          #profile #user_profile #messages_wrapper .messages .message-remote span {
+            max-width: 50%; }
+            #profile #profile_row #user_profile #messages_wrapper .messages .message-local p {
+              color: #E1EEF3;
+              background: #28948C;
+              padding: 5px 10px;
+              border-radius: 25px;
+              margin-bottom: 0px; }
+            #profile #profile_row #user_profile #messages_wrapper .messages .message-local span {
+              float: right;
+              clear: both;
+              color: #93A4AA;
+              margin: 0px 5px;
+              padding: 0px; }
+          #profile #profile_row #user_profile #messages_wrapper .messages .message-remote {
+            box-shadow: none;
+            border: none;
+            position: relative;
             float: left;
             clear: both;
-            color: #93A4AA;
-            margin: 0px 5px;
-            padding: 0px; }
+            max-width: 50%;
+            margin: 0.3em 1em 0em 1em; }
+            #profile #profile_row #user_profile #messages_wrapper .messages .message-remote p {
+              color: #E1EEF3;
+              background: #009DCD;
+              padding: 5px 10px;
+              border-radius: 25px;
+              margin-bottom: 0px; }
+            #profile #profile_row #user_profile #messages_wrapper .messages .message-remote span {
+              float: left;
+              clear: both;
+              color: #93A4AA;
+              margin: 0px 5px;
+              padding: 0px; }
 
 #splash {
   padding-left: 3%;
@@ -30293,44 +30213,20 @@ p {
 .input-group-icon .form-control {
   text-indent: 30px; }
 
-body {
-  border: 0.1px solid transparent; }
+html, body, .container, #view {
+  border: 0.1px solid transparent;
+  position: absolute;
+  min-height: 100% !important;
+  min-width: 100% !important;
+  margin: 0;
+  padding: 0; }
 
-@media (min-width: 1200px) {
-  html, body, .container {
-    height: 100% !important;
-    min-height: 100% !important;
-    width: 100%; }
-    html:after, body:after, .container:after {
-      margin: 0 !important;
-      padding: 0 !important; } }
-@media (min-width: 992px) {
-  html, body, .container {
-    height: 100% !important;
-    min-height: 100% !important;
-    width: 100%; }
-    html:after, body:after, .container:after {
-      margin: 0 !important;
-      padding: 0 !important; } }
-@media (min-width: 768px) {
-  html, body, .container {
-    height: 100% !important;
-    min-height: 100% !important;
-    width: 100%; }
-    html:after, body:after, .container:after {
-      margin: 0 !important;
-      padding: 0 !important; } }
-@media (max-width: 767px) {
-  html, body, .container {
-    height: 100% !important;
-    min-height: 100% !important;
-    width: 100%; }
-    html:after, body:after, .container:after {
-      margin: 0 !important;
-      padding: 0 !important; } }
-
-#view, #include {
-  height: 100% !important;
-  min-height: 100% !important; }
+.page_wrapper {
+  min-width: 100%;
+  margin-bottom: 2em; }
+  .page_wrapper .page_inner {
+    width: auto;
+    display: table !important;
+    margin: auto !important; }
 
 /*# sourceMappingURL=styles.css.map */

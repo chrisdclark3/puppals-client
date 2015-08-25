@@ -1,0 +1,38 @@
+<div class="navbar navbar-default navbar-fixed-top" ng-controller="UsersController" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">PupPals</a>
+
+        </div>
+
+        <div class="collapse navbar-collapse" ng-class="!isCollapsed && 'in'">
+            <ul class="nav navbar-nav">
+                <li ng-class="{ active: isActive('/home')}">
+                    <a href="#/home">
+                        <span class="icon glyphicon glyphicon-home" aria-hidden="true"></span> Home
+                    </a>
+                </li>
+                <li ng-class="{ active: isActive('/profile')}">
+                    <a href="#/profile">
+                        <span class="icon glyphicon glyphicon-user" aria-hidden="true"></span> Profile
+                    </a>
+                </li>
+                <li ng-click="logout()">
+                    <a href="#/splash">
+                        <span class="icon glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout
+                    </a>
+                </li>
+            </ul>
+            <div class="navbar-header pull-right">
+                <p class="navbar-text navbar-nav">Welcome <b>{{current_user.first_name}}</b></p>
+            </div>
+        </div>
+        <!-- /.nav-collapse -->
+    </div>
+</div>

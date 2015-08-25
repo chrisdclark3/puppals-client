@@ -1,49 +1,10 @@
-<div class="navbar navbar-default" ng-controller="UsersController" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand">PupPals</a>
-
-        </div>
-
-        <div class="collapse navbar-collapse" ng-class="!isCollapsed && 'in'">
-            <ul class="nav navbar-nav">
-                <li ng-class="{ active: isActive('/home')}">
-                    <a href="#/home">
-                        <span class="icon glyphicon glyphicon-home" aria-hidden="true"></span> Home
-                    </a>
-                </li>
-                <li ng-class="{ active: isActive('/profile')}">
-                    <a href="#/profile">
-                        <span class="icon glyphicon glyphicon-user" aria-hidden="true"></span> Profile
-                    </a>
-                </li>
-                <li ng-click="logout()">
-                    <a href="#/splash">
-                        <span class="icon glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout
-                    </a>
-                </li>
-            </ul>
-            <div class="navbar-header pull-right">
-                <p class="navbar-text navbar-nav">Welcome <b>{{current_user.first_name}}</b></p>
-            </div>
-        </div>
-        <!-- /.nav-collapse -->
-    </div>
-</div>
-
+<div ng-include src="'views/navbar.html'"></div>
 <div class="container" id="profile" ng-controller="ConversationsController" ng-init="get_conversations(); set_page();">
-    <div class="row" id="profile_row">
-        <div class="col-xs-12 col-sm-12 col-md-6 other_users">
-            <div class="row">
-            <h3 id="other_users_header">Users</h3>
-            <div id="other_users">
-                <ul class="row">
+    <div id="profile_row">
+        <div id="other_users_wrapper" class="col-xs-12 col-sm-12 col-md-6">
+            <div class="row" id="all_other_users">
+                <h3 id="other_users_header">Users</h3>
+                <ul id="other_users">
                     <li ng-repeat="user in paged_users" ng-click="open('md', user)">
                         <div class="well">
                             <img preload-image ng-src="{{ user.avatar_url  }}" class="img-responsive">
@@ -54,14 +15,12 @@
                     </li>
                 </ul>
             </div>
-            </div>
-            <div class="row" id="pagination">
-                <div id="pagination_wrapper">
-                    <pagination class="pagination-sm" boundary-links="true" total-items="total_items" items-per-page="items_per_page" ng-model="current_page" ng-change="set_page();" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+            <div class="page_wrapper">
+                <div class="page_inner">
+                    <pagination class="pagination" boundary-links="true" total-items="total_items" items-per-page="items_per_page" ng-model="current_page" ng-change="set_page();" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
                 </div>
             </div>
         </div>
-        <!-- div.conversation, .col-xs-6 -->
         <div class="col-xs-12 col-sm-12 col-md-6" id="user_profile">
             <div class="row">
                 <h3>{{current_user.first_name}} {{current_user.last_name}} <small>{{current_user.dogs[0].name}}</small></h3>
@@ -97,13 +56,12 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- row wrapping .messages -->
                     </accordion-group>
                 </accordion>
             </div>
-            <!-- senior row wrapping messages -->
         </div>
-        <!-- .col-xs-6 .profile -->
+        <!-- div.col-xs-6.profile -->
     </div>
+    <!-- div#profile_row -->
 </div>
 <!-- div.container -->
