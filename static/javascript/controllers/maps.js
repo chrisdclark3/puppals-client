@@ -13,7 +13,7 @@ app.controller('Maps', function($modal, Filter, $window, $scope, $rootScope, $lo
     }
 
     if ($scope.currentPage === undefined) {
-        $scope.currentPage = localStorageService.get('currentPage');
+        $scope.currentPage = 1;
     }
 
     $scope.distanceDataReceived = false;

@@ -19,7 +19,7 @@
 		<textarea ng-model="new_message.body" class="form-control" rows="3" placeholder="Message Content"></textarea>
 	</div>
 	<div class="modal-footer">
-		<button class="btn btn-primary" ng-click="sendMessage(currentUser.id, modalUser.id, new_message.body); close();" ng-enter="sendMessage(currentUser.id, modalUser.id, new_message.body);close();">Send</button>
+		<button class="btn btn-primary" ng-click="sendMessage(currentUser.id, modalUser.id, new_message.body); close();">Send</button>
 		<button class="btn btn-danger" ng-click="dismiss();">Cancel</button>
 	</div>
 </div>
