@@ -5,12 +5,12 @@
 	<div class="modal-body">
 		<div class='row'>
 			<div class='col-xs-6 image_wrapper'>
-				<img preload-image src="{{ modalUser.avatar_url }}" class="img-responsive">
+				<img preload-image ng-src="{{ modalUser.avatar_url }}" class="img-responsive">
 				<p>{{ modalUser.email }}</p>
 				<p>{{ modalUser.address }}</p>
 			</div>
 			<div class='col-xs-6 image_wrapper'>
-				<img preload-image src="{{ modalUser.dogs[0].avatar_url }}" class="img-responsive">
+				<img preload-image ng-src="{{ modalUser.dogs[0].avatar_url }}" class="img-responsive">
 				<p> Breed: {{ modalUser.dogs[0].breed }}</p>
 				<p> Age: {{ modalUser.dogs[0].age }}</p>
 				<p> Gender: {{ modalUser.dogs[0].gender }}</p>
