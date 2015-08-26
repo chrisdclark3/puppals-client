@@ -3,6 +3,7 @@ app.controller('Maps', function($modal, Filter, $window, $scope, $rootScope, $lo
     $scope.currentUser = localStorageService.get('currentUser');
     var currentUser = localStorageService.get('currentUser');
     var users = localStorageService.get('users');
+    var otherUsers = localStorageService.get('otherUsers');
 
     if ($rootScope.otherUsers === undefined || $rootScope.otherUsers === null) {
         $rootScope.otherUsers = localStorageService.get('otherUsers');
@@ -33,13 +34,6 @@ app.controller('Maps', function($modal, Filter, $window, $scope, $rootScope, $lo
 
     var initMap = function() {
         var deferred = $q.defer();
-        var otherUsers = localStorageService.get('users');
-        for (var i = 0; i < otherUsers.length; i++) {
-            if (otherUsers[i].id == $scope.currentUser.id) {
-                otherUsers.splice(i, 1);
-            }
-        }
-        $rootScope.otherUsers = otherUsers;
 
         locations = Map.getLocations(users);
         center = new google.maps.LatLng(currentUser.latitude, currentUser.longitude);

@@ -1,9 +1,12 @@
 app.factory('Conversation', function ($http, localStorageService, socket, $rootScope, $location, $q) {
 
   var factory = {};
-
-  $rootScope.currentUser = localStorageService.get('currentUser');
-  $rootScope.otherUsers = localStorageService.get('otherUsers');
+  if ($rootScope.otherUsers == undefined) {
+    $rootScope.otherUsers = localStorageService.get('otherUsers');
+  }
+  if ($rootScope.currentUser == undefined) {
+    $rootScope.currentUser = localStorageService.get('currentUser');
+  }
 
   factory.getConversations = function() {
     console.log("FACTORY > getConversations")
