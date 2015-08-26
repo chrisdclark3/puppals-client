@@ -1,4 +1,4 @@
-app.factory('UsersFactory', function ($http) {
+app.factory('User', function ($http) {
 
   var factory = {};
 
@@ -15,11 +15,11 @@ app.factory('UsersFactory', function ($http) {
     });
   };
 
-  factory.login = function (current_user, callback) {
+  factory.login = function (currentUser, callback) {
     $http({
       method: 'POST',
       url: '//puppals-api.herokuapp.com/sessions',
-      params: current_user,
+      params: currentUser,
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json'

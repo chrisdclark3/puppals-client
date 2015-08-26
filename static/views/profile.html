@@ -1,11 +1,11 @@
 <div ng-include src="'views/navbar.html'"></div>
-<div class="container" id="profile" ng-controller="ConversationsController" ng-init="get_conversations(); set_page();">
-    <div class="row" id="profile_row">
-        <div id="other_users_wrapper" class="col-xs-12 col-sm-12 col-md-6">
-            <div class="row" id="all_other_users">
-                <h3 id="other_users_header">Users</h3>
-                <ul id="other_users">
-                    <li ng-repeat="user in paged_users" ng-click="open('md', user)">
+<div class="container" id="profile" ng-controller="Conversations" ng-init="getConversations(); setPage();" resizeable>
+    <div class="row" id="profile-row">
+        <div id="other-users-wrapper" class="col-xs-12 col-sm-12 col-md-6">
+            <div class="row" id="all-other-users">
+                <h3 id="other-users-header">Users</h3>
+                <ul id="other-users">
+                    <li ng-repeat="user in pagedUsers" ng-click="open('md', user)">
                         <div class="well">
                             <img preload-image ng-src="{{ user.avatar_url  }}" class="img-responsive">
                             <div class="user_title">
@@ -15,27 +15,23 @@
                     </li>
                 </ul>
             </div>
-            <div class="page_wrapper">
-                <div class="page_inner">
-                    <pagination class="pagination" max-size="5" boundary-links="true" total-items="total_items" items-per-page="items_per_page" ng-model="current_page" ng-change="set_page();" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
-                </div>
-            </div>
+            <div ng-include src="'views/pagination.html'"></div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6" id="user_profile">
+        <div  id="user-profile" class="col-xs-12 col-sm-12 col-md-6">
             <div class="row">
-                <h3>{{current_user.first_name}} {{current_user.last_name}} <small>{{current_user.dogs[0].name}}</small></h3>
-                <p>{{current_user.email}}</p>
-                <div id="profile_pics">
-                    <div class="col-xs-6"><img preload-image src="{{current_user.avatar_url }}" alt=""></div>
-                    <div class="col-xs-6"><img preload-image src="{{current_user.dogs[0].avatar_url }}" alt=""></div>
+                <h3>{{currentUser.first_name}} {{currentUser.last_name}} <small>{{currentUser.dogs[0].name}}</small></h3>
+                <p>{{currentUser.email}}</p>
+                <div id="profile-pics">
+                    <div class="col-xs-6"><img preload-image src="{{currentUser.avatar_url }}" alt=""></div>
+                    <div class="col-xs-6"><img preload-image src="{{currentUser.dogs[0].avatar_url }}" alt=""></div>
                 </div>
             </div>
-            <div class="row" id="conversations">
-                <h3 id="messages_header">Messages</h3>
-                <accordion close-others="oneAtATime" id="messages_wrapper">
+            <div id="conversations" class="row">
+                <h3 id="messages-header">Messages</h3>
+                <accordion id="messages-wrapper" close-others="oneAtATime">
                     <accordion-group ng-repeat="conversation in conversations track by $index">
                         <accordion-heading>
-                            <div class="convo_header">
+                            <div class="convo-header">
                                 <img preload-image ng-src="{{ conversation.recipient.avatar_url }}" />
                                 <h5 class="name">{{ conversation.recipient.first_name }} {{ conversation.recipient.last_name }}</h5>
                             </div>
@@ -43,7 +39,7 @@
                         <div class="messages">
                             <div class="row">
                                 <ul class="list-group">
-                                    <li class="list-group-item" ng-repeat="message in conversation.messages" ng-class="{ 'message-remote': message.user_id != current_user.id, 'message-local': message.user_id == current_user.id }">
+                                    <li class="list-group-item" ng-repeat="message in conversation.messages" ng-class="{ 'message-remote': message.userId != currentUser.id, 'message-local': message.userId == currentUser.id }">
                                         <p>{{ message.body }}</p>
                                         <span class="date">{{ message.created_at | date: 'short' }}</span>
                                     </li>
@@ -52,7 +48,7 @@
                             <div class="row">
                                 <div class="input-group">
                                     <input type="text" class="form-control" ng-model="new_message.body">
-                                    <span class="input-group-btn"><input class="btn btn-primary" type="submit" ng-click="send_message(conversation.sender_id, conversation.recipient_id, new_message.body);" ng-enter="send_message(conversation.sender_id, conversation.recipient_id, new_message.body);" value="Send"></span>
+                                    <span class="input-group-btn"><input class="btn btn-primary" type="submit" ng-click="sendMessage(conversation.sender_id, conversation.recipient_id, new_message.body);" ng-enter="sendMessage(conversation.sender_id, conversation.recipient_id, new_message.body);" value="Send"></span>
                                 </div>
                             </div>
                         </div>

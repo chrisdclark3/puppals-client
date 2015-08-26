@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-fixed-top" ng-controller="UsersController" role="navigation">
+<div class="navbar navbar-default navbar-fixed-top" ng-controller="Users" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
@@ -30,7 +30,7 @@
                 </li>
             </ul>
             <div class="navbar-header pull-right">
-                <p class="navbar-text navbar-nav">Welcome <b>{{current_user.first_name}}</b></p>
+                <p class="navbar-text navbar-nav">Welcome <b>{{currentUser.first_name}}</b></p>
             </div>
         </div>
         <!-- /.nav-collapse -->

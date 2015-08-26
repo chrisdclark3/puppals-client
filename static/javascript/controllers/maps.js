@@ -1,47 +1,50 @@
-app.controller('MapsController', function($modal, FilterFactory, $window, PaginationFactory, $modal, $scope, $rootScope, $location, UsersFactory, MapsFactory, GoogleDistanceMatrixService, localStorageService, socket, $filter, $q) {
+app.controller('Maps', function($modal, Filter, $window, $scope, $rootScope, $location, User, Map, GoogleDistanceMatrixService, localStorageService, socket, $q) {
     var address_data, locations, center, map, infowindow, marker, panning;
-    $scope.current_user = localStorageService.get('current_user');
-    var current_user = localStorageService.get('current_user');
+    $scope.currentUser = localStorageService.get('currentUser');
+    var currentUser = localStorageService.get('currentUser');
     var users = localStorageService.get('users');
 
-    if ($scope.current_page === undefined || $scope.current_page === null) {
-        $scope.current_page = 1;
+    if ($rootScope.otherUsers === undefined || $rootScope.otherUsers === null) {
+        $rootScope.otherUsers = localStorageService.get('otherUsers');
     }
 
-    if ($scope.other_users === undefined || $scope.other_users === null) {
-        $scope.other_users = localStorageService.get('other_users');
+    if ($scope.filteredUsers === undefined || $scope.filteredUsers === null) {
+        $scope.filteredUsers = localStorageService.get('otherUsers');
     }
 
-    if ($scope.filtered_users === undefined || $scope.filtered_users === null) {
-        $scope.filtered_users = localStorageService.get('other_users');
+    if ($scope.currentPage === undefined) {
+        $scope.currentPage = localStorageService.get('currentPage');
     }
 
-    var calculate_distances = function() {
+    $scope.distanceDataReceived = false;
+
+    var calculateDistances = function() {
         var deferred = $q.defer();
-        GoogleDistanceMatrixService.calculate_distances($scope.current_user.address, $scope.other_users, function(us) {
-            $scope.distance_data_received = true;
-            $scope.other_users = us;
-            localStorageService.set('other_users', us);
-            deferred.resolve(us);
-        });
+        if ($scope.distanceDataReceived === false) {
+            GoogleDistanceMatrixService.calculateDistances($scope.currentUser.address, $rootScope.otherUsers, function(us) {
+                $scope.distanceDataReceived = true;
+                $rootScope.otherUsers = us;
+                localStorageService.set('otherUsers', us);
+                deferred.resolve(us);
+            });
+        }
         return deferred.promise;
     };
 
-    var initialize_map = function() {
+    var initMap = function() {
         var deferred = $q.defer();
-        console.log("initializing map");
-        var other_users = localStorageService.get('users');
-        for (var i = 0; i < other_users.length; i++) {
-            if (other_users[i].id == $scope.current_user.id) {
-                other_users.splice(i, 1);
+        var otherUsers = localStorageService.get('users');
+        for (var i = 0; i < otherUsers.length; i++) {
+            if (otherUsers[i].id == $scope.currentUser.id) {
+                otherUsers.splice(i, 1);
             }
         }
-        $scope.other_users = other_users;
+        $rootScope.otherUsers = otherUsers;
 
-        locations = MapsFactory.get_locations(users);
-        center = new google.maps.LatLng(current_user.latitude, current_user.longitude);
+        locations = Map.getLocations(users);
+        center = new google.maps.LatLng(currentUser.latitude, currentUser.longitude);
 
-        map = new google.maps.Map(document.getElementById('google_map'), {
+        map = new google.maps.Map(document.getElementById('google-map'), {
             zoom: 16,
             scrollwheel: false,
             mapTypeControl: false,
@@ -55,10 +58,10 @@ app.controller('MapsController', function($modal, FilterFactory, $window, Pagina
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
-        var place_mark = function(mark_i, l) {
+        var placeMark = function(mark_i, l) {
             return function() {
 
-                var iconUrl = users[mark_i].id == current_user.id ? 'images/home.png' : 'images/dog.png';
+                var iconUrl = users[mark_i].id == currentUser.id ? 'images/home.png' : 'images/dog.png';
 
                 var new_marker = new google.maps.Marker({
                     position: l,
@@ -116,44 +119,44 @@ app.controller('MapsController', function($modal, FilterFactory, $window, Pagina
             }();
         };
 
-        var place_markers = function(locs) {
+        var placeMarkers = function(locs) {
             for (var i = 0; i < locs.length; i++) {
                 var a_marker = function(j, l) {
-                    place_mark(j, l);
+                    placeMark(j, l);
                 }(i, locs[i]);
             }
             deferred.resolve();
         };
 
-        place_markers(locations);
+        placeMarkers(locations);
 
-        var dir_display = new google.maps.DirectionsRenderer({
+        var directionsDisplay = new google.maps.DirectionsRenderer({
             map: map,
             suppressMarkers: true,
             suppressPolylines: false
         });
 
-        $scope.get_route = function(x) {
-            $scope.show_route.user_id = x;
+        $scope.getRoute = function(x) {
+            $scope.showRoute.userId = x;
 
-            if ($scope.show_route.status == true && $scope.show_route.user_id == x) {
-                $scope.show_route.status = false;
-                dir_display.setMap(null);
+            if ($scope.showRoute.status == true && $scope.showRoute.userId == x) {
+                $scope.showRoute.status = false;
+                directionsDisplay.setMap(null);
                 map.panTo(center);
             } else {
-                $scope.show_route.status = true;
-                dir_display.setMap(map);
+                $scope.showRoute.status = true;
+                directionsDisplay.setMap(map);
             }
             var user;
-            for (var i = 0; i < $scope.paged_users.length; i++) {
-                if ($scope.paged_users[i].id == x) {
-                    user = $scope.paged_users[i];
+            for (var i = 0; i < $scope.pagedUsers.length; i++) {
+                if ($scope.pagedUsers[i].id == x) {
+                    user = $scope.pagedUsers[i];
                     break;
                 }
             }
-            MapsFactory.get_route($scope.current_user, user, function(res) {
-                dir_display.setDirections(res);
-                dir_display.setPanel(document.getElementById('directions_panel'));
+            Map.getRoute($scope.currentUser, user, function(res) {
+                directionsDisplay.setDirections(res);
+                directionsDisplay.setPanel(document.getElementById('directions_panel'));
                 var bounds = new google.maps.LatLngBounds();
                 bounds.extend(res.routes[0].overview_path[0]);
                 var k = res.routes[0].overview_path.length;
@@ -166,63 +169,53 @@ app.controller('MapsController', function($modal, FilterFactory, $window, Pagina
         return deferred.promise;
     }; // function intialize()
 
-    $scope.show_route = {
-        user_id: null,
+    $scope.showRoute = {
+        userId: null,
         status: false
     };
 
     $scope.initialize = function() {
-        var promises = [initialize_map(), calculate_distances()];
+        var promises = [initMap(), calculateDistances()];
         $q.all(promises).then(function() {
-            FilterFactory.filter_users($scope.other_users);
+            Filter.filterUsers($rootScope.otherUsers);
         });
     };
 
     $scope.initialize();
 
-    $scope.include_age = function(age) {
-        FilterFactory.include_age(age);
+    $scope.includeAge = function(age) {
+        Filter.includeAge(age);
     };
 
-    $scope.include_size = function(size) {
-        FilterFactory.include_size(size);
+    $scope.includeSize = function(size) {
+        Filter.includeSize(size);
     };
 
-    $scope.under_distance = function(distance) {
-        FilterFactory.under_distance(distance);
+    $scope.underDistance = function(distance) {
+        Filter.underDistance(distance);
     };
 
-    $scope.distance_filter = function() {
-        FilterFactory.distance_filter();
+    $scope.distanceFilter = function() {
+        Filter.distanceFilter();
     };
 
-    $scope.filter_users = function(users) {
-        FilterFactory.filter_users(users, $scope.breed);
+    $scope.filterUsers = function (users) {
+        console.log("filterUsers currentPage", $rootScope.currentPage);
+        Filter.filterUsers(users, $scope.breed);
     };
 
-    $scope.$on('filtered_users', function(event, users) {
-        $scope.filtered_users = users;
-        $scope.total_items = users.length;
-        $scope.set_page();
+    $scope.$on('filteredUsers', function(event, users) {
+        console.log("scope.currentPage", $rootScope.currentPage);
+        $scope.filteredUsers = users;
+        localStorageService.set('filteredUsers', users);
+        $rootScope.setPage($rootScope.currentPage);
     });
 
-    $scope.items_per_page = 6;
-
-    $scope.set_total_pages = function() {
-        $scope.total_pages = $scope.total_items / $scope.items_per_page;
-    };
-
-    $scope.set_page = function() {
-        $scope.items_per_page = 6;
-        $scope.set_total_pages();
-        $scope.paged_users = PaginationFactory.set_page($scope.filtered_users, $scope.current_page, $scope.items_per_page);
-    };
-
     $scope.open = function(size, user) {
-        $scope.modal_user = user;
+        $scope.modalUser = user;
         $scope.modalInstance = $modal.open({
             templateUrl: 'views/mini_profile.html',
-            controller: 'ConversationsController',
+            controller: 'Conversations',
             scope: $scope,
             size: size,
         });

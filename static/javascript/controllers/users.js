@@ -1,14 +1,14 @@
-function UsersController($window, $rootScope, $scope, $location, UsersFactory, localStorageService, socket, Upload) {
+app.controller('Users', function($window, $rootScope, $scope, $location, User, localStorageService, socket, Upload) {
 
   $scope.isActive = function (viewLocation) {
     return viewLocation === $location.path();
   };
 
   var users;
-  var current_user;
+  var currentUser;
 
 
-  $rootScope.set_collapsed = function () {
+  $rootScope.setCollapsed = function () {
     if ($window.width <= 768) {
       $rootScope.isCollapsed = true;
     } else {
@@ -17,42 +17,42 @@ function UsersController($window, $rootScope, $scope, $location, UsersFactory, l
   };
 
   if ($location.path() != '/register') {
-    UsersFactory.get_users(function (data) {
+    User.get_users(function (data) {
       localStorageService.set('users', data);
       users = data;
       $rootScope.users = users;
       $scope.users = users;
     });
-    if (current_user == undefined) {
-      current_user = localStorageService.get('current_user');
-      $rootScope.current_user = current_user;
-      $scope.current_user = current_user;
+    if (currentUser == undefined) {
+      currentUser = localStorageService.get('currentUser');
+      $rootScope.currentUser = currentUser;
+      $scope.currentUser = currentUser;
     }
   }
 
-  $rootScope.set_navbar = function(tab) {
+  $rootScope.setNavbar = function(tab) {
     if (tab == 'profile') {
       $scope.profile_tab = true;
     }
   };
 
-  $rootScope.test_login = function () {
-    $scope.current_user = {};
-    $scope.current_user.email = "chrisdclark3@gmail.com";
-    $scope.current_user.password = "password";
+  $rootScope.testLogin = function () {
+    $scope.currentUser = {};
+    $scope.currentUser.email = "chrisdclark3@gmail.com";
+    $scope.currentUser.password = "password";
     $rootScope.login();
   };
 
   $rootScope.login = function () {
-    UsersFactory.login($scope.current_user, function (data) {
+    User.login($scope.currentUser, function (data) {
       if (data.errors) {
         $rootScope.errors = data;
         $location.path("/");
       } else {
-        current_user = data;
-        $rootScope.current_user = current_user;
-        $scope.current_user = current_user;
-        localStorageService.set('current_user', current_user);
+        currentUser = data;
+        $rootScope.currentUser = currentUser;
+        $scope.currentUser = currentUser;
+        localStorageService.set('currentUser', currentUser);
         $location.path("/home");
       }
     });
@@ -64,22 +64,22 @@ function UsersController($window, $rootScope, $scope, $location, UsersFactory, l
   };
 
   var new_user = {};
-  $scope.show_default_dog = true;
-  $scope.show_default_user = true;
+  $scope.showDefaultDog = true;
+  $scope.showDefaultUser = true;
 
   $scope.$watch('dog_image', function(){
-    if ($scope.show_default_dog == true) {
-      $scope.show_default_dog = false;
+    if ($scope.showDefaultDog == true) {
+      $scope.showDefaultDog = false;
     } else {
-      $scope.show_default_dog = true;
+      $scope.showDefaultDog = true;
     }
   });
 
   $scope.$watch('user_image', function(){
-    if ($scope.show_default_user == true) {
-      $scope.show_default_user = false;
+    if ($scope.showDefaultUser == true) {
+      $scope.showDefaultUser = false;
     } else {
-      $scope.show_default_user = true;
+      $scope.showDefaultUser = true;
     }
   });
 
@@ -111,8 +111,8 @@ function UsersController($window, $rootScope, $scope, $location, UsersFactory, l
       file: $scope.user_image,
       fileFormDataName: 'new_user[avatar]'
     }).success(function (data, status, headers, config){
-      current_user = data;
-      $scope.current_user = current_user;
+      currentUser = data;
+      $scope.currentUser = currentUser;
       upload_dog();
     }).error(function (data, status, headers, config) {
       console.log('error status: ' + status);
@@ -128,7 +128,7 @@ function UsersController($window, $rootScope, $scope, $location, UsersFactory, l
       url: '//puppals-api.herokuapp.com/dogs',
       method: 'POST',
       fields: {
-        'new_user[id]': $scope.current_user.id,
+        'new_user[id]': $scope.currentUser.id,
         'dog[name]': $scope.new_user.dogs[0].name,
         'dog[age]': $scope.new_user.dogs[0].age,
         'dog[breed]': $scope.new_user.dogs[0].breed,
@@ -147,8 +147,4 @@ function UsersController($window, $rootScope, $scope, $location, UsersFactory, l
       console.log('error status: ' + status);
     });
   }
-}
-
-UsersController.$inject = ["$window","$rootScope", "$scope", "$location", "UsersFactory", "localStorageService", "socket", "Upload"];
-
-app.controller('UsersController', UsersController);
+});

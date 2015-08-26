@@ -1,9 +1,9 @@
-app.factory('MapsFactory', function ($http, $rootScope, $log, $q) {
+app.factory('Map', function ($http, $rootScope, $log, $q) {
 
   var factory = {};
   factory.distances = [];
 
-  factory.get_route = function (org, user, callback) {
+  factory.getRoute = function (org, user, callback) {
     var dir_service = new google.maps.DirectionsService();
     route_query = {
       origin: org.address,
@@ -18,7 +18,7 @@ app.factory('MapsFactory', function ($http, $rootScope, $log, $q) {
     });
   };
 
-  factory.get_locations = function (users) {
+  factory.getLocations = function (users) {
     var arr = [];
     for (var i = 0; i < users.length; i++) {
       arr.push(new google.maps.LatLng(users[i].latitude, users[i].longitude));
@@ -33,7 +33,7 @@ app.factory('MapsFactory', function ($http, $rootScope, $log, $q) {
 
 app.service('GoogleDistanceMatrixService', function(){
     var api = {};
-    api.calculate_distances = function(origin, users, callback) {
+    api.calculateDistances = function(origin, users, callback) {
       var destinations = [];
       var two_words = new RegExp(/\S+\s\S+/i);
       for (var i = 0; i < users.length; i++) {
@@ -56,7 +56,7 @@ app.service('GoogleDistanceMatrixService', function(){
             user_add = user_add[0];
             dest_add = dest_add[0];
             if (user_add == dest_add) {
-              users[j].distance_data = res.rows[0].elements[i];
+              users[j].distanceData = res.rows[0].elements[i];
             }
           }
         }

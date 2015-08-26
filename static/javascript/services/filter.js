@@ -1,77 +1,77 @@
-app.factory('FilterFactory', function($rootScope, localStorageService, $q) {
+app.factory('Filter', function($rootScope, localStorageService, $q) {
 
     var factory = {};
 
-    var filter_by_distance = false,
-        one_mile = false,
-        one_half_mile = false,
-        one_quarter_mile = false,
-        age_includes = ['puppy', 'young', 'adult', 'senior'],
-        size_includes = ['XS', 'S', 'M', 'L', 'XL'];
+    var filterDistance = false,
+        oneMile = false,
+        oneHalfMile = false,
+        oneQuarterMile = false,
+        ageIncludes = ['puppy', 'young', 'adult', 'senior'],
+        sizeIncludes = ['XS', 'S', 'M', 'L', 'XL'];
 
-    factory.distance_filter = function() {
-        filter_by_distance = filter_by_distance == false ? true : false;
+    factory.distanceFilter = function() {
+        filterDistance = filterDistance == false ? true : false;
     };
 
-    factory.under_distance = function(d) {
+    factory.underDistance = function(d) {
         if (d == "one") {
-            one_mile = one_mile == false ? true : false;
+            oneMile = oneMile == false ? true : false;
         }
         if (d == "one_half") {
-            one_half_mile = one_half_mile == false ? true : false;
+            oneHalfMile = oneHalfMile == false ? true : false;
         }
         if (d == "one_quarter") {
-            one_quarter_mile = one_quarter_mile == false ? true : false;
+            oneQuarterMile = oneQuarterMile == false ? true : false;
         }
     };
 
-    factory.include_age = function(age) {
-        if (age_includes.indexOf(age) != -1) {
-            age_includes.splice(age_includes.indexOf(age), 1);
+    factory.includeAge = function(age) {
+        if (ageIncludes.indexOf(age) != -1) {
+            ageIncludes.splice(ageIncludes.indexOf(age), 1);
         } else {
-            age_includes.push(age);
+            ageIncludes.push(age);
         }
     };
 
-    factory.include_size = function(size) {
-        if (size_includes.indexOf(size) != -1) {
-            size_includes.splice(size_includes.indexOf(size), 1);
+    factory.includeSize = function(size) {
+        if (sizeIncludes.indexOf(size) != -1) {
+            sizeIncludes.splice(sizeIncludes.indexOf(size), 1);
         } else {
-            size_includes.push(size);
+            sizeIncludes.push(size);
         }
     };
 
     var filter = function(users, breed) {
-        var filtered_users = [];
+        var filteredUsers = [];
         return $q(function(resolve, reject) {
             console.log("users", users);
 
             for (var i = 0; i < users.length; i++) {
-                var age_category = "",
-                    dog_age = users[i].dogs[0].age,
+                var ageType = "",
+                    age = users[i].dogs[0].age,
                     search_exp = new RegExp(breed, 'ig');
 
                 switch (true) {
-                    case dog_age <= 1:
-                        age_category = "puppy";
+                    case age <= 1:
+                        ageType = "puppy";
                         break;
-                    case dog_age > 1 && dog_age <= 5:
-                        age_category = "young";
+                    case age > 1 && age <= 5:
+                        ageType = "young";
                         break;
-                    case dog_age > 5 && dog_age <= 10:
-                        age_category = "adult";
+                    case age > 5 && age <= 10:
+                        ageType = "adult";
                         break;
-                    case dog_age > 10:
-                        age_category = "senior";
+                    case age > 10:
+                        ageType = "senior";
                         break;
                 }
-                if (age_includes.length > 0) {
-                    if (age_includes.indexOf(age_category) == -1) {
+                if (ageIncludes.length > 0) {
+                    if (ageIncludes.indexOf(ageType) == -1) {
                         continue;
                     }
                 }
-                if (size_includes.length > 0) {
-                    if (size_includes.indexOf(users[i].dogs[0].size) == -1) {
+                if (sizeIncludes.length > 0) {
+                    if (sizeIncludes.indexOf(users[i].dogs[0].size) == -1) {
                         continue;
                     }
                 }
@@ -82,51 +82,50 @@ app.factory('FilterFactory', function($rootScope, localStorageService, $q) {
                     }
                 }
 
-                if (one_mile == true) {
-                    if (users[i].distance_data.distance.value > 1610) {
+                if (oneMile == true) {
+                    if (users[i].distanceData.distance.value > 1610) {
                         continue;
                     }
                 }
 
-                if (one_half_mile == true) {
-                    if (users[i].distance_data.distance.value > 805) {
+                if (oneHalfMile == true) {
+                    if (users[i].distanceData.distance.value > 805) {
                         continue;
                     }
                 }
 
-                if (one_quarter_mile == true) {
-                    if (users[i].distance_data.distance.value > 405) {
+                if (oneQuarterMile == true) {
+                    if (users[i].distanceData.distance.value > 405) {
                         continue;
                     }
                 }
 
-                filtered_users.push(users[i]);
+                filteredUsers.push(users[i]);
             }
 
-            if (filter_by_distance == true) {
-                filtered_users.sort(function(a, b) {
-                    if (a.distance_data.distance.value < b.distance_data.distance.value) {
+            if (filterDistance == true) {
+                filteredUsers.sort(function(a, b) {
+                    if (a.distanceData.distance.value < b.distanceData.distance.value) {
                         return -1;
                     }
-                    if (a.distance_data.distance.value > b.distance_data.distance.value) {
+                    if (a.distanceData.distance.value > b.distanceData.distance.value) {
                         return 1;
                     }
-                    if (a.distance_data.distance.value == b.distance_data.distance.value) {
+                    if (a.distanceData.distance.value == b.distanceData.distance.value) {
                         return 0;
                     }
                 });
             }
-            console.log("filtered_users", filtered_users);
-            localStorageService.set('filtered_users', filtered_users);
-            resolve(filtered_users);
+            console.log("filteredUsers", filteredUsers);
+            localStorageService.set('filteredUsers', filteredUsers);
+            resolve(filteredUsers);
         });
     };
 
-    factory.filter_users = function(users, breed) {
+    factory.filterUsers = function(users, breed) {
         var promise = filter(users, breed);
         promise.then(function() {
-            console.log("broadcasting...");
-            $rootScope.$broadcast('filtered_users', localStorageService.get('filtered_users'));
+            $rootScope.$broadcast('filteredUsers', localStorageService.get('filteredUsers'));
         });
     };
 

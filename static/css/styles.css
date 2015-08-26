@@ -317,7 +317,7 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot"));
-  src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot?#iefix")) format("embedded-opentype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff2")) format("woff2"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff")) format("woff"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.ttf")) format("truetype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular")) format("svg"); }
+  src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot?#iefix")) format("embedded-opentype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff2")) format("woff2"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff")) format("woff"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.ttf")) format("truetype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.svg#glyphicons-halflings-regular")) format("svg"); }
 .glyphicon {
   position: relative;
   top: 1px;
@@ -6178,7 +6178,7 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot"));
-  src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot?#iefix")) format("embedded-opentype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff2")) format("woff2"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff")) format("woff"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.ttf")) format("truetype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular")) format("svg"); }
+  src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot?#iefix")) format("embedded-opentype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff2")) format("woff2"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff")) format("woff"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.ttf")) format("truetype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.svg#glyphicons-halflings-regular")) format("svg"); }
 .glyphicon {
   position: relative;
   top: 1px;
@@ -11721,70 +11721,70 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
-#home_users {
+#home-users {
   min-height: 100%;
   min-width: 100%;
   margin-top: 50px !important;
   margin-bottom: -50px !important; }
-  #home_users #modal .panel-title {
+  #home-users #modal .panel-title {
     margin-bottom: 1em; }
-  #home_users .row {
+  #home-users .row {
     padding-left: 0;
     padding-right: 0;
     margin-left: 0;
     margin-right: 0; }
-  #home_users #breed_filter input {
+  #home-users #breed-filter input {
     width: 85%;
     display: inline;
     margin-left: 1em;
     color: #364347; }
-  #home_users #breed_filter h4 {
+  #home-users #breed-filter h4 {
     display: inline; }
-  #home_users h4,
-  #home_users .h4 {
+  #home-users h4,
+  #home-users .h4 {
     color: #364347; }
-  #home_users .control-group {
+  #home-users .control-group {
     margin-left: 1.5em; }
-  #home_users #your_location {
+  #home-users #your-location {
     margin-bottom: 1em; }
-  #home_users .adp-placemark img {
+  #home-users .adp-placemark img {
     content: url("../images/dog.png") !important; }
-  #home_users #adp-placemark img {
+  #home-users #adp-placemark img {
     content: url("../images/home.png") !important; }
-  #home_users #people {
+  #home-users #people {
     list-style-type: none;
     margin: 0px;
     padding: 0px; }
-    #home_users #people .row {
+    #home-users #people .row {
       padding-bottom: 0; }
-    #home_users #people li {
+    #home-users #people li {
       background-color: #364347;
       min-height: 5em;
       width: 100%;
       padding: 0px;
       margin: 0px;
       border: 1px solid #5E696D; }
-      #home_users #people li .row, #home_users #people li .col-xs-9, #home_users #people li .col-xs-3, #home_users #people li .col-xs-12, #home_users #people li .col-md-9, #home_users #people li .col-md-3 {
+      #home-users #people li .row, #home-users #people li .col-xs-9, #home-users #people li .col-xs-3, #home-users #people li .col-xs-12, #home-users #people li .col-md-9, #home-users #people li .col-md-3 {
         margin: 0;
         padding: 0; }
-      #home_users #people li #images {
+      #home-users #people li #images {
         margin: 0;
         padding: 0;
         display: inline-block; }
-        #home_users #people li #images .dog_image, #home_users #people li #images .user_image {
+        #home-users #people li #images .dog-image, #home-users #people li #images .user-image {
           padding: 0;
           margin: 0;
           width: 5em;
           height: 100%;
           border: none;
           display: inline; }
-        #home_users #people li #images .image_helper {
+        #home-users #people li #images .image-helper {
           display: inline;
           width: 5em;
           height: 5em; }
-        #home_users #people li #images .dog_image {
+        #home-users #people li #images .dog-image {
           margin-left: -3px; }
-      #home_users #people li .content {
+      #home-users #people li .content {
         margin: 0;
         padding: 0;
         padding-left: 1em;
@@ -11793,58 +11793,58 @@ button.close {
         height: 5em;
         vertical-align: middle;
         border-top-image: none; }
-        #home_users #people li .content h3 {
+        #home-users #people li .content h3 {
           display: inline-block;
           color: #FAD46B;
           padding: 0;
           margin: 0; }
-        #home_users #people li .content em {
+        #home-users #people li .content em {
           display: inline-block;
           margin-right: 1em;
           color: white;
           font-style: normal; }
-        #home_users #people li .content .row:first-child h3 {
+        #home-users #people li .content .row:first-child h3 {
           padding-top: 0.5em; }
-        #home_users #people li .content small {
+        #home-users #people li .content small {
           margin: 0;
           color: #F84545; }
-        #home_users #people li .content .info {
+        #home-users #people li .content .info {
           display: block; }
-      #home_users #people li .btn {
+      #home-users #people li .btn {
         text-align: right;
         margin: 0;
         background-color: #F84545;
         color: #E1EEF3;
         border: 1px solid #F84545; }
-        #home_users #people li .btn:hover, #home_users #people li .btn:active, #home_users #people li .btn:focus {
+        #home-users #people li .btn:hover, #home-users #people li .btn:active, #home-users #people li .btn:focus {
           background-color: #CC0000;
           color: #E1EEF3;
           border: 1px solid #F84545; }
-      #home_users #people li .actions {
+      #home-users #people li .actions {
         margin: 0;
         padding: 0; }
-        #home_users #people li .actions .col-xs-12, #home_users #people li .actions .col-md-12 {
+        #home-users #people li .actions .col-xs-12, #home-users #people li .actions .col-md-12 {
           margin: 0;
           padding: 0; }
-        #home_users #people li .actions .distance_data {
+        #home-users #people li .actions .distance-data {
           display: block;
           margin-bottom: 1em;
           text-align: right;
           color: white; }
-          #home_users #people li .actions .distance_data span {
+          #home-users #people li .actions .distance-data span {
             color: #02BAF2; }
-        #home_users #people li .actions .action_buttons {
+        #home-users #people li .actions .action-buttons {
           display: block;
           margin-top: auto;
           text-align: right;
           vertical-align: bottom; }
-  #home_users #maps {
+  #home-users #maps {
     height: 100%;
     width: 50%;
     position: absolute;
     right: 0;
     overflow: hidden; }
-    #home_users #maps #google_map {
+    #home-users #maps #google-map {
       overflow: visible;
       background-size: 100%;
       height: 100%;
@@ -11854,7 +11854,7 @@ button.close {
       right: 0;
       left: 0;
       bottom: 0; }
-    #home_users #maps #directions_panel {
+    #home-users #maps #directions-panel {
       background-color: #364347;
       color: white !important;
       margin-top: 60px;
@@ -11864,67 +11864,67 @@ button.close {
       top: 0;
       right: 0;
       overflow: auto; }
-      #home_users #maps #directions_panel .adp, #home_users #maps #directions_panel .adp table, #home_users #maps #directions_panel .adp-stepicon, #home_users #maps #directions_panel .adp-manuever, #home_users #maps #directions_panel .adp-legal {
+      #home-users #maps #directions-panel .adp, #home-users #maps #directions-panel .adp table, #home-users #maps #directions-panel .adp-stepicon, #home-users #maps #directions-panel .adp-manuever, #home-users #maps #directions-panel .adp-legal {
         background-color: #364347;
         color: white !important; }
-  #home_users #users {
+  #home-users #users {
     padding: 0;
     margin: 0; }
-  #home_users #filters {
+  #home-users #filters {
     background-color: #FAD46B;
     width: 100%;
     padding: 15px;
     color: #364347; }
   @media (max-width: 767px) {
-    #home_users .page_wrapper {
+    #home-users .page-wrapper {
       height: auto; }
-    #home_users .image_helper, #home_users .user_image, #home_users .dog_image {
+    #home-users .image-helper, #home-users .user-image, #home-users .dog-image {
       max-width: 0; }
-    #home_users #google_map, #home_users #maps {
+    #home-users #google-map, #home-users #maps {
       position: relative;
       display: inline-block;
       width: 100%;
       min-height: 60vh; }
-    #home_users #directions_panel {
+    #home-users #directions-panel {
       width: 40%;
       max-height: 100% !important;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap; } }
   @media (min-width: 768px) and (max-width: 992px) {
-    #home_users .page_wrapper {
+    #home-users .page-wrapper {
       height: auto; }
-    #home_users #google_map, #home_users #maps {
+    #home-users #google-map, #home-users #maps {
       position: relative;
       display: inline-block;
       width: 100%;
       min-height: 60vh; }
-    #home_users #directions_panel {
+    #home-users #directions-panel {
       width: 40%;
       max-height: 100% !important;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap; }
-    #home_users h3 {
+    #home-users h3 {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap; }
-    #home_users .image_helper, #home_users #images, #home_users .user_image, #home_users .dog_image {
+    #home-users .image-helper, #home-users #images, #home-users .user-image, #home-users .dog-image {
       display: inline; } }
   @media (min-width: 992px) and (max-width: 1200px) {
-    #home_users {
+    #home-users {
       overflow: hidden; }
-      #home_users #directions_panel {
+      #home-users #directions-panel {
         width: 30%;
         max-height: 80vh; }
-      #home_users h3 {
+      #home-users h3 {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap; } }
   @media (min-width: 1200px) {
-    #home_users {
+    #home-users {
       overflow: hidden; }
-      #home_users #directions_panel {
+      #home-users #directions-panel {
         width: 30%;
         max-height: 80vh !important; } }
 
@@ -12246,7 +12246,7 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot"));
-  src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot?#iefix")) format("embedded-opentype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff2")) format("woff2"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff")) format("woff"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.ttf")) format("truetype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular")) format("svg"); }
+  src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot?#iefix")) format("embedded-opentype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff2")) format("woff2"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff")) format("woff"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.ttf")) format("truetype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.svg#glyphicons-halflings-regular")) format("svg"); }
 .glyphicon {
   position: relative;
   top: 1px;
@@ -17796,31 +17796,31 @@ button.close {
   background-color: #FAD46B;
   padding-top: 50px !important;
   margin-bottom: -100px !important; }
-  #profile #profile_row {
+  #profile #profile-row {
     position: absolute;
     min-height: 100%;
     min-width: 100%;
     margin: 0;
     padding: 0;
     background-color: #FAD46B; }
-    #profile #profile_row #other_users_wrapper {
+    #profile #profile-row #other-users-wrapper {
       min-height: 100% !important;
       width: 50%;
       display: block; }
-      #profile #profile_row #other_users_wrapper #all_other_users {
+      #profile #profile-row #other-users-wrapper #all-other-users {
         min-height: 100%;
         display: table;
         margin: 0 auto;
         width: auto; }
-        #profile #profile_row #other_users_wrapper #all_other_users #other_users_header {
+        #profile #profile-row #other-users-wrapper #all-other-users #other-users-header {
           width: auto;
           padding: 16px 8px 16px 8px;
           margin: 0;
           margin-left: 6%; }
-        #profile #profile_row #other_users_wrapper #all_other_users #other_users {
+        #profile #profile-row #other-users-wrapper #all-other-users #other-users {
           min-height: 100%;
           width: 100%; }
-          #profile #profile_row #other_users_wrapper #all_other_users #other_users li {
+          #profile #profile-row #other-users-wrapper #all-other-users #other-users li {
             list-style-type: none;
             margin: 5px;
             float: left;
@@ -17828,12 +17828,12 @@ button.close {
             border: 3px solid white;
             width: 30%;
             height: 30%; }
-            #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well {
+            #profile #profile-row #other-users-wrapper #all-other-users #other-users li .well {
               width: 100% !important;
               height: 100% !important;
               padding: 0;
               margin-bottom: 0 !important; }
-              #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well img {
+              #profile #profile-row #other-users-wrapper #all-other-users #other-users li .well img {
                 -webkit-transition: all 0.7s;
                 -moz-transition: all 0.7s;
                 -ms-transition: all 0.7s;
@@ -17843,7 +17843,7 @@ button.close {
                 height: 100%;
                 margin: 0;
                 padding: 0; }
-              #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well .user_title {
+              #profile #profile-row #other-users-wrapper #all-other-users #other-users li .well .user-title {
                 z-index: 100;
                 -webkit-transition: all 0.7s;
                 -moz-transition: all 0.7s;
@@ -17853,7 +17853,7 @@ button.close {
                 width: 100%;
                 height: 100%;
                 background-color: transparent; }
-              #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well h4 {
+              #profile #profile-row #other-users-wrapper #all-other-users #other-users li .well h4 {
                 -webkit-transition: all 0.7s;
                 -moz-transition: all 0.7s;
                 -ms-transition: all 0.7s;
@@ -17869,127 +17869,127 @@ button.close {
                 font-size: 1.4em;
                 padding-top: 0.35em;
                 padding-bottom: 0.35em; }
-              #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well:hover h4, #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well:active h4, #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well:focus h4 {
+              #profile #profile-row #other-users-wrapper #all-other-users #other-users li .well:hover h4, #profile #profile-row #other-users-wrapper #all-other-users #other-users li .well:active h4, #profile #profile-row #other-users-wrapper #all-other-users #other-users li .well:focus h4 {
                 background-color: transparent;
                 color: white;
                 bottom: 40%; }
-              #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well:hover img, #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well:active img, #profile #profile_row #other_users_wrapper #all_other_users #other_users li .well:focus img {
+              #profile #profile-row #other-users-wrapper #all-other-users #other-users li .well:hover img, #profile #profile-row #other-users-wrapper #all-other-users #other-users li .well:active img, #profile #profile-row #other-users-wrapper #all-other-users #other-users li .well:focus img {
                 -webkit-filter: saturate(10);
                 -moz-filter: saturate(10);
                 -ms-filter: saturate(10);
                 -o-filter: saturate(10);
                 filter: saturate(10); }
       @media (min-width: 768px) and (max-width: 991px) {
-        #profile #profile_row #other_users_wrapper {
+        #profile #profile-row #other-users-wrapper {
           max-height: 100vh;
           min-width: 100%;
           display: block; }
-          #profile #profile_row #other_users_wrapper .page_wrapper {
+          #profile #profile-row #other-users-wrapper .page-wrapper {
             height: auto; }
-          #profile #profile_row #other_users_wrapper #other_users, #profile #profile_row #other_users_wrapper #all_other_users {
+          #profile #profile-row #other-users-wrapper #other-users, #profile #profile-row #other-users-wrapper #all-other-users {
             min-width: 100%;
             height: 100%;
             display: block; }
-            #profile #profile_row #other_users_wrapper #other_users li, #profile #profile_row #other_users_wrapper #other_users .modal, #profile #profile_row #other_users_wrapper #all_other_users li, #profile #profile_row #other_users_wrapper #all_other_users .modal {
+            #profile #profile-row #other-users-wrapper #other-users li, #profile #profile-row #other-users-wrapper #other-users .modal, #profile #profile-row #other-users-wrapper #all-other-users li, #profile #profile-row #other-users-wrapper #all-other-users .modal {
               display: inline-block;
               width: 30%;
               height: 30%; }
-            #profile #profile_row #other_users_wrapper #other_users .well h4, #profile #profile_row #other_users_wrapper #all_other_users .well h4 {
+            #profile #profile-row #other-users-wrapper #other-users .well h4, #profile #profile-row #other-users-wrapper #all-other-users .well h4 {
               font-size: 1.2em;
               padding-top: 0.3em;
               padding-bottom: 0.3em; } }
       @media (max-width: 767px) {
-        #profile #profile_row #other_users_wrapper {
+        #profile #profile-row #other-users-wrapper {
           max-height: 100vh;
           min-width: 100%;
           display: block; }
-          #profile #profile_row #other_users_wrapper .page_wrapper {
+          #profile #profile-row #other-users-wrapper .page-wrapper {
             height: auto; }
-          #profile #profile_row #other_users_wrapper #other_users, #profile #profile_row #other_users_wrapper #all_other_users {
+          #profile #profile-row #other-users-wrapper #other-users, #profile #profile-row #other-users-wrapper #all-other-users {
             min-width: 100%;
             height: 100%;
             display: block; }
-            #profile #profile_row #other_users_wrapper #other_users li, #profile #profile_row #other_users_wrapper #other_users .modal, #profile #profile_row #other_users_wrapper #all_other_users li, #profile #profile_row #other_users_wrapper #all_other_users .modal {
+            #profile #profile-row #other-users-wrapper #other-users li, #profile #profile-row #other-users-wrapper #other-users .modal, #profile #profile-row #other-users-wrapper #all-other-users li, #profile #profile-row #other-users-wrapper #all-other-users .modal {
               display: inline-block;
               width: 30%;
               height: 30%; }
-            #profile #profile_row #other_users_wrapper #other_users .well h4, #profile #profile_row #other_users_wrapper #all_other_users .well h4 {
+            #profile #profile-row #other-users-wrapper #other-users .well h4, #profile #profile-row #other-users-wrapper #all-other-users .well h4 {
               font-size: 1.2em;
               padding-top: 0.3em;
               padding-bottom: 0.3em; } }
-    #profile #profile_row #user_profile {
+    #profile #profile-row #user-profile {
       height: 100%;
       background-color: white;
       position: absolute;
       right: 0;
       width: 50%;
       /* Messages */ }
-      #profile #profile_row #user_profile #conversation {
+      #profile #profile-row #user-profile #conversation {
         height: 100%; }
       @media (max-width: 767px) {
-        #profile #profile_row #user_profile {
+        #profile #profile-row #user-profile {
           position: relative;
           width: 100%;
           clear: both;
           display: block; } }
       @media (min-width: 768px) and (max-width: 991px) {
-        #profile #profile_row #user_profile {
+        #profile #profile-row #user-profile {
           position: relative;
           width: 100%;
           clear: both;
           display: block; } }
-      #profile #profile_row #user_profile h3, #profile #profile_row #user_profile p, #profile #profile_row #user_profile h5 {
+      #profile #profile-row #user-profile h3, #profile #profile-row #user-profile p, #profile #profile-row #user-profile h5 {
         padding-left: 16px;
         color: #364347;
         margin-bottom: 0px; }
-      #profile #profile_row #user_profile #messages_header {
+      #profile #profile-row #user-profile #messages-header {
         margin-bottom: 10px; }
-      #profile #profile_row #user_profile small {
+      #profile #profile-row #user-profile small {
         color: #F84545;
         font-weight: 700; }
-      #profile #profile_row #user_profile .col-xs-6 {
+      #profile #profile-row #user-profile .col-xs-6 {
         margin: 0px;
         padding: 0px; }
-      #profile #profile_row #user_profile #profile_pics {
+      #profile #profile-row #user-profile #profile-pics {
         border-bottom: 15px solid #F84545;
         margin-top: 10px; }
-        #profile #profile_row #user_profile #profile_pics img {
+        #profile #profile-row #user-profile #profile-pics img {
           display: inline;
           width: 100% !important;
           margin: 0px;
           padding: 0px; }
-      #profile #profile_row #user_profile .panel {
+      #profile #profile-row #user-profile .panel {
         margin-top: 0;
         margin-bottom: 0; }
-      #profile #profile_row #user_profile .name {
+      #profile #profile-row #user-profile .name {
         display: inline; }
-      #profile #profile_row #user_profile .conversations h3 {
+      #profile #profile-row #user-profile .conversations h3 {
         margin-left: 15px;
         margin-right: 15px;
         margin-bottom: 1em; }
-      #profile #profile_row #user_profile .convo_header {
+      #profile #profile-row #user-profile .convo-header {
         background-color: #364347;
         color: #FAD46B;
         border-radius: 10px; }
-        #profile #profile_row #user_profile .convo_header img {
+        #profile #profile-row #user-profile .convo-header img {
           display: inline !important;
           width: 3em;
           height: 3em;
           padding: 0; }
-        #profile #profile_row #user_profile .convo_header:hover, #profile #profile_row #user_profile .convo_header:active, #profile #profile_row #user_profile .convo_header:focus {
+        #profile #profile-row #user-profile .convo-header:hover, #profile #profile-row #user-profile .convo-header:active, #profile #profile-row #user-profile .convo-header:focus {
           background-color: #2B3538 !important; }
-        #profile #profile_row #user_profile .convo_header h5 {
+        #profile #profile-row #user-profile .convo-header h5 {
           margin-left: 1em;
           color: #E1EEF3; }
-      #profile #profile_row #user_profile #messages_wrapper {
+      #profile #profile-row #user-profile #messages-wrapper {
         margin: 10px 0px;
         padding: 10px; }
-        #profile #profile_row #user_profile #messages_wrapper .btn {
+        #profile #profile-row #user-profile #messages-wrapper .btn {
           color: #E1EEF3 !important; }
-        #profile #profile_row #user_profile #messages_wrapper .panel-body {
+        #profile #profile-row #user-profile #messages-wrapper .panel-body {
           margin: 10px 0px;
           padding: 0; }
-        #profile #profile_row #user_profile #messages_wrapper .messages {
+        #profile #profile-row #user-profile #messages-wrapper .messages {
           width: 100%;
           margin: 0;
           padding: 0;
@@ -17997,44 +17997,44 @@ button.close {
           border: none;
           max-height: 250px;
           overflow: auto; }
-          #profile #profile_row #user_profile #messages_wrapper .messages input {
+          #profile #profile-row #user-profile #messages-wrapper .messages input {
             color: #364347; }
-          #profile #profile_row #user_profile #messages_wrapper .messages ul {
+          #profile #profile-row #user-profile #messages-wrapper .messages ul {
             margin: 0px;
             padding: 0px;
             list-style: none;
             border: none; }
-            #profile #profile_row #user_profile #messages_wrapper .messages ul li, #profile #profile_row #user_profile #messages_wrapper .messages ul .list-group-item {
+            #profile #profile-row #user-profile #messages-wrapper .messages ul li, #profile #profile-row #user-profile #messages-wrapper .messages ul .list-group-item {
               margin: 0px 10px;
               padding: 0px;
               border: none; }
-            #profile #profile_row #user_profile #messages_wrapper .messages ul li:first-child {
+            #profile #profile-row #user-profile #messages-wrapper .messages ul li:first-child {
               margin-top: 10px; }
-            #profile #profile_row #user_profile #messages_wrapper .messages ul li:last-child {
+            #profile #profile-row #user-profile #messages-wrapper .messages ul li:last-child {
               margin-bottom: 10px; }
-          #profile #profile_row #user_profile #messages_wrapper .messages .row {
+          #profile #profile-row #user-profile #messages-wrapper .messages .row {
             margin-left: 10px;
             margin-right: 10px; }
-          #profile #profile_row #user_profile #messages_wrapper .messages .message-local {
+          #profile #profile-row #user-profile #messages-wrapper .messages .message-local {
             box-shadow: none;
             border: none;
             position: relative;
             float: right;
             clear: both;
             max-width: 50%; }
-            #profile #profile_row #user_profile #messages_wrapper .messages .message-local p {
+            #profile #profile-row #user-profile #messages-wrapper .messages .message-local p {
               color: #E1EEF3;
               background: #28948C;
               padding: 5px 10px;
               border-radius: 25px;
               margin-bottom: 0px; }
-            #profile #profile_row #user_profile #messages_wrapper .messages .message-local span {
+            #profile #profile-row #user-profile #messages-wrapper .messages .message-local span {
               float: right;
               clear: both;
               color: #93A4AA;
               margin: 0px 5px;
               padding: 0px; }
-          #profile #profile_row #user_profile #messages_wrapper .messages .message-remote {
+          #profile #profile-row #user-profile #messages-wrapper .messages .message-remote {
             box-shadow: none;
             border: none;
             position: relative;
@@ -18042,13 +18042,13 @@ button.close {
             clear: both;
             max-width: 50%;
             margin: 0.3em 1em 0em 1em; }
-            #profile #profile_row #user_profile #messages_wrapper .messages .message-remote p {
+            #profile #profile-row #user-profile #messages-wrapper .messages .message-remote p {
               color: #E1EEF3;
               background: #009DCD;
               padding: 5px 10px;
               border-radius: 25px;
               margin-bottom: 0px; }
-            #profile #profile_row #user_profile #messages_wrapper .messages .message-remote span {
+            #profile #profile-row #user-profile #messages-wrapper .messages .message-remote span {
               float: left;
               clear: both;
               color: #93A4AA;
@@ -18526,7 +18526,7 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot"));
-  src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot?#iefix")) format("embedded-opentype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff2")) format("woff2"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff")) format("woff"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.ttf")) format("truetype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular")) format("svg"); }
+  src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot?#iefix")) format("embedded-opentype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff2")) format("woff2"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff")) format("woff"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.ttf")) format("truetype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.svg#glyphicons-halflings-regular")) format("svg"); }
 .glyphicon {
   position: relative;
   top: 1px;
@@ -24086,9 +24086,9 @@ button.close {
     color: #E1EEF3; }
   #register .form-control {
     margin: 0.5em 0 0.5em 0; }
-  #register #dog_image, #register #user_image {
+  #register #dog-image, #register #user-image {
     border: none; }
-    #register #dog_image input, #register #user_image input {
+    #register #dog-image input, #register #user-image input {
       background-color: #364347;
       float: left;
       text-align: left;
@@ -24096,7 +24096,7 @@ button.close {
       padding: 5px;
       height: 100%;
       border: none; }
-    #register #dog_image h5, #register #user_image h5 {
+    #register #dog-image h5, #register #user-image h5 {
       margin-top: 2em;
       max-width: 150px;
       text-align: center;
@@ -24104,11 +24104,11 @@ button.close {
       position: absolute;
       z-index: 2;
       width: 100%; }
-  #register .image_preview {
+  #register .image-preview {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     background-color: #2B3538; }
-    #register .image_preview img {
+    #register .image-preview img {
       float: left;
       z-index: 1;
       max-height: 165px;
@@ -24449,7 +24449,7 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot"));
-  src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot?#iefix")) format("embedded-opentype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff2")) format("woff2"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff")) format("woff"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.ttf")) format("truetype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular")) format("svg"); }
+  src: url(twbs-font-path("bootstrap/glyphicons-halflings-regular.eot?#iefix")) format("embedded-opentype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff2")) format("woff2"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.woff")) format("woff"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.ttf")) format("truetype"), url(twbs-font-path("bootstrap/glyphicons-halflings-regular.svg#glyphicons-halflings-regular")) format("svg"); }
 .glyphicon {
   position: relative;
   top: 1px;
@@ -30006,11 +30006,11 @@ button.close {
     padding: 0;
     border-radius: 0;
     border: none; }
-  #modal .image_wrapper, .infowindow .image_wrapper {
+  #modal .image-wrapper, .infowindow .image-wrapper {
     padding: 0;
     margin: 0;
     border: none; }
-    #modal .image_wrapper p, .infowindow .image_wrapper p {
+    #modal .image-wrapper p, .infowindow .image-wrapper p {
       margin: 5px 15px; }
   #modal .modal-body, #modal .panel-body, .infowindow .modal-body, .infowindow .panel-body {
     padding-top: 0;
@@ -30023,34 +30023,34 @@ button.close {
   .infowindow .panel, .infowindow .panel-body, .infowindow .panel-header {
     border: none; }
 
-.infowindow_wrapper {
+.infowindow-wrapper {
   margin: 15px; }
-  .infowindow_wrapper .panel-body, .infowindow_wrapper .panel-header {
+  .infowindow-wrapper .panel-body, .infowindow-wrapper .panel-header {
     padding: 0 !important;
     margin: 0 !important; }
-  .infowindow_wrapper .infowindow, .infowindow_wrapper .panel, .infowindow_wrapper .panel-default {
+  .infowindow-wrapper .infowindow, .infowindow-wrapper .panel, .infowindow-wrapper .panel-default {
     z-index: 2000002 !important;
     width: 100%;
     height: 100%; }
-    .infowindow_wrapper .infowindow img, .infowindow_wrapper .panel img, .infowindow_wrapper .panel-default img {
+    .infowindow-wrapper .infowindow img, .infowindow-wrapper .panel img, .infowindow-wrapper .panel-default img {
       margin: 0 !important;
       padding: 0 !important; }
-    .infowindow_wrapper .infowindow img:not(.img-responsive), .infowindow_wrapper .panel img:not(.img-responsive), .infowindow_wrapper .panel-default img:not(.img-responsive) {
+    .infowindow-wrapper .infowindow img:not(.img-responsive), .infowindow-wrapper .panel img:not(.img-responsive), .infowindow-wrapper .panel-default img:not(.img-responsive) {
       max-height: 0;
       max-width: 0;
       visibility: 0; }
-    .infowindow_wrapper .infowindow .img-responsive, .infowindow_wrapper .panel .img-responsive, .infowindow_wrapper .panel-default .img-responsive {
+    .infowindow-wrapper .infowindow .img-responsive, .infowindow-wrapper .panel .img-responsive, .infowindow-wrapper .panel-default .img-responsive {
       visibility: 1;
       max-width: 15vh;
       width: 15vh;
       max-height: 15vh;
       height: 15vh; }
-    .infowindow_wrapper .infowindow .panel-body, .infowindow_wrapper .infowindow .panel-header, .infowindow_wrapper .panel .panel-body, .infowindow_wrapper .panel .panel-header, .infowindow_wrapper .panel-default .panel-body, .infowindow_wrapper .panel-default .panel-header {
+    .infowindow-wrapper .infowindow .panel-body, .infowindow-wrapper .infowindow .panel-header, .infowindow-wrapper .panel .panel-body, .infowindow-wrapper .panel .panel-header, .infowindow-wrapper .panel-default .panel-body, .infowindow-wrapper .panel-default .panel-header {
       padding: 0 !important;
       margin: 0 !important; }
-    .infowindow_wrapper .infowindow h3, .infowindow_wrapper .panel h3, .infowindow_wrapper .panel-default h3 {
+    .infowindow-wrapper .infowindow h3, .infowindow-wrapper .panel h3, .infowindow-wrapper .panel-default h3 {
       padding: 1em 0px !important; }
-    .infowindow_wrapper .infowindow .row, .infowindow_wrapper .panel .row, .infowindow_wrapper .panel-default .row {
+    .infowindow-wrapper .infowindow .row, .infowindow-wrapper .panel .row, .infowindow-wrapper .panel-default .row {
       padding: 0 !important;
       margin: 0 !important; }
 
@@ -30255,12 +30255,12 @@ html, body, .container, #view {
   margin: 0;
   padding: 0; }
 
-.page_wrapper {
+.page-wrapper {
   min-width: 100%;
   height: 100%;
   margin: 1em 0;
   display: block; }
-  .page_wrapper .page_inner {
+  .page-wrapper .page-inner {
     width: auto;
     display: table !important;
     margin: auto !important; }

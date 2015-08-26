@@ -22,7 +22,7 @@
     }
 }
 
-#home_users {
+#home-users {
     min-height: 100%;
     min-width: 100%;
     margin-top: 50px !important;
@@ -36,7 +36,7 @@
         margin-left: 0;
         margin-right: 0;
     }
-    #breed_filter {
+    #breed-filter {
         input {
             width: 85%;
             display: inline;
@@ -54,7 +54,7 @@
     .control-group {
         margin-left: 1.5em;
     }
-    #your_location {
+    #your-location {
         margin-bottom: 1em;
     }
     .adp-placemark img {
@@ -86,7 +86,7 @@
                 margin: 0;
                 padding: 0;
                 display: inline-block;
-                .dog_image, .user_image {
+                .dog-image, .user-image {
                     padding: 0;
                     margin: 0;
                     width: 5em;
@@ -94,12 +94,12 @@
                     border: none;
                     display: inline;
                 }
-                .image_helper {
+                .image-helper {
                     display: inline;
                     width: 5em;
                     height: 5em;
                 }
-                .dog_image {
+                .dog-image {
                     margin-left: -3px;
                 }
             }
@@ -156,7 +156,7 @@
                     margin: 0;
                     padding: 0;
                 }
-                .distance_data {
+                .distance-data {
                     display: block;
                     margin-bottom: 1em;
                     text-align: right;
@@ -165,7 +165,7 @@
                         color: $blue;
                     }
                 }
-                .action_buttons {
+                .action-buttons {
                     display: block;
                     margin-top: auto;
                     text-align: right;
@@ -181,7 +181,7 @@
         position: absolute;
         right: 0;
         overflow: hidden;
-        #google_map {
+        #google-map {
             overflow: visible;
             background-size: 100%;
             height: 100%;
@@ -192,7 +192,7 @@
             left: 0;
             bottom: 0;
         }
-        #directions_panel {
+        #directions-panel {
             .adp, .adp table, .adp-stepicon, .adp-manuever, .adp-legal {
                 background-color: $dark-grey;
                 color: white !important;
@@ -219,35 +219,35 @@
         color: $dark-grey;
     }
     @include breakpoint(xs) {
-        .page_wrapper {
+        .page-wrapper {
             height: auto;
         }
-       .image_helper, .user_image, .dog_image {
+       .image-helper, .user-image, .dog-image {
             max-width: 0;
         }
-        #google_map, #maps {
+        #google-map, #maps {
             position: relative;
             display: inline-block;
             width: 100%;
             min-height: 60vh;
         }
-        #directions_panel {
+        #directions-panel {
             width: 40%;
             max-height: 100% !important;
             @include text-overflow();
         }
     }
     @include breakpoint(sm) {
-        .page_wrapper {
+        .page-wrapper {
             height: auto;
         }
-        #google_map, #maps {
+        #google-map, #maps {
             position: relative;
             display: inline-block;
             width: 100%;
             min-height: 60vh;
         }
-        #directions_panel {
+        #directions-panel {
             width: 40%;
             max-height: 100% !important;
             @include text-overflow();
@@ -255,13 +255,13 @@
         h3 {
             @include text-overflow();
         }
-        .image_helper, #images, .user_image, .dog_image {
+        .image-helper, #images, .user-image, .dog-image {
             display: inline;
         }
     }
     @include breakpoint(md) {
         overflow: hidden;
-        #directions_panel {
+        #directions-panel {
             width: 30%;
             max-height: 80vh;
         }
@@ -271,7 +271,7 @@
     }
     @include breakpoint(lg) {
         overflow: hidden;
-        #directions_panel {
+        #directions-panel {
             width: 30%;
             max-height: 80vh !important;
         }

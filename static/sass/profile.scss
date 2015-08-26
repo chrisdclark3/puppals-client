@@ -37,14 +37,14 @@
     background-color: $yellow;
     padding-top: 50px !important;
     margin-bottom: -100px !important;
-    #profile_row {
+    #profile-row {
         position: absolute;
         min-height: 100%;
         min-width: 100%;
         margin: 0;
         padding: 0;
         background-color: $yellow;
-        #other_users_wrapper {
+        #other-users-wrapper {
             $well-size: 30%;
             $sm-well-size: 30%;
             $text-size: 1.4em;
@@ -54,18 +54,18 @@
             min-height: 100% !important;
             width: 50%;
             display: block;
-            #all_other_users {
+            #all-other-users {
                 min-height: 100%;
                 display: table;
                 margin: 0 auto;
                 width: auto;
-                #other_users_header {
+                #other-users-header {
                     width: auto;
                     padding: 16px 8px 16px 8px;
                     margin: 0;
                     margin-left: 6%;
                 }
-                #other_users {
+                #other-users {
                     min-height: 100%;
                     width: 100%;
                     li {
@@ -91,7 +91,7 @@
 
                                 }
                             }
-                            .user_title {
+                            .user-title {
                                 z-index: 100;
                                 @include vendorize('transition', all $speed);
                                 width: 100%;
@@ -129,10 +129,10 @@
                 max-height: 100vh;
                 min-width: 100%;
                 display: block;
-                .page_wrapper {
+                .page-wrapper {
                     height: auto;
                 }
-                #other_users, #all_other_users {
+                #other-users, #all-other-users {
                     min-width: 100%;
                     height: 100%;
                     display: block;
@@ -152,10 +152,10 @@
                 max-height: 100vh;
                 min-width: 100%;
                 display: block;
-                .page_wrapper {
+                .page-wrapper {
                     height: auto;
                 }
-                #other_users, #all_other_users {
+                #other-users, #all-other-users {
                     min-width: 100%;
                     height: 100%;
                     display: block;
@@ -172,7 +172,7 @@
                 }
             }
         }
-        #user_profile {
+        #user-profile {
             height: 100%;
             background-color: white;
             position: absolute;
@@ -198,7 +198,7 @@
                 color: $dark-grey;
                 margin-bottom: 0px;
             }
-            #messages_header {
+            #messages-header {
                 margin-bottom: 10px;
             }
             small {
@@ -209,7 +209,7 @@
                 margin: 0px;
                 padding: 0px;
             }
-            #profile_pics {
+            #profile-pics {
                 border-bottom: 15px solid $red;
                 margin-top: 10px;
                 img {
@@ -234,7 +234,7 @@
                     margin-bottom: 1em;
                 }
             }
-            .convo_header {
+            .convo-header {
                 background-color: $dark-grey;
                 color: $yellow;
                 border-radius: 10px;
@@ -252,7 +252,7 @@
                     color: $light-grey;
                 }
             }
-            #messages_wrapper {
+            #messages-wrapper {
                 .btn {
                     color: $sky !important;
                 }

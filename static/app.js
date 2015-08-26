@@ -6,7 +6,7 @@ app.config(['$httpProvider', function ($httpProvider) {
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-
+app.constant('HOST', 'http://localhost:5000');
 
 // ------------------------ROUTES------------------------ //
 
@@ -40,26 +40,4 @@ app.config(function (localStorageServiceProvider) {
 
 // ------------------------ SOCKETS ------------------------ //
 
-app.factory('socket', function ($rootScope) {
-  var socket = io.connect('//puppals.herokuapp.com/');
-  return {
-    on: function (event_name, callback) {
-      socket.on(event_name, function () {
-        var args = arguments;
-        $rootScope.$apply(function () {
-          callback.apply(socket, args);
-        });
-      });
-    },
-    emit: function (event_name, data, callback) {
-      socket.emit(event_name, data, function () {
-        var args = arguments;
-        $rootScope.$apply(function () {
-          if (callback) {
-            callback.apply(socket, args);
-          }
-        });
-      });
-    }
-  };
-});
+

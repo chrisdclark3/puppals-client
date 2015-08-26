@@ -1,4 +1,4 @@
-<div class="container" ng-controller="UsersController" id="splash">
+<div class="container" ng-controller="Users" id="splash">
 	<div class="jumbotron">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
@@ -26,13 +26,13 @@
 					<div class="divider">
 						<span>TEST LOGIN</span>
 					</div>
-					<button class="btn btn-danger btn-block btn-ani" ng-click="test_login()">Test Login</button>
+					<button class="btn btn-danger btn-block btn-ani" ng-click="testLogin()">Test Login</button>
 					<div class="divider">
 						<span>LOGIN</span>
 					</div>
 					<div class="input-group-icon">
 						<span class="icon glyphicon glyphicon-user" aria-hidden="true"></span>
-						<input type="text" class="form-control" ng-model="current_user.email" placeholder="Email">
+						<input type="text" class="form-control" ng-model="currentUser.email" placeholder="Email">
 					</div>
 					<div class="input-group-icon">
 						<span class="icon glyphicon glyphicon-lock" aria-hidden="true"></span>
@@ -54,7 +54,7 @@
 						<p>It integrates the <span>Google Maps JavaScript API</span>, and <span> Google's Distance Matrix</span>, <span>Geocoding</span> and <span>Directions</span> services.</p>
 					</li>
 					<li class="list-group-item">
-						<p>Message functionality is updated in real-time using <span>SocketIO.</span></p>
+						<p>Message functionality is updated in real-time using <span>socket.io</span></p>
 					</li>
 					<li class="list-group-item">
 						<p>Please feel free to reach out with any questions.</p>

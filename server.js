@@ -11,24 +11,28 @@ app.use(express.static('./static'));
 
 io.sockets.on('connection', function (socket) {
 
-  socket.on('get_conversations', function (data) {
+  socket.on('getConversations', function (data) {
+    console.log("Server > getConversations > data", data);
     request({
-      uri: "https://puppals-api.herokuapp.com/conversations/" + data.current_user.id,
+      uri: "https://puppals-api.herokuapp.com/conversations/" + data.currentUser.id,
       method: "GET",
        headers: {
         'Access-Control-Allow-Origin': '*',
       },
       json: true
     }, function (error, res, body) {
+      console.log("BODY", body);
       if (error) {
         console.log(error);
       } else {
+        console.log("BODY", body);
         io.emit('conversations', body);
       }
     });
   });
 
-  socket.on('send_message', function (data) {
+  socket.on('sendMessage', function (data) {
+    console.log("Server > sendMessage > data", data);
     request({
       uri: "https://puppals-api.herokuapp.com/messages/",
       method: "POST",
@@ -38,6 +42,7 @@ io.sockets.on('connection', function (socket) {
       body: { data: data },
       json: true
     }, function (error, res, body) {
+      console.log("BODY", body);
       if (error) {
         console.log(error);
       } else {
