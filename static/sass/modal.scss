@@ -1,11 +1,11 @@
 @import "_bootstrap.scss";
 
-#modal, .infowindow {
+#modal {
 	background-color: $dark-grey;
 	border:none;
 	h3 {
 		color: $yellow;
-		padding: 0px 0px;
+		padding: 0px;
 	}
 	p {
 		color: $light-grey;

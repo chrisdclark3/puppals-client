@@ -1,28 +1,33 @@
 app.controller('Maps', function($modal, Filter, $window, $scope, $rootScope, $location, User, Map, GoogleDistanceMatrixService, localStorageService, socket, $q) {
-    var address_data, locations, center, map, infowindow, marker, panning;
-    $scope.currentUser = localStorageService.get('currentUser');
-    var currentUser = localStorageService.get('currentUser');
-    var users = localStorageService.get('users');
-    var otherUsers = localStorageService.get('otherUsers');
 
-    if ($rootScope.otherUsers === undefined || $rootScope.otherUsers === null) {
+    var locations, center, map, directionsDisplay;
+
+    if ($rootScope.otherUsers == undefined) {
         $rootScope.otherUsers = localStorageService.get('otherUsers');
     }
 
-    if ($scope.filteredUsers === undefined || $scope.filteredUsers === null) {
+    if ($rootScope.currentUser == undefined) {
+        $rootScope.currentUser = localStorageService.get('currentUser');
+    }
+
+    if ($rootScope.users == undefined) {
+        $rootScope.users = localStorageService.get('users');
+    }
+
+    if ($scope.filteredUsers == undefined) {
         $scope.filteredUsers = localStorageService.get('otherUsers');
     }
 
-    if ($scope.currentPage === undefined) {
+    if ($scope.currentPage == undefined) {
         $scope.currentPage = 1;
     }
 
+    // Calculate distances for other users and update local storage
     $scope.distanceDataReceived = false;
-
     var calculateDistances = function() {
         var deferred = $q.defer();
-        if ($scope.distanceDataReceived === false) {
-            GoogleDistanceMatrixService.calculateDistances($scope.currentUser.address, $rootScope.otherUsers, function(us) {
+        if ($scope.distanceDataReceived == false) {
+            GoogleDistanceMatrixService.calculateDistances($rootScope.currentUser.address, $rootScope.otherUsers, function(us) {
                 $scope.distanceDataReceived = true;
                 $rootScope.otherUsers = us;
                 localStorageService.set('otherUsers', us);
@@ -35,8 +40,9 @@ app.controller('Maps', function($modal, Filter, $window, $scope, $rootScope, $lo
     var initMap = function() {
         var deferred = $q.defer();
 
-        locations = Map.getLocations(users);
-        center = new google.maps.LatLng(currentUser.latitude, currentUser.longitude);
+        locations = Map.getLocations($rootScope.users);
+
+        center = new google.maps.LatLng($rootScope.currentUser.latitude, $rootScope.currentUser.longitude);
 
         map = new google.maps.Map(document.getElementById('google-map'), {
             zoom: 16,
@@ -52,11 +58,16 @@ app.controller('Maps', function($modal, Filter, $window, $scope, $rootScope, $lo
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
+
+        directionsDisplay = new google.maps.DirectionsRenderer({
+            map: map,
+            suppressMarkers: true,
+            suppressPolylines: false
+        });
+
         var placeMark = function(mark_i, l) {
             return function() {
-
-                var iconUrl = users[mark_i].id == currentUser.id ? 'images/home.png' : 'images/dog.png';
-
+                var iconUrl = $rootScope.users[mark_i].id == $rootScope.currentUser.id ? 'images/home.png' : 'images/dog.png';
                 var new_marker = new google.maps.Marker({
                     position: l,
                     map: map,
@@ -67,7 +78,6 @@ app.controller('Maps', function($modal, Filter, $window, $scope, $rootScope, $lo
                         url: iconUrl
                     }
                 });
-
                 var info_bubble = new InfoBubble({
                     borderwidth: 0,
                     shadowStyle: 0,
@@ -76,36 +86,33 @@ app.controller('Maps', function($modal, Filter, $window, $scope, $rootScope, $lo
                     backgroundColor: '#364347',
                     arrowStyle: 2,
                 });
-
-                new_marker.info = "<div class='infowindow_wrapper'" +
+                new_marker.info = "<div class='infowindow-wrapper'" +
                     "<div class='panel panel-default infowindow' id='modal'>" +
                     "<div class='panel-header'>" +
-                    "<h3 class='panel-title'> " + users[mark_i].first_name + " & " + users[mark_i].dogs[0].name + "</h3>" +
+                    "<h3 class='panel-title'> " + $rootScope.users[mark_i].first_name + " & " + $rootScope.users[mark_i].dogs[0].name + "</h3>" +
                     "</div>" +
                     "<div class='panel-body'>" +
                     "<div class='row'>" +
-                    "<div class='col-xs-6 image_wrapper'>" +
-                    "<img preload-image src='" + users[mark_i].avatar_url + "' class='img-responsive'>" +
-                    "<p>" + users[mark_i].email + "</p>" +
-                    "<p>" + users[mark_i].address + "</p>" +
+                    "<div class='col-xs-6 image-wrapper'>" +
+                    "<img preload-image src='" + $rootScope.users[mark_i].avatar_url + "' class='img-responsive'>" +
+                    "<p>" + $rootScope.users[mark_i].email + "</p>" +
+                    "<p>" + $rootScope.users[mark_i].address + "</p>" +
                     "</div>" +
-                    "<div class='col-xs-6 image_wrapper'>" +
-                    "<img preload-image src='" + users[mark_i].dogs[0].avatar_url + "' class='img-responsive'>" +
-                    "<p> Breed: " + users[mark_i].dogs[0].breed + "</p>" +
-                    "<p> Age: " + users[mark_i].dogs[0].age + "</p>" +
-                    "<p> Gender: " + users[mark_i].dogs[0].gender + "</p>" +
+                    "<div class='col-xs-6 image-wrapper'>" +
+                    "<img preload-image src='" + $rootScope.users[mark_i].dogs[0].avatar_url + "' class='img-responsive'>" +
+                    "<p> Breed: " + $rootScope.users[mark_i].dogs[0].breed + "</p>" +
+                    "<p> Age: " + $rootScope.users[mark_i].dogs[0].age + "</p>" +
+                    "<p> Gender: " + $rootScope.users[mark_i].dogs[0].gender + "</p>" +
                     "</div>" +
                     "</div>" +
                     "</div>" +
                     "</div>" +
                     "</div>";
-
                 google.maps.event.addListener(new_marker, 'click', function() {
                     console.log("NEW MARKER", new_marker);
                     info_bubble.setContent(this.info);
                     info_bubble.open(this.getMap(), this);
                 });
-
                 google.maps.event.addListener(map, "click", function() {
                     this.info.close(map, new_marker);
                 });
@@ -124,44 +131,8 @@ app.controller('Maps', function($modal, Filter, $window, $scope, $rootScope, $lo
 
         placeMarkers(locations);
 
-        var directionsDisplay = new google.maps.DirectionsRenderer({
-            map: map,
-            suppressMarkers: true,
-            suppressPolylines: false
-        });
-
-        $scope.getRoute = function(x) {
-            $scope.showRoute.userId = x;
-
-            if ($scope.showRoute.status == true && $scope.showRoute.userId == x) {
-                $scope.showRoute.status = false;
-                directionsDisplay.setMap(null);
-                map.panTo(center);
-            } else {
-                $scope.showRoute.status = true;
-                directionsDisplay.setMap(map);
-            }
-            var user;
-            for (var i = 0; i < $scope.pagedUsers.length; i++) {
-                if ($scope.pagedUsers[i].id == x) {
-                    user = $scope.pagedUsers[i];
-                    break;
-                }
-            }
-            Map.getRoute($scope.currentUser, user, function(res) {
-                directionsDisplay.setDirections(res);
-                directionsDisplay.setPanel(document.getElementById('directions_panel'));
-                var bounds = new google.maps.LatLngBounds();
-                bounds.extend(res.routes[0].overview_path[0]);
-                var k = res.routes[0].overview_path.length;
-                bounds.extend(res.routes[0].overview_path[k - 1]);
-                map.panTo(bounds.getCenter());
-                res.routes[0].warnings = "";
-            });
-        };
-
         return deferred.promise;
-    }; // function intialize()
+    };
 
     $scope.showRoute = {
         userId: null,
@@ -176,6 +147,37 @@ app.controller('Maps', function($modal, Filter, $window, $scope, $rootScope, $lo
     };
 
     $scope.initialize();
+
+    $scope.getRoute = function(x) {
+        $scope.showRoute.userId = x;
+        if ($scope.showRoute.status == true && $scope.showRoute.userId == x) {
+            $scope.showRoute.status = false;
+            directionsDisplay.setMap(null);
+            map.setCenter(center);
+            map.panTo(center);
+            map.setZoom(16);
+        } else {
+            $scope.showRoute.status = true;
+            directionsDisplay.setMap(map);
+        }
+        var user;
+        for (var i = 0; i < $rootScope.otherUsers.length; i++) {
+            if ($rootScope.otherUsers[i].id == x) {
+                user = $rootScope.otherUsers[i];
+                break;
+            }
+        }
+        Map.getRoute($rootScope.currentUser, user, function(res) {
+            directionsDisplay.setDirections(res);
+            directionsDisplay.setPanel(document.getElementById('directions-panel'));
+            var bounds = new google.maps.LatLngBounds();
+            bounds.extend(res.routes[0].overview_path[0]);
+            var k = res.routes[0].overview_path.length;
+            bounds.extend(res.routes[0].overview_path[k - 1]);
+            map.panTo(bounds.getCenter());
+            res.routes[0].warnings = "";
+        });
+    };
 
     $scope.includeAge = function(age) {
         Filter.includeAge(age);
@@ -193,7 +195,7 @@ app.controller('Maps', function($modal, Filter, $window, $scope, $rootScope, $lo
         Filter.distanceFilter();
     };
 
-    $scope.filterUsers = function (users) {
+    $scope.filterUsers = function(users) {
         console.log("filterUsers currentPage", $rootScope.currentPage);
         Filter.filterUsers(users, $scope.breed);
     };

@@ -1,11 +1,8 @@
-app.controller('Users', function($window, $rootScope, $scope, $location, User, localStorageService, socket, Upload) {
+app.controller('Users', function($window, $rootScope, $scope, $location, User, localStorageService, socket) {
 
     $scope.isActive = function(viewLocation) {
         return viewLocation === $location.path();
     };
-
-    var users;
-    var currentUser;
 
     $rootScope.setCollapsed = function() {
         if ($window.width <= 768) {
@@ -17,7 +14,9 @@ app.controller('Users', function($window, $rootScope, $scope, $location, User, l
 
     if ($location.path() != '/register') {
         User.getUsers(function(data) {
+            $rootScope.users = data;
             localStorageService.set('users', data);
+
             var otherUsers = data;
             for (var i = 0; i < otherUsers.length; i++) {
                 if (otherUsers[i].id == $scope.currentUser.id) {
@@ -26,9 +25,8 @@ app.controller('Users', function($window, $rootScope, $scope, $location, User, l
             }
             $rootScope.otherUsers = otherUsers;
             localStorageService.set('otherUsers', otherUsers);
-            $rootScope.users = data;
         });
-        if (currentUser == undefined) {
+        if ($rootScope.currentUser == undefined) {
             currentUser = localStorageService.get('currentUser');
             $rootScope.currentUser = currentUser;
         }
@@ -47,9 +45,8 @@ app.controller('Users', function($window, $rootScope, $scope, $location, User, l
                 $rootScope.errors = data;
                 $location.path("/");
             } else {
-                currentUser = data;
-                $rootScope.currentUser = currentUser;
-                localStorageService.set('currentUser', currentUser);
+                $rootScope.currentUser = data;
+                localStorageService.set('currentUser', data);
                 $location.path("/home");
             }
         });
