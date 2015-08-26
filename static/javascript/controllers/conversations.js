@@ -25,7 +25,6 @@ app.controller('Conversations', function($window, $modal, Conversation, $scope, 
         data.sender_id = sender_id;
         data.recipient_id = recipient_id;
         data.new_message = new_message;
-        console.log("message data", data);
         socket.emit('sendMessage', data);
     };
 

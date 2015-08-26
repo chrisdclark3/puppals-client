@@ -32,7 +32,7 @@
                     <accordion-group ng-repeat="conversation in conversations track by $index">
                         <accordion-heading>
                             <div class="convo-header">
-                                <img preload-image ng-src="{{ conversation.recipient.avatar_url }}" />
+                                <img preload-image src="{{ conversation.recipient.avatar_url }}" />
                                 <h5 class="name">{{ conversation.recipient.first_name }} {{ conversation.recipient.last_name }}</h5>
                             </div>
                         </accordion-heading>
