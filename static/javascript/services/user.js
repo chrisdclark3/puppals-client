@@ -2,7 +2,7 @@ app.factory('User', function ($http) {
 
   var factory = {};
 
-  factory.get_users = function (callback) {
+  factory.getUsers = function (callback) {
     $http({
       method: 'GET',
       url: '//puppals-api.herokuapp.com/users',

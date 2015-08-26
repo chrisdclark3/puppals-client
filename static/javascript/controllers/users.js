@@ -7,7 +7,6 @@ app.controller('Users', function($window, $rootScope, $scope, $location, User, l
   var users;
   var currentUser;
 
-
   $rootScope.setCollapsed = function () {
     if ($window.width <= 768) {
       $rootScope.isCollapsed = true;
@@ -17,24 +16,16 @@ app.controller('Users', function($window, $rootScope, $scope, $location, User, l
   };
 
   if ($location.path() != '/register') {
-    User.get_users(function (data) {
+    User.getUsers(function (data) {
       localStorageService.set('users', data);
-      users = data;
-      $rootScope.users = users;
-      $scope.users = users;
+      localStorageService.set('otherUsers', data);
+      $rootScope.users = data;
     });
     if (currentUser == undefined) {
       currentUser = localStorageService.get('currentUser');
       $rootScope.currentUser = currentUser;
-      $scope.currentUser = currentUser;
     }
   }
-
-  $rootScope.setNavbar = function(tab) {
-    if (tab == 'profile') {
-      $scope.profile_tab = true;
-    }
-  };
 
   $rootScope.testLogin = function () {
     $scope.currentUser = {};
@@ -51,7 +42,6 @@ app.controller('Users', function($window, $rootScope, $scope, $location, User, l
       } else {
         currentUser = data;
         $rootScope.currentUser = currentUser;
-        $scope.currentUser = currentUser;
         localStorageService.set('currentUser', currentUser);
         $location.path("/home");
       }
