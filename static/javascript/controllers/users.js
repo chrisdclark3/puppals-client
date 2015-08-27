@@ -4,7 +4,7 @@ app.controller('Users', function($window, $rootScope, $scope, $location, User, l
         return viewLocation === $location.path();
     };
 
-    $rootScope.setCollapsed = function() {
+    $scope.setCollapsed = function() {
         if ($window.width <= 768) {
             $rootScope.isCollapsed = true;
         } else {
@@ -12,47 +12,26 @@ app.controller('Users', function($window, $rootScope, $scope, $location, User, l
         }
     };
 
-    if ($location.path() != '/register') {
-        User.getUsers(function(data) {
-            $rootScope.users = data;
-            localStorageService.set('users', data);
-
-            var otherUsers = data;
-            for (var i = 0; i < otherUsers.length; i++) {
-                if (otherUsers[i].id == $scope.currentUser.id) {
-                    otherUsers.splice(i, 1);
-                }
-            }
-            $rootScope.otherUsers = otherUsers;
-            localStorageService.set('otherUsers', otherUsers);
-        });
-        if ($rootScope.currentUser == undefined) {
-            currentUser = localStorageService.get('currentUser');
-            $rootScope.currentUser = currentUser;
-        }
-    }
-
-    $rootScope.testLogin = function() {
-        $scope.currentUser = {};
-        $scope.currentUser.email = "chrisdclark3@gmail.com";
-        $scope.currentUser.password = "password";
-        $rootScope.login();
+    $scope.testLogin = function() {
+        $rootScope.currentUser = {};
+        $rootScope.currentUser.email = "chrisdclark3@gmail.com";
+        $rootScope.currentUser.password = "password";
+        localStorageService.set('currentUser', $rootScope.currentUser);
+        $scope.login();
     };
 
-    $rootScope.login = function() {
-        User.login($scope.currentUser, function(data) {
-            if (data.errors) {
-                $rootScope.errors = data;
-                $location.path("/");
-            } else {
-                $rootScope.currentUser = data;
-                localStorageService.set('currentUser', data);
-                $location.path("/home");
-            }
+    $scope.login = function() {
+        var res = User.login($rootScope.currentUser);
+        console.log("LOGIN RES", res);
+        var promise = User.resetUsers();
+        console.log("promise", promise);
+        promise.then(function() {
+          console.log("done resetting users");
+            $location.path("/home");
         });
     };
 
-    $rootScope.logout = function() {
+    $scope.logout = function() {
         localStorageService.clearAll();
         $scope.messages = "Thank you for being a loyal customer of PupPals!";
     };

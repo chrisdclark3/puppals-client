@@ -1,5 +1,5 @@
 app.controller('Conversations', function($window, $modal, Conversation, $scope, $rootScope, $location, User, localStorageService, socket) {
-
+    User.resetUsers();
     $scope.oneAtATime = true;
     $scope.pageName = "profile";
     $scope.getConversations = function() {

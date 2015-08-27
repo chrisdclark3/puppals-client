@@ -1,5 +1,5 @@
 <div ng-include src="'views/navbar.html'"></div>
-<div id="home-users" class="container" ng-controller="Maps">
+<div id="home-users" class="container" ng-controller="Maps" ng-init="initialize()">
     <div id="maps">
         <div id="google-map"></div>
         <div id="directions-panel" ng-show="showRoute.status"></div>
