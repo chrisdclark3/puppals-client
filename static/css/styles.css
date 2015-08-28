@@ -11764,6 +11764,10 @@ button.close {
       padding: 0px;
       margin: 0px;
       border: 1px solid #5E696D; }
+      #home-users #people li:hover, #home-users #people li:active, #home-users #people li:focus {
+        background-color: #2B3538;
+        border: 1px solid #02BAF2;
+        cursor: pointer; }
       #home-users #people li .row, #home-users #people li .col-xs-9, #home-users #people li .col-xs-3, #home-users #people li .col-xs-12, #home-users #people li .col-md-9, #home-users #people li .col-md-3 {
         margin: 0;
         padding: 0; }
@@ -11827,7 +11831,10 @@ button.close {
           margin: 0;
           padding: 0; }
         #home-users #people li .actions .distance-data {
+          font-size: 1.3em;
           display: block;
+          padding-top: 0.5em;
+          padding-right: 0.5em;
           margin-bottom: 1em;
           text-align: right;
           color: white; }
@@ -29992,35 +29999,34 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
-#modal, .infowindow {
+#modal {
   background-color: #364347;
   border: none; }
-  #modal h3, .infowindow h3 {
+  #modal h3 {
     color: #FAD46B;
-    padding: 0px 0px; }
-  #modal p, .infowindow p {
+    padding: 0px; }
+  #modal p {
     color: #E1EEF3; }
-  #modal img, .infowindow img {
+  #modal img {
     width: 100%;
     margin: 0;
     padding: 0;
     border-radius: 0;
     border: none; }
-  #modal .image-wrapper, .infowindow .image-wrapper {
+  #modal .image-wrapper {
     padding: 0;
     margin: 0;
     border: none; }
-    #modal .image-wrapper p, .infowindow .image-wrapper p {
+    #modal .image-wrapper p {
       margin: 5px 15px; }
-  #modal .modal-body, #modal .panel-body, .infowindow .modal-body, .infowindow .panel-body {
+  #modal .modal-body, #modal .panel-body {
     padding-top: 0;
     padding-bottom: 0; }
-  #modal textarea, .infowindow textarea {
+  #modal textarea {
     background-color: #2B3538;
     border: 1px solid #2B3538; }
   #modal .modal-body, #modal .modal-header, #modal .modal-footer,
-  #modal .panel, #modal .panel-body, #modal .panel-header, .infowindow .modal-body, .infowindow .modal-header, .infowindow .modal-footer,
-  .infowindow .panel, .infowindow .panel-body, .infowindow .panel-header {
+  #modal .panel, #modal .panel-body, #modal .panel-header {
     border: none; }
 
 .infowindow-wrapper {

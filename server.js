@@ -11,6 +11,8 @@ app.use(express.static('./static'));
 
 io.sockets.on('connection', function (socket) {
 
+
+
   socket.on('getConversations', function (data) {
     console.log("Server > getConversations > data", data);
     request({

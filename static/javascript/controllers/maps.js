@@ -1,12 +1,51 @@
-app.controller('Maps', function($modal, User, Page, Filter, $window, $scope, $rootScope, $location, User, Map, GoogleDistanceMatrixService, localStorageService, socket, $q) {
+app.controller('Maps', function(Page, Filter, Map, $window, $modal, $scope, $rootScope, $location, $q, localStorageService) {
+    $rootScope.currentUser = $rootScope.currentUser === undefined ? localStorageService.get('currentUser') : $rootScope.currentUser;
+    $rootScope.otherUsers = $rootScope.otherUsers === undefined ? localStorageService.get('otherUsers') : $rootScope.otherUsers;
+    $rootScope.users = $rootScope.users === undefined ? localStorageService.get('users') : $rootScope.users;
+    $scope.currentPage = $scope.currentPage === undefined ? 1 : $scope.currentPage;
 
-    User.resetUsers();
+    $scope.open = function(size, user) {
+        $scope.modalUser = user;
+        $scope.modalInstance = $modal.open({
+            templateUrl: 'views/mini_profile.html',
+            controller: 'Conversations',
+            scope: $scope,
+            size: size,
+        });
+    };
 
+
+
+    $scope.close = function() {
+        $scope.modalInstance.close();
+        $location.path('/profile');
+    };
+
+    $scope.dismiss = function() {
+        $scope.modalInstance.dismiss();
+    };
+
+
+    $scope.setPage = function(p) {
+        $scope.currentPage = p;
+        users = localStorageService.get('filteredUsers');
+        $scope.totalItems = users.length;
+        $scope.itemsPerPage = $scope.setItemsPerPage();
+        $scope.totalPages = Math.ceil($scope.totalItems / $scope.itemsPerPage);
+        Page.setPage(users, $scope.currentPage, $scope.itemsPerPage);
+    };
+
+
+    $scope.setItemsPerPage = function() {
+        var size;
+        if ($location.$$path == '/home') {
+            size = $window.windowWidth < 992 ? 3 : 6;
+        } else {
+            size = $window.windowWidth < 992 ? 4 : 9;
+        }
+        return size;
+    };
     var directionsDisplay;
-
-    if ($scope.filteredUsers == undefined) {
-        $scope.filteredUsers = localStorageService.get('otherUsers');
-    }
 
     if ($scope.currentPage == undefined) {
         $scope.currentPage = 1;
@@ -17,19 +56,24 @@ app.controller('Maps', function($modal, User, Page, Filter, $window, $scope, $ro
         status: false
     };
 
-    $scope.initialize = function() {
-        Map.initializeMap();
-        $rootScope.otherUsers = localStorageService.get('otherUsers');
+    $scope.initializeMap = function() {
+        Map.drawMap();
+        var locs = Map.getLocations($rootScope.users);
+        Map.placeMarkers(locs);
+        var promise = Map.getDistances($rootScope.currentUser.address);
+        promise.then(function (users){
+            console.log("PROMISES USERS", users);
+            localStorageService.set('otherUsers', users);
+            $rootScope.otherUsers = users;
+            $scope.filterUsers(users);
+        });
     };
-
-    $scope.initialize();
 
     $scope.getRoute = function(x) {
         $scope.showRoute.userId = x;
         if ($scope.showRoute.status == true && $scope.showRoute.userId == x) {
             $scope.showRoute.status = false;
             Map.directionsDisplay.setMap(null);
-            Map.map.setCenter(Map.center);
             Map.map.panTo(Map.center);
             Map.map.setZoom(16);
         } else {
@@ -77,32 +121,21 @@ app.controller('Maps', function($modal, User, Page, Filter, $window, $scope, $ro
     };
 
     $scope.$on('filteredUsers', function(event, users) {
+        console.log("scope on filteredUsers", users);
         $scope.filteredUsers = users;
         localStorageService.set('filteredUsers', users);
-        $rootScope.setPage($rootScope.currentPage);
+        $scope.setPage($scope.currentPage);
     });
 
-    $scope.filterUsers($scope.filteredUsers);
+    $scope.$watch(function($rootScope){
+        return $rootScope.otherUsers;
+    }, function(newValues, oldValues){
+        console.log("watching other users", newValues);
+        $rootScope.otherUsers = newValues;
+        localStorageService.set('otherUsers', newValues);
+        $scope.filterUsers(newValues);
+    });
 
-    $scope.open = function(size, user) {
-        $scope.modalUser = user;
-        $scope.modalInstance = $modal.open({
-            templateUrl: 'views/mini_profile.html',
-            controller: 'Conversations',
-            scope: $scope,
-            size: size,
-        });
-    };
-
-    $scope.close = function() {
-        $scope.modalInstance.close();
-        $location.path('/profile');
-    };
-
-    $scope.dismiss = function() {
-        $scope.modalInstance.dismiss();
-    };
-
-
+    $scope.initializeMap();
 
 });

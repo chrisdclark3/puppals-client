@@ -1,4 +1,13 @@
-app.controller('Users', function($window, $rootScope, $scope, $location, User, localStorageService, socket) {
+app.controller('Users', function($q, $window, $rootScope, $scope, $location, User, localStorageService, socket) {
+    if ($rootScope.currentUser == undefined) {
+        $rootScope.currentUser = localStorageService.get('currentUser');
+    }
+    if ($rootScope.users == undefined) {
+        $rootScope.users = localStorageService.get('users');
+    }
+    if ($rootScope.otherUsers == undefined) {
+        $rootScope.otherUsers = localStorageService.get('otherUsers');
+    }
 
     $scope.isActive = function(viewLocation) {
         return viewLocation === $location.path();
@@ -21,13 +30,11 @@ app.controller('Users', function($window, $rootScope, $scope, $location, User, l
     };
 
     $scope.login = function() {
-        var res = User.login($rootScope.currentUser);
-        console.log("LOGIN RES", res);
-        var promise = User.resetUsers();
-        console.log("promise", promise);
-        promise.then(function() {
-          console.log("done resetting users");
-            $location.path("/home");
+        var promise1 = User.login($rootScope.currentUser);
+        var promise2 = User.getUsers();
+        var promises = [promise1, promise2];
+        $q.all(promises).then(function(){
+                $location.path("/home");
         });
     };
 

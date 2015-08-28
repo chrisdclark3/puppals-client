@@ -78,6 +78,11 @@
             padding: 0px;
             margin: 0px;
             border: 1px solid $md-dark-grey;
+            &:hover, &:active, &:focus {
+                background-color: $black-grey;
+                border: 1px solid $blue;
+                cursor: pointer;
+            }
             .row, .col-xs-9, .col-xs-3, .col-xs-12, .col-md-9, .col-md-3 {
                 margin: 0;
                 padding: 0;
@@ -157,7 +162,10 @@
                     padding: 0;
                 }
                 .distance-data {
+                    font-size: 1.3em;
                     display: block;
+                    padding-top: 0.5em;
+                    padding-right: 0.5em;
                     margin-bottom: 1em;
                     text-align: right;
                     color: white;

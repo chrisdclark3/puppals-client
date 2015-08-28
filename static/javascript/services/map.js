@@ -1,55 +1,51 @@
-app.factory('Map', function($rootScope, $log, $q, localStorageService, GoogleDistanceMatrixService) {
+app.factory('Map', function($timeout, $rootScope, $window, $q, localStorageService) {
 
     var factory = {};
-
-    if ($rootScope.otherUsers == undefined) {
-        $rootScope.otherUsers = localStorageService.get('otherUsers');
-    }
 
     if ($rootScope.currentUser == undefined) {
         $rootScope.currentUser = localStorageService.get('currentUser');
     }
-
     if ($rootScope.users == undefined) {
         $rootScope.users = localStorageService.get('users');
     }
+    if ($rootScope.otherUsers == undefined) {
+        $rootScope.otherUsers = localStorageService.get('otherUsers');
+    }
 
-    factory.drawMap = function () {
+    factory.drawMap = function() {
 
-      factory.mapCenter = new google.maps.LatLng($rootScope.currentUser.latitude, $rootScope.currentUser.longitude);
+        factory.mapCenter = new google.maps.LatLng($rootScope.currentUser.latitude, $rootScope.currentUser.longitude);
 
-      factory.map = new google.maps.Map(document.getElementById('google-map'), {
-          zoom: 16,
-          scrollwheel: false,
-          mapTypeControl: false,
-          disableDoubleClickZoom: true,
-          draggable: true,
-          zoomControl: true,
-          panControl: true,
-          scaleControl: true,
-          streetViewControl: true,
-          center: factory.mapCenter,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-      });
+        factory.map = new google.maps.Map(document.getElementById('google-map'), {
+            zoom: 16,
+            scrollwheel: false,
+            mapTypeControl: false,
+            disableDoubleClickZoom: true,
+            draggable: true,
+            zoomControl: true,
+            panControl: true,
+            scaleControl: false,
+            streetViewControl: true,
+            center: factory.mapCenter,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
 
-      factory.directionsDisplay = new google.maps.DirectionsRenderer({
-          map: factory.map,
-          suppressMarkers: true,
-          suppressPolylines: false
-      });
+        factory.directionsDisplay = new google.maps.DirectionsRenderer({
+            map: factory.map,
+            suppressMarkers: true,
+            suppressPolylines: false
+        });
 
-      factory.distances = [];
 
+
+        factory.distances = [];
+
+        console.log("Drawing map...");
     };
 
-
-
     var placeMark = function(mark_i, l) {
-
         return function() {
-
             var iconUrl = $rootScope.users[mark_i].id == $rootScope.currentUser.id ? 'images/home.png' : 'images/dog.png';
-
             var new_marker = new google.maps.Marker({
                 position: l,
                 map: factory.map,
@@ -95,16 +91,42 @@ app.factory('Map', function($rootScope, $log, $q, localStorageService, GoogleDis
     };
 
 
-    factory.getDistances = function() {
-        var d = $q.defer();
-        GoogleDistanceMatrixService.calculateDistances($rootScope.currentUser.address, $rootScope.otherUsers, function(us) {
-            $rootScope.otherUsers = us;
-            localStorageService.set('otherUsers', us);
-            console.log("distances retrieved");
-            d.resolve(us);
-        });
-        return d.promise;
+    factory.getLocations = function(users) {
+
+        var arr = [];
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].distanceData == undefined) {
+                arr.push(new google.maps.LatLng(users[i].latitude, users[i].longitude));
+            }
+        }
+        return arr;
     };
+
+    factory.getDistances = function(origin) {
+        console.log("ORIGIN", origin);
+        var def = $q.defer();
+        var others = localStorageService.get('otherUsers');
+        console.log("otherUsers", others);
+        var distanceMatrix = new google.maps.DistanceMatrixService();
+        var destinations = factory.getLocations(others);
+        var twoWords = new RegExp(/\S+\s\S+/i);
+
+        distanceMatrix.getDistanceMatrix({
+            origins: [origin],
+            destinations: destinations,
+            travelMode: google.maps.TravelMode.WALKING,
+            unitSystem: google.maps.UnitSystem.IMPERIAL,
+        }, function(res, status) {
+        	console.log("res", res);
+            for (var i = 0; i < res.rows[0].elements.length; i++) {
+                others[i].distanceData = res.rows[0].elements[i];
+            }
+            def.resolve(others);
+        });
+        return def.promise;
+    };
+
+
 
     factory.getRoute = function(org, user, callback) {
         var dir_service = new google.maps.DirectionsService();
@@ -119,58 +141,6 @@ app.factory('Map', function($rootScope, $log, $q, localStorageService, GoogleDis
                 callback(res);
             };
         });
-    };
-
-    factory.initializeMap = function() {
-      factory.drawMap();
-      var promise = factory.getDistances();
-      promise.then(function(){
-        factory.placeMarkers(factory.getLocations($rootScope.users));
-      });
-    };
-
-    factory.getLocations = function(users) {
-        var arr = [];
-        for (var i = 0; i < users.length; i++) {
-            arr.push(new google.maps.LatLng(users[i].latitude, users[i].longitude));
-        }
-        return arr;
-    };
-
-    return factory;
-});
-
-
-
-app.service('GoogleDistanceMatrixService', function() {
-
-    var factory = new google.maps.DistanceMatrixService();
-
-    factory.calculateDistances = function(origin, users, callback) {
-        var extractResult = function(res, status) {
-            var twoWords = new RegExp(/\S+\s\S+/i);
-            for (var i = 0; i < res.rows[0].elements.length; i++) {
-                for (var j = 0; j < users.length; j++) {
-                    var userAddress = users[j].address.match(twoWords);
-                    var destinationAddress = res.destinationAddresses[i].match(twoWords);
-                    if (userAddress[0] == destinationAddress[0]) {
-                        users[j].distanceData = res.rows[0].elements[i];
-                    }
-                }
-            }
-            callback(users);
-        };
-
-        var destinations = [];
-        for (var i = 0; i < users.length; i++) {
-            destinations.push(users[i].address);
-        }
-        factory.getDistanceMatrix({
-            origins: [origin],
-            destinations: destinations,
-            travelMode: google.maps.TravelMode.WALKING,
-            unitSystem: google.maps.UnitSystem.IMPERIAL,
-        }, extractResult);
     };
 
     return factory;

@@ -40,93 +40,81 @@ app.factory('Filter', function($rootScope, localStorageService, $q) {
             sizeIncludes.push(size);
         }
     };
-
-    var filter = function(users, breed) {
-        var filteredUsers = [];
-        return $q(function(resolve, reject) {
-            console.log("users", users);
-
-            for (var i = 0; i < users.length; i++) {
-                var ageType = "",
-                    age = users[i].dogs[0].age,
-                    search_exp = new RegExp(breed, 'ig');
-
-                switch (true) {
-                    case age <= 1:
-                        ageType = "puppy";
-                        break;
-                    case age > 1 && age <= 5:
-                        ageType = "young";
-                        break;
-                    case age > 5 && age <= 10:
-                        ageType = "adult";
-                        break;
-                    case age > 10:
-                        ageType = "senior";
-                        break;
-                }
-                if (ageIncludes.length > 0) {
-                    if (ageIncludes.indexOf(ageType) == -1) {
-                        continue;
-                    }
-                }
-                if (sizeIncludes.length > 0) {
-                    if (sizeIncludes.indexOf(users[i].dogs[0].size) == -1) {
-                        continue;
-                    }
-                }
-
-                if (breed != undefined && breed.length != 0) {
-                    if (!search_exp.test(users[i].dogs[0].breed)) {
-                        continue;
-                    }
-                }
-
-                if (oneMile == true) {
-                    if (users[i].distanceData.distance.value > 1610) {
-                        continue;
-                    }
-                }
-
-                if (oneHalfMile == true) {
-                    if (users[i].distanceData.distance.value > 805) {
-                        continue;
-                    }
-                }
-
-                if (oneQuarterMile == true) {
-                    if (users[i].distanceData.distance.value > 405) {
-                        continue;
-                    }
-                }
-
-                filteredUsers.push(users[i]);
-            }
-
-            if (filterDistance == true) {
-                filteredUsers.sort(function(a, b) {
-                    if (a.distanceData.distance.value < b.distanceData.distance.value) {
-                        return -1;
-                    }
-                    if (a.distanceData.distance.value > b.distanceData.distance.value) {
-                        return 1;
-                    }
-                    if (a.distanceData.distance.value == b.distanceData.distance.value) {
-                        return 0;
-                    }
-                });
-            }
-            console.log("filteredUsers", filteredUsers);
-            localStorageService.set('filteredUsers', filteredUsers);
-            resolve(filteredUsers);
-        });
-    };
-
     factory.filterUsers = function(users, breed) {
-        var promise = filter(users, breed);
-        promise.then(function() {
-            $rootScope.$broadcast('filteredUsers', localStorageService.get('filteredUsers'));
-        });
+        var filteredUsers = [];
+        for (var i = 0; i < users.length; i++) {
+            var ageType = "",
+                age = users[i].dogs[0].age,
+                search_exp = new RegExp(breed, 'ig');
+
+            switch (true) {
+                case age <= 1:
+                    ageType = "puppy";
+                    break;
+                case age > 1 && age <= 5:
+                    ageType = "young";
+                    break;
+                case age > 5 && age <= 10:
+                    ageType = "adult";
+                    break;
+                case age > 10:
+                    ageType = "senior";
+                    break;
+            }
+            if (ageIncludes.length > 0) {
+                if (ageIncludes.indexOf(ageType) == -1) {
+                    continue;
+                }
+            }
+            if (sizeIncludes.length > 0) {
+                if (sizeIncludes.indexOf(users[i].dogs[0].size) == -1) {
+                    continue;
+                }
+            }
+
+            if (breed != undefined && breed.length != 0) {
+                if (!search_exp.test(users[i].dogs[0].breed)) {
+                    continue;
+                }
+            }
+
+            if (oneMile == true) {
+                if (users[i].distanceData.distance.value > 1610) {
+                    continue;
+                }
+            }
+
+            if (oneHalfMile == true) {
+                if (users[i].distanceData.distance.value > 805) {
+                    continue;
+                }
+            }
+
+            if (oneQuarterMile == true) {
+                if (users[i].distanceData.distance.value > 405) {
+                    continue;
+                }
+            }
+
+            filteredUsers.push(users[i]);
+        }
+
+        if (filterDistance == true) {
+            filteredUsers.sort(function(a, b) {
+                if (a.distanceData.distance.value < b.distanceData.distance.value) {
+                    return -1;
+                }
+                if (a.distanceData.distance.value > b.distanceData.distance.value) {
+                    return 1;
+                }
+                if (a.distanceData.distance.value == b.distanceData.distance.value) {
+                    return 0;
+                }
+            });
+        }
+        console.log("Filter factory filteredUsers", filteredUsers);
+        localStorageService.set('filteredUsers', filteredUsers);
+        $rootScope.$broadcast('filteredUsers', filteredUsers);
     };
 
     return factory;
